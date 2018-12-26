@@ -1,0 +1,29 @@
+s_party_mode:
+  sequence:
+  - service: scene.turn_on
+    entity_id: scene.party
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.all_cast
+      volume_level: '1.0'
+  - service: tts.amazon_polly_say
+    data_template:
+      entity_id: media_player.all_cast
+      message: <>'it's party time'<>
+      cache: true
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+  - service: light.lifx_effect_colorloop
+    data:
+      entity_id: group.lifx_lights
+      power_on: true
+      brightness: '255'
+      period: '3'
+      spread: '30'
+      change: '35'
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+    data_template:
+      effect: colorstrobe
+  - service: script.turn_on
+    entity_id: script.s_spotify_party

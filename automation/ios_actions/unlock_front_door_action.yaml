@@ -1,0 +1,13 @@
+- id: a_unlock_front_door_action
+  alias: unlock front door action
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: UNLOCK_FRONT_DOOR
+  action:
+    service: lock.unlock
+    entity_id: lock.front_door_deadbolt_60
+  

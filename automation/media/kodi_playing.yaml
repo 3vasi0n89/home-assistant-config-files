@@ -1,0 +1,38 @@
+- id: kodi_playing
+  alias: Kodi Playing
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_kodi
+    to: playing
+  condition:
+    condition: state
+    entity_id: input_boolean.movie_mode
+    state: 'on'
+  action:
+  - service: switch.turn_off
+    entity_id: switch.ceiling_fan_light
+  - service: ifttt.trigger
+    data: {"event":"dining_room_lights_off"}
+  - service: light.lifx_set_state
+    data:
+      entity_id:
+      - light.living_room_lamp
+      - light.left_tv_lamp
+      - light.right_tv_lamp
+      power: True
+      brightness: 150
+      color_name: "blue"
+      transition: 10
+  - delay: '00:00:06'
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+  - delay: '00:00:02'
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+    data:
+      color_name: 'blue'
+  - delay: '00:00:02'
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+    data:
+      color_name: 'blue'

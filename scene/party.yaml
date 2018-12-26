@@ -1,0 +1,22 @@
+- name: Party
+  entities:
+    light.left_tv_lamp:
+      state: off
+    light.right_tv_lamp:
+      state: off
+    input_select.living_room_tv:
+      option: Powered Off
+    light.living_room_lamp:
+      state: off
+    switch.ceiling_fan_light:
+      state: off
+    input_boolean.dining_room_lights:
+      state: off
+    light.downstairs_hall_light:
+      state: off
+    light.livingroom_tv:
+      state: off
+      
+  
+  
+  

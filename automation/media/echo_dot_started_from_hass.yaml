@@ -1,0 +1,22 @@
+- id: echodot_started_from_hass
+  alias: Echo Dot started from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+    to: Echo Dot
+  action:
+    service: script.turn_on
+    entity_id: script.echodot
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

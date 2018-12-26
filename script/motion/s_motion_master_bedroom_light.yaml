@@ -1,0 +1,16 @@
+s_motion_master_bedroom_light:
+  sequence:
+  - service: script.turn_off
+    data:
+      entity_id: script.s_motion_master_bedroom_light_timer
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.left_end_table_lamp
+      power: true
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.right_end_table_lamp
+      power: true
+  - service: script.turn_on
+    data:
+      entity_id: script.s_motion_master_bedroom_light_timer

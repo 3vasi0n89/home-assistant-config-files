@@ -1,0 +1,25 @@
+- id: a_alarm_disarmed
+  alias: Alarm Disarmed
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.security_system
+    to: disarmed
+  action:
+  - service: switch.turn_off
+    entity_id:
+    - switch.front_door_8
+    - switch.living_room_window_1_46
+    - switch.living_room_window_2_5
+    - switch.living_room_window_3_44
+    - switch.living_room_window_4_7
+    - switch.back_door_70
+    - switch.side_door_45
+    - switch.motion_detector_25
+  - service: script.turn_on
+    entity_id: script.alarm_disarmed
+  - service: notify.ios_all
+    data:
+      title: Alarm Mode Deactivated
+      message: Alarm Has Been Disarmed
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.alarm_triggered

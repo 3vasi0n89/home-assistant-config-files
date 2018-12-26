@@ -1,0 +1,22 @@
+- id: nvidia_shield_started_from_hass
+  alias: Nvidia Shield started from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_tv
+    to: Nvidia Shield
+  action:
+    service: script.turn_on
+    entity_id: script.nvidia_shield
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

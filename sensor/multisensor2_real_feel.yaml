@@ -1,0 +1,22 @@
+- platform: mqtt
+  state_topic: "saraah/sensornode2"
+  name: "SN2 Real Feel"
+  unit_of_measurement: "°F"
+  value_template: '{{ value_json.heatIndex | round(1) }}'
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

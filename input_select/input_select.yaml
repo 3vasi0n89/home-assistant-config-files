@@ -1,0 +1,87 @@
+living_room_tv:
+  name: Livingroom TV
+  options:
+    - Powered Off
+    - Fire TV
+    - PC
+    - Xbox One
+    - Wii U
+    - Echo Dot
+  icon: mdi:monitor
+  
+bedroom_tv:
+  name: Bedroom TV
+  options:
+    - Powered Off
+    - Nvidia Shield
+  icon: mdi:monitor
+  
+joes_state:
+  name: Joe's State
+  options:
+    - Home
+    - Sleeping
+    - Not Home
+    - Working
+
+    
+chromecast_radio:
+  name: 'Select Speakers:'
+  options:
+    - Livingroom
+    - Bedroom
+    - Everywhere
+  icon: mdi:speaker-wireless
+    
+radio_station:
+  name: Select Radio Station
+  options:
+    - Default
+    - Radio 538
+    - Q-Music
+    - 3FM
+    - 100% NL
+    - Veronica
+    - Sky Radio
+    - Arrow Classic Rock
+    - Classic FM
+    - BNR Nieuwsradio
+    - SLAM! Hardstyle
+    - Sleep Radio
+    - Ambient Sleeping Pill
+    - Radio Art - Sleep
+    - Ambi Nature Radio
+    - Calm Radio - Sleep
+    - Dinamo.FM Sleep
+    
+hass_theme:
+    name: HASS Themes
+    options:
+    - default
+    - solarized
+    - dark_cyan
+    - dark_red
+    - christmas
+    icon: mdi:theme-light-dark
+
+holiday:
+  name: Holiday
+  options:
+  - No Holiday
+  - New Years
+  - Valentines Day
+  - Mardi Gras
+  - St Pattys Day
+  - Easter
+  - Star Wars Day
+  - Cinco de Mayo
+  - Independence Day
+  - Halloween
+  - Thanksgiving
+  - Christmas
+  - Noahs Birthday
+  - Savannahs Birthday
+  - Chris Birthday
+  - Joes Birthday
+  - Michaels Birthday
+  - Our Anniversary

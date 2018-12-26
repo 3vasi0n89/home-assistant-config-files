@@ -1,0 +1,20 @@
+all_power_off:
+  sequence:
+    - service: lock.lock
+      entity_id: lock.front_door_deadbolt_60
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.security_system
+      data:
+        code: '2648'
+    - service: script.turn_on
+      entity_id: script.tvoff
+    - service: light.turn_off
+      entity_id: group.lifx_lights
+    - service: switch.turn_off
+      entity_id: group.power_switches
+    - service: ifttt.trigger
+      data: {"event":"dining_room_lights_off"}
+    - service: climate.set_temperature
+      entity_id: climate.ecobee
+      data:
+        temperature: '68'

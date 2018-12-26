@@ -1,0 +1,14 @@
+s_motion_master_bedroom_light_timer:
+  sequence:
+  - delay:
+      minutes: 5
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.left_end_table_lamp
+      transition: 10
+      power: false
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.right_end_table_lamp
+      transition: 10
+      power: false

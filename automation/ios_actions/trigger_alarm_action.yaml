@@ -1,0 +1,13 @@
+- id: a_trigger_alarm_off_action
+  alias: trigger alarm action
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: TRIGGER_ALARM
+  action:
+    service: script.turn_on
+    entity_id: script.alarm_triggered
+  

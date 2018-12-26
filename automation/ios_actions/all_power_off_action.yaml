@@ -1,0 +1,22 @@
+- id: a_all_power_off_action
+  alias: all power off action
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: ALL_POWER_OFF
+  action:
+    service: script.turn_on
+    entity_id: script.all_power_off
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

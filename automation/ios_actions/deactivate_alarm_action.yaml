@@ -1,0 +1,13 @@
+- id: a_deactivate_alarm_action
+  alias: deactivate the alarm action
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: DEACTIVATE_ALARM
+  action:
+    service: script.turn_on
+    entity_id: script.alarm_disarmed
+  

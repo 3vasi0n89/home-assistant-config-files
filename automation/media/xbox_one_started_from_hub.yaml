@@ -1,0 +1,22 @@
+- id: xboxone_started_from_hub
+  alias: Xbox started from Harmony Hub
+  trigger:
+    platform: state
+    entity_id: remote.living_room
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "Xbox One"
+      }}'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.living_room_tv
+    data:
+      option: Xbox One
+  
+  
+  
+  
+  
+  
+  
+  

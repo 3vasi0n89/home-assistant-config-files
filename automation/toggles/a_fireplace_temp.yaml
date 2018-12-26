@@ -1,0 +1,25 @@
+- id: a_fireplace_high
+  alias: Fireplace High
+  trigger:
+    platform: state
+    entity_id: input_boolean.fireplace_temp
+    to: 'on'
+  action:
+    service: remote.send_command
+    entity_id: remote.bedroom
+    data:
+      device: '48836724'
+      command: 'High'
+  
+- id: a_fireplace_low
+  alias: Fireplace Low
+  trigger:
+    platform: state
+    entity_id: input_boolean.fireplace_temp
+    to: 'off'
+  action:
+    service: remote.send_command
+    entity_id: remote.bedroom
+    data:
+      device: '48836724'
+      command: 'Low'

@@ -1,0 +1,81 @@
+switch.living_room_lamp_11:
+  icon: mdi:lamp
+  hidden: false
+  
+switch.ceiling_fan_light:
+  friendly_name: Fan Light
+  icon: mdi:ceiling-light
+  hidden: false
+
+switch.christmas_tree_lights:
+  friendly_name: Christmas Tree Lights
+  icon: mdi:pine-tree
+  hidden: false
+  
+switch.ceiling_fan:
+  friendly_name: Ceiling Fan
+  icon: mdi:fan
+  hidden: false
+  
+light.livingroom_tv:
+  friendly_name: TV Backlight
+  icon: mdi:led-on
+  hidden: false
+  
+light.kitchen_floor_lights:
+  friendly_name: Kitchen Floor Lights
+  icon: mdi:led-on
+  hidden: false
+
+light.sn1_led:
+  friendly_name: Sensor LED
+  icon: mdi:led-outline
+  
+light.sn2_led:
+  friendly_name: Sensor LED
+  icon: mdi:led-outline
+  
+switch.strip_cord1:
+  friendly_name: Air Purifier
+
+light.downstairs_hall_light:
+  icon: mdi:ceiling-light
+
+light.upstairs_hall_light:
+  icon: mdi:ceiling-light
+  
+light.front_porch_light:
+  icon: mdi:ceiling-light
+  
+input_boolean.dining_room_lights:
+  icon: mdi:ceiling-light
+  
+switch.left_dining_room_light:
+  icon: mdi:ceiling-light
+  
+switch.right_dining_room_light:
+  icon: mdi:ceiling-light
+  
+light.end_table_lamps:
+  icon: mdi:lamp
+  
+light.bathroom_light:
+  icon: mdi:ceiling-light
+
+switch.printer_light_17:
+  icon: mdi:lamp
+  
+light.right_attic_light:
+  icon: mdi:ceiling-light
+  
+light.left_attic_light:
+  icon: mdi:ceiling-light
+
+light.right_end_table_lamp:
+  icon: mdi:lamp
+  
+light.left_end_table_lamp:
+  icon: mdi:lamp
+
+light.living_room_lamp:
+  icon: mdi:lamp

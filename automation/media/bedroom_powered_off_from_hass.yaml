@@ -1,0 +1,22 @@
+- id: bedroom_powered_off_from_hass
+  alias: Bedroom Powered off from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.bedroom_tv
+    to: Powered Off
+  action:
+    service: script.turn_on
+    entity_id: script.bedroom_tvoff
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

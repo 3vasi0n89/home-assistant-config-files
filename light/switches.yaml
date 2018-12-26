@@ -1,0 +1,3 @@
+- platform: switch
+  name: Christmas Tree Lights
+  entity_id: switch.christmas_tree_lights

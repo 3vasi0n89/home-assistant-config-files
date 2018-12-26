@@ -1,0 +1,31 @@
+shower_time:
+  sequence:
+    - service: light.turn_on
+      entity_id: light.bathroom_light
+      data:
+        brightness: '255'
+    - service: alarm_control_panel.alarm_arm_home
+      entity_id: alarm_control_panel.security_system
+      data:
+        code: '2648'
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.bathroom_dot
+        media_content_id: "top alternative"
+        media_content_type: "AMAZON_MUSIC"
+    - delay: '00:15:00'
+    - service: light.lifx_effect_pulse
+      data_template:
+        entity_id: light.bathroom_light
+        brightness: 255
+        color_name: red
+        cycles: 3
+        mode: blink
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.bathroom_dot
+    - delay: '00:00:05'
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.bathroom_dot
+        message: “It's time to get out of the shower now”

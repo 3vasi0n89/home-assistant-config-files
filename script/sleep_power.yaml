@@ -1,0 +1,40 @@
+s_sleep_power:
+  sequence:
+    - service: script.turn_on
+      entity_id: script.s_lights_night_mode
+    - delay: '00:00:30'
+    - service: lock.lock
+      entity_id: lock.front_door_deadbolt_60
+    - service: alarm_control_panel.alarm_arm_home
+      entity_id: alarm_control_panel.security_system
+      data:
+        code: '2648'
+    - service: script.turn_on
+      entity_id: script.tvoff
+    - service: light.turn_off
+      entity_id: group.lifx_lights
+    - service: switch.turn_off
+      entity_id: group.power_switches
+    - service: climate.set_temperature
+      entity_id: climate.ecobee
+      data:
+        temperature: '68'
+#    - service: media_player.volume_set
+#      data:
+#        entity_id: media_player.master_bedroom_cast
+#        volume_level: '0.2'
+#    - service: tts.amazon_polly_say
+#      data_template:
+#        entity_id: media_player.master_bedroom_cast
+#        message: <>'The house in now shutting down and is armed. The time is {{ states("sensor.time")}}. Hope you have a good night.'<>
+#        cache: true
+    - service: notify.ios_all
+      data:
+        title: Power Button Pushed
+        message: The house is now shutting down and is armed, have a good night!
+        data:
+          push:
+            sound: "US-EN-Alexa-Good-Night.wav"
+    - delay: '00:30:00'
+    - service: script.turn_on
+      entity_id: script.bedroom_tvoff

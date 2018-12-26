@@ -1,0 +1,33 @@
+sensor.octoprint_current_state:
+  friendly_name: Octoprint
+  icon: mdi:power-settings
+  
+binary_sensor.octoprint_printing:
+  friendly_name: Printing Status
+  icon: mdi:printer
+  
+sensor.octoprint_job_percentage:
+  icon: mdi:percent
+  
+binary_sensor.octoprint_printing_error:
+  icon: mdi:alert
+  friendly_name: Error
+  
+sensor.bed_target:
+  icon: mdi:thermometer
+  
+sensor.bed:
+  icon: mdi:thermometer
+  
+sensor.hotend_target1:
+  icon: mdi:thermometer
+  
+sensor.hotend1:
+  icon: mdi:thermometer
+  
+sensor.hotend_target2:
+  icon: mdi:thermometer
+  
+sensor.hotend2:
+  icon: mdi:thermometer
+  

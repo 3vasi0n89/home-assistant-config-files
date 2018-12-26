@@ -1,0 +1,120 @@
+- id: night_time_lights
+  alias: Night Time Lights
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+  - service: script.turn_on
+    entity_id: script.s_lights_dimmed_mode
+
+- alias: 'Battery Alert'
+  id: battery_alert
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      at: '22:02:00'
+  condition:
+    condition: template
+    value_template: "{% if states('sensor.low_battery') %}true{% endif %}"
+  action:
+#    - service: persistent_notification.create
+#      data_template:
+#        title: Low Battery
+#        message: "{{ states('sensor.low_battery') }}"
+#        notification_id: low-battery-alert
+    - service: notify.ios_all
+      data_template:
+        title: Low Battery
+        message: "Low battery levels: {{ states('sensor.low_battery') }}"
+        
+- id: lock_out_mode_on
+  alias: Lock Out Mode On
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.lock_out
+
+- id: a_lock_door_sensor_20secs_after_8pm
+  alias: Lock Door Sensor 20 Secs After 8pm
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door_8
+    to: 'off'
+    for:
+      seconds: 20
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.out_front_mode
+      state: 'off'
+    - condition: state
+      entity_id: lock.front_door_deadbolt_60
+      state: unlocked
+    - condition: or
+      conditions:
+      - condition: time
+        after: '20:00:00'
+      - condition: time
+        before: '09:00:00'
+  action:
+  - service: lock.lock
+    entity_id: lock.front_door_deadbolt_60
+  - service: notify.ios_all
+    data:
+      title: Automatic Lock
+      message: The Front Door Has Been Locked
+      
+- id: turn_on_light_when_sundown
+  alias: Turn On Lights When Sun Goes Down
+  trigger:
+    platform: sun
+    event: sunset
+  condition:
+    condition: state
+    entity_id: group.family
+    state: home
+  action:
+  - service: light.lifx_set_state
+    data:
+      entity_id:
+      - light.living_room_lamp
+      - light.hallway_lights
+      power: true
+      transition: '1800'
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.livingroom_dot
+      volume_level: '.7'
+  - service: media_player.alexa_tts
+    data_template:
+      entity_id: media_player.livingroom_dot
+      message: "The house is getting dark. Let me turn on some lights for you"
+  - service_template: >-
+      {% if is_state("device_tracker.joes_iphone", "home") and
+            is_state("device_tracker.savannahs_iphone", "home") %}
+      notify.ios_all
+      {% elif is_state("device_tracker.joes_iphone", "home") %}
+      notify.ios_joes_iphone
+      {% else %}
+      notify.ios_savannahs_iphone
+      {% endif %}
+    data:
+      title: Night Mode
+      message: The House Is Getting Dark! Let Me Turn On Some Lights For You!
+      data:
+        push:
+          sound: "US-EN-Morgan-Freeman-Turning-On-The-Lights.wav"
+
+- id: turn_on_porch_light_dark
+  alias: Turn On Porch Light When Dark
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: light.turn_on
+      entity_id: light.front_porch_light
+    - service: switch.turn_on
+      entity_id: switch.christmas_tree_lights

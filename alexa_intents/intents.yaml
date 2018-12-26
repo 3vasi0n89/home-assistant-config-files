@@ -1,0 +1,89 @@
+Downloadspeed:
+  speech:
+    type: plain
+    text: The current download speed is {{ states("sensor.speedtest_download")}} megabits per second.
+
+Uploadspeed:
+  speech:
+    type: plain
+    text: The current upload speed is {{ states("sensor.speedtest_upload")}} megabits per second.
+
+Whoshome:
+  speech:
+    type: plain
+    text: Currently Joe is {{ states("device_tracker.joes_iphone")}}.
+    
+Ping:
+  speech:
+    type: plain
+    text: The current ping is {{ states("sensor.speedtest_ping")}}
+    
+Alarm:
+  speech:
+    type: plain
+    text: The status of the alarm system is {{ states("alarm_control_panel.ha_alarm")}}
+    
+Insidetemperature:
+  speech:
+    type: plain
+    text: The temperature inside the house is {{ states.climate.ecobee.attributes.current_temperature }} degrees.
+    
+Frontdoor:
+  speech:
+    type: plain
+    text: The front door is currently {{ states("binary_sensor.front_door_8")}}
+    
+Backdoor:
+  speech:
+    type: plain
+    text: The back door is currently {{ states("binary_sensor.back_door_70")}}
+    
+Sidedoor:
+  speech:
+    type: plain
+    text: The side door is currently {{ states("binary_sensor.side_door_45")}}
+    
+Bathroomtemperature:
+  speech:
+    type: plain
+    text: The current temperature of the bathroom is {{ states("sensor.sn2_real_feel")}} degrees
+    
+Masterbedroomtemperature:
+  speech:
+    type: plain
+    text: The current temperature of the master bedroom is {{ states("sensor.sn1_real_feel")}} degrees
+    
+Livingroomtemperature:
+  speech:
+    type: plain
+    text: The current temperature of the living room is {{ states("sensor.wink_relay_sensor_1_temperature")}} degrees
+    
+Frontdoordeadbolt:
+  speech:
+    type: plain
+    text: The front door deadbolt is {{ states("lock.front_door_deadbolt_60")}}
+    
+Livingroomtv:
+  speech:
+    type: plain
+    text: The living room tv is {{ states("input_select.living_room_tv")}}
+    
+Masterbedroomtv:
+  speech:
+    type: plain
+    text: The master bedroom tv is {{ states("input_select.bedroom_tv")}}
+    
+Thermostat:
+  speech:
+    type: plain
+    text: The thermostat is set to {{ states.climate.ecobee.attributes.temperature }} degrees
+    
+Crealityprinter:
+  speech:
+    type: plain
+    text: The c r 10 3d printer is currently {{ states("sensor.octoprint_job_percentage")}}% complete
+
+flashforgeprinter:
+  speech:
+    type: plain
+    text: The flashforge 3d printer is currently {{ states("sensor.octoprint_job_percentage")}}% complete

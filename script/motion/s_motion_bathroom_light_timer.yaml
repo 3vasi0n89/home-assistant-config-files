@@ -1,0 +1,9 @@
+s_motion_bathroom_light_timer:
+  sequence:
+  - delay:
+      minutes: 5
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.bathroom_light
+      transition: 5
+      power: false

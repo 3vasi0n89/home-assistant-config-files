@@ -1,0 +1,14 @@
+- platform: template
+  sensors:
+    hotend:
+      friendly_name: 'Extruder Current'
+      value_template: '{{ ((states.sensor.octoprint_actual_tool0_temp.state | float-32) | float*(5/9)) | round(2) }} °C'
+    bed:
+      friendly_name: 'Bed Current'
+      value_template: '{{ ((states.sensor.octoprint_actual_bed_temp.state | float-32) | float*(5/9)) | round(2) }} °C'
+    hotend_target:
+      friendly_name: 'Extruder Target'
+      value_template: '{{ ((states.sensor.octoprint_target_tool0_temp.state | float-32) | float*(5/9)) | round(2) }} °C'
+    bed_target:
+      friendly_name: 'Bed Target'
+      value_template: '{{ ((states.sensor.octoprint_target_bed_temp.state | float-32) | float*(5/9)) | round(2) }} °C'

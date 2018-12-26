@@ -1,0 +1,22 @@
+- id: pc_started_from_hass
+  alias: PC started from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+    to: PC
+  action:
+    service: script.turn_on
+    entity_id: script.pc
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,479 @@
+##########VIEWS#############
+default_view:
+  view: true
+  icon: mdi:home
+  entities:
+  - configurator.ecobee
+  - group.frontporch
+  - group.downstairshallway
+  - group.upstairshallway
+  - group.livingroom
+  - group.diningroom
+  - group.kitchen
+  - group.downstairsbathroom
+  - group.masterbedroom
+  - group.modes
+  - switch.foo_screen
+  - switch.dashdiningdisarmnotify
+#  - group.livingroom_harmony
+info_view:
+  view: true
+  icon: mdi:information
+  entities:
+  - group.family
+  - group.coinbase_stocks
+  - group.status
+  - group.network
+  - group.enviroment
+  - group.alarm_clock
+  name: Info
+alarm_view:
+  view: true
+  icon: mdi:security-home
+  entities:
+  - group.alarm_panel
+  - group.security_sensors
+  - group.windows
+  - group.all_cameras
+  name: Alarm Panel
+media_view:
+  name: Media
+  view: true
+  icon: mdi:youtube-play
+  entities:
+  - group.media_players
+  - group.chromecast_radio
+system_view:
+  view: true
+  icon: mdi:settings
+  name: System
+  entities:
+  - group.all_lights_2
+  - group.all_modes
+  - group.all_automations_2
+  - group.all_scenes_2
+  - group.lifx_lights
+  - input_select.hass_theme
+octoprint_view:
+  view: true
+  icon: mdi:cloud-print
+  entities:
+  - group.flashforge
+  - group.flashforge_information
+  - group.cr10
+  - group.cr10_information
+  name: 3D Printers 
+random_view:
+  name: Random
+  view: true
+  entities:
+  - group.tv_lamps
+  - group.end_table_lamps
+  - group.foscamsettings
+  - group.foscampicturesettings
+  - group.cam
+  
+########GROUPS#######  
+downstairshallway:
+  name: Downstairs Hallway
+  entities:
+  - lock.front_door_deadbolt_60
+  - light.downstairs_hall_light
+  - binary_sensor.front_door_8
+livingroom:
+  name: Living Room
+  entities:
+  - input_select.living_room_tv
+  - light.livingroom_tv
+  - input_number.kodi_volume_living_room
+  - input_number.denon_volume
+  - light.left_tv_lamp
+  - light.right_tv_lamp
+  - switch.ceiling_fan
+  - switch.ceiling_fan_light
+  - light.living_room_lamp
+  - input_number.livingroom_lamp_dimmer
+  - sensor.wink_relay_sensor_1_temperature
+  - sensor.wink_relay_sensor_1_humidity
+  - binary_sensor.living_room_window_1_46
+  - binary_sensor.living_room_window_2_5
+  - binary_sensor.living_room_window_3_44
+  - binary_sensor.living_room_window_4_7
+  - binary_sensor.motion_detector_25
+  - binary_sensor.living_room_motion
+diningroom:
+  name: Dining Room
+  entities:
+  - binary_sensor.back_door_42
+  - climate.ecobee
+  - input_boolean.dining_room_lights
+  - binary_sensor.dining_room_motion
+downstairsbathroom:
+  name: Downstairs Bathroom
+  entities:
+  - light.bathroom_light
+  - light.sn2_led
+  - sensor.sn2_temperature
+  - sensor.sn2_humidity
+  - sensor.sn2_ldr
+  - sensor.sn2_pir
+kitchen:
+  name: Kitchen
+  entities:
+  - light.kitchen_floor_lights
+basementstairs:
+  name: Basement Stairs
+  entities:
+  - sensor.owm_temperature
+basement:
+  name: Basement
+  entities:
+  - sensor.owm_temperature
+upstairshallway:
+  name: Upstairs Hallway
+  entities:
+  - light.upstairs_hall_light
+upstairsbathroom:
+  name: Upstairs Bathroom
+  entities:
+  - sensor.owm_temperature
+babiesroom:
+  name: Babies Room
+  entities:
+  - sensor.owm_temperature
+masterbedroom:
+  name: Master Bedroom
+  entities:
+  - input_select.bedroom_tv
+  - input_boolean.fireplace
+  - input_boolean.fireplace_temp
+  - switch.strip_cord1
+  - light.left_end_table_lamp
+  - light.right_end_table_lamp
+  - sensor.sn1_temperature  
+  - sensor.sn1_humidity  
+  - sensor.sn1_ldr  
+  - sensor.sn1_pir  
+  - light.sn1_led
+  - binary_sensor.bedroom_motion
+guestroom:
+  name: Guest Room
+  entities:
+  - sensor.owm_temperature
+frontporch:
+  name: Front Porch
+  entities:
+  - camera.front_porch_cam
+  - light.front_porch_light
+backporch:
+  name: Back Porch
+  entities:
+  - sensor.owm_temperature
+cr10:
+  name: CR-10
+  entities:
+  - switch.cr10_16
+  - switch.printer_light_17
+  - camera.octoprint_cam
+cr10_information:
+  name: Information
+  entities:
+  - weblink.cr10_interface
+  - sensor.octoprint_current_state
+  - binary_sensor.octoprint_printing
+  - binary_sensor.octoprint_printing_error
+  - sensor.octoprint_job_percentage
+  - sensor.bed_target
+  - sensor.bed
+  - sensor.hotend_target2
+  - sensor.hotend2
+flashforge:
+  name: FlashForge Pro
+  entities:
+  - switch.flashforge_15
+family:
+  name: Family
+  entities:
+    - device_tracker.joes_iphone
+enviroment:
+  name: Enviroment
+  entities:
+  - sensor.ecobee_temperature
+  - sensor.ecobee_humidity
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_humidity
+  - sensor.dark_sky_cloud_coverage
+  - sensor.dark_sky_visibility
+  - sensor.dark_sky_wind_speed
+  - sensor.dark_sky_summary
+  - camera.weather_radar
+alarm_panel:
+  name: Alarm Panel
+  entities:
+    - alarm_control_panel.ha_alarm  
+security_sensors:
+  name: Security Sensors
+  entities:
+  - binary_sensor.front_door_8
+  - binary_sensor.living_room_window_1_46
+  - binary_sensor.living_room_window_2_5
+  - binary_sensor.living_room_window_3_44
+  - binary_sensor.living_room_window_4_7
+  - binary_sensor.back_door_42
+  - binary_sensor.side_door_45
+alarm_clock:
+  name: Joe's Alarm Clock
+  entities:
+    - sensor.time
+    - sensor.alarm_clock_time
+    - input_number.alarm_clock_hour
+    - input_number.alarm_clock_minutes
+    - input_boolean.alarm_clock_status
+    - input_boolean.downstairs
+status:
+  name: Status
+  entities:
+    - sensor.desktop
+    - sensor.hassbian
+    - sensor.vera
+    - sensor.xboxone
+    - sensor.arloq_tracker
+    - sensor.front_porch_dot
+    - sensor.hallway_dot
+    - sensor.livingroom_dot
+    - sensor.bathroom_dot
+    - sensor.kitchen_dot
+    - sensor.bedroom_dot
+    - sensor.back_porch_dot
+    - sensor.low_battery
+network:
+  name: Network
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+    - weblink.router
+all_cameras:
+  name: All Cameras
+  entities:
+    - camera.livingroom
+#    - camera.front_porch_cam
+all_lights_2:
+  name: All Lights
+  entities:
+    - light.downstairs_hall_light
+    - light.living_room_lamp
+    - light.left_tv_lamp
+    - light.right_tv_lamp
+    - light.bathroom_light
+    - light.left_end_table_lamp
+    - light.right_end_table_lamp
+    - light.upstairs_hall_light
+    - light.upstairs_hall_light_20
+    - switch.ceiling_fan_light
+    - input_boolean.dining_room_lights
+    - light.livingroom_tv
+    - light.kitchen_floor_lights
+    - switch.still_needs_13
+    - switch.strip_cord1
+    - switch.strip_cord2
+    - switch.strip_cord3
+    - switch.strip_cord4
+#all_locks:
+#  name: All Locks
+#  entities:
+#    - lock.front_door_deadbolt_60
+#    - lock.garage_door_opener_47
+all_modes:
+  name: All Modes
+  entities:
+    - input_boolean.vacation_mode
+    - input_boolean.alarm_mode
+    - input_boolean.day_mode
+    - input_boolean.night_mode
+    - input_boolean.guest_mode
+    - input_boolean.doorbell
+    - input_boolean.kids_weekend
+    - input_boolean.school_mode
+    - input_boolean.shutdown_mode
+    - input_boolean.sleep_mode
+    - input_boolean.speech_notifications
+    - input_boolean.out_front_mode
+    - input_boolean.out_back_mode
+    - input_boolean.movie_mode
+    - input_boolean.test3
+    - input_boolean.alarm_triggered
+all_automations_2:
+  name: All Automations
+  entities:
+    - automation.leaving_home
+    - automation.entering_home
+    - automation.left_something_open
+    - automation.alarm_armed_away
+    - automation.alarm_armed_home
+    - automation.alarm_disarmed
+    - automation.alarm_tripped
+    - automation.kodi_paused
+    - automation.kodi_playing
+    - automation.kodi_stopped
+    - automation.lock_door_sensor_20_seconds_after_8pm
+modes:
+  name: Modes
+  entities:
+    - input_boolean.movie_mode
+    - input_boolean.guest_mode
+    - input_boolean.vacation_mode
+    - input_boolean.sleep_mode
+    - input_boolean.speech_notifications
+    - input_boolean.out_front_mode
+    - input_boolean.out_back_mode
+    - input_boolean.party_time
+
+sensor_node_1_card:  
+  name: Sensor Node 1  
+  entities:  
+  - sensor.sn1_temperature  
+  - sensor.sn1_humidity  
+  - sensor.sn1_ldr  
+  - sensor.sn1_pir  
+  - light.sn1_led
+sensor_node_2_card:  
+  name: Kitchen Conditions 
+  entities:  
+  - sensor.sn2_temperature  
+  - sensor.sn2_humidity  
+  - sensor.sn2_ldr  
+  - sensor.sn2_pir  
+  - light.sn2_led
+sensor_node_3_card:  
+  name: Sensor Node 3  
+  entities:  
+  - sensor.sn3_temperature  
+  - sensor.sn3_humidity  
+  - sensor.sn3_ldr  
+  - sensor.sn3_pir  
+  - light.sn3_led
+lifx_lights:
+  name: Lifx Lights
+  entities:
+  - light.living_room_lamp
+  - light.downstairs_hall_light
+  - light.left_tv_lamp
+  - light.right_tv_lamp
+  - light.upstairs_hall_light
+  - light.left_end_table_lamp
+  - light.right_end_table_lamp
+  - light.bathroom_light
+media_players:
+  name: Media Players
+  entities:
+  - media_player.living_room_kodi
+  - media_player.master_bedroom_kodi
+  - media_player.amazon_fire_tv
+  - media_player.surround_sound_cast
+  - media_player.livingroom_cast
+  - media_player.master_bedroom_cast
+  - media_player.all_cast
+  - media_player.spotify
+chromecast_radio:
+  name: Chromecast Radio
+  entities:
+  - input_select.radio_station
+  - input_select.chromecast_radio
+  - script.radio538
+all_scenes_2:
+  name: All Scenes
+  entities:
+  - scene.party
+
+tv_lamps:
+  name: TV Lamps
+  entities:
+  - light.left_tv_lamp
+  - light.right_tv_lamp
+end_table_lamps:
+  name: End Table Lamps
+  entities:
+  - light.left_end_table_lamp
+  - light.right_end_table_lamp
+downstairs_lights:
+  name: Downstairs Lights
+  entities:
+  - light.downstairs_hall_light
+  - switch.ceiling_fan_light
+  - light.living_room_lamp
+  - light.left_tv_lamp
+  - light.right_tv_lamp
+  - switch.dining_room_lights
+  - light.bathroom_light
+upstairs_lights:
+  name: Upstairs Lights
+  entities:
+  - light.upstairs_hall_light
+  - light.left_end_table_lamp
+  - light.right_end_table_lamp
+  
+coinbase_stocks:
+  name: Stocks
+  entities:
+  - sensor.ltc_exchange_rate
+  - sensor.coinbase_ltc_wallet
+  - sensor.btc_exchange_rate
+  - sensor.coinbase_btc_wallet
+  
+#livingroom_harmony:
+#  name: Harmony
+#  entities:
+#  - script.firetv
+#  - script.wiiu
+#  - script.xboxone
+#  - script.pc
+#  - script.tvoff
+
+foscamsettings:
+  name: Foscam
+  entities:
+    - input_boolean.foscam_snap_picture_now
+    - input_select.foscam_preset_points
+    - input_select.foscam_preset_cruise
+    - input_boolean.foscam_stop_cruise
+    - input_number.foscam_up_down
+    - input_number.foscam_left_right
+    - input_number.foscam_zoom
+    - input_boolean.foscam_motion_detect
+    - sensor.foscam_motion
+    - sensor.foscam_sound_alarm
+    - sensor.foscam_recording
+    - input_boolean.foscam_toon_alarm_dash
+    - sensor.foscam_last_error
+
+foscampicturesettings:
+  name: Foscam picture settings
+  entities:
+    - input_boolean.foscam_mirror
+    - input_boolean.foscam_flip
+    - input_number.foscam_hue
+    - input_number.foscam_brightness
+    - input_number.foscam_contrast
+    - input_number.foscam_saturation
+    - input_number.foscam_sharpness
+    - input_boolean.foscam_default_picture_settings
+    - input_boolean.foscam_auto_infrared
+    - input_boolean.foscam_infrared
+
+cam:
+  name: Camera
+  view: yes
+  entities:
+    - group.foscamsettings
+    - group.foscampicturesettings
+    - camera.livingroom
+    
+windows:
+  name: Windows
+  entities:
+    - binary_sensor.living_room_window_1_46
+    - binary_sensor.living_room_window_2_5
+    - binary_sensor.living_room_window_3_44
+    - binary_sensor.living_room_window_4_7

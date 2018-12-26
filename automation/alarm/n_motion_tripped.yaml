@@ -1,0 +1,20 @@
+- id: n_motion_tripped
+  alias: Motion Tripped
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_detector_25
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.security_system
+    state: armed_away
+  action:
+  - service: notify.ios_all
+    data_template:
+      title: "Alarm Tripped!"
+      message: >
+        "Motion Has Been Detected on the {{ trigger.to_state.attributes.friendly_name }}!"
+      data:
+        push:
+          badge: 911
+          category: 'alarm'

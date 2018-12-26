@@ -1,0 +1,13 @@
+- id: a_minimote_button_press_4
+  alias: Minimote Button Press 4
+  trigger:
+    platform: state
+    entity_id: sensor.supermote_73
+    to: "4"
+  action:
+    - service: light.lifx_set_state
+      data:
+        entity_id: group.lifx_lights
+        color_name: white
+        brightness: '255'
+        transition: '15'

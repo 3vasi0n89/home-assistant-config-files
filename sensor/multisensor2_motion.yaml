@@ -1,0 +1,22 @@
+- platform: mqtt  
+  state_topic: "saraah/sensornode2"  
+  name: "SN2 PIR"  
+  value_template: '{{ value_json.motion }}'  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

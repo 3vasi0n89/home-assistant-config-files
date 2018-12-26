@@ -1,0 +1,23 @@
+- id: a_3d_printer_finished
+  alias: 3D Printer Finished
+  trigger:
+    platform: state
+    entity_id: sensor.octoprint_job_percentage
+    to: "100"
+  action:
+    - service: notify.ios_joes_iphone
+      data_template:
+        title: 3D Printer Report
+        message: >
+          The 3D printer has finished printing {{ [ 'something AWESOME' , 'a FUCKING MASTERPIECE' , 'another dumb box' , 'another thing someone asked for' , 'something completely useless' ] |random }}
+        data:
+          attachment:
+            content-type: jpeg
+          push:
+            category: camera
+          entity_id: camera.octoprint_cam
+    - service: media_player.alexa_tts
+      data_template:
+        entity_id: media_player.living_room_dot, media_player.attic_dot
+        message: >
+          "The 3D printer has finished printing "'{{ [ "something AWESOME" , "a FUCKING MASTERPIECE" , "another dumb box" ] |random }}'""

@@ -1,0 +1,28 @@
+- id: party_time_on
+  alias: Party Time On
+  trigger:
+    platform: state
+    entity_id: input_boolean.party_time
+    to: 'on'
+  action:
+  - service: script.turn_on
+    entity_id: script.s_party_mode
+
+- id: party_time_off
+  alias: Party Time Off
+  trigger:
+    platform: state
+    entity_id: input_boolean.party_time
+    to: 'off'
+  action:
+  - service: script.turn_on
+    entity_id: script.s_normal_house_mode
+    
+    
+    
+    
+    
+    
+    
+    
+    

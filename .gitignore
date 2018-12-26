@@ -1,0 +1,56 @@
+# Example .gitignore file for your config dir.
+# A * ensures that everything will be ignored.
+
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore folders.
+
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+pihole_switch.yaml
+joes_work_travel_time.yaml
+savannahs_work_travel_time.yaml
+*.disabled
+*.pid
+*.xml
+*.csr
+*.crt
+*.key
+*.conf
+*.pickle
+.cloud
+.storage
+.uuid
+.3vasi0n89gmailcom.tile.conf
+.homekit.state
+core.*
+OZW_Log.txt
+home-assistant.log
+home-assistant_v2.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+deps
+android
+__pycache__
+tts
+update.sh
+weblinks.yaml
+secrets
+.ios.conf
+.wink.conf
+ecobee.conf
+harmony_bedroom.conf
+harmony_living_room.conf
+
+pyozw.sqlite
+ipchange.yaml
+production_auth.json

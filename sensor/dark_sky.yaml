@@ -1,0 +1,22 @@
+- platform: darksky
+  api_key: 004c3e25990dddafdf1d2541e650c082
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - cloud_cover
+    - humidity
+    - visibility
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

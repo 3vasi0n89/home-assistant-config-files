@@ -1,0 +1,22 @@
+- alias: Janet Update Available
+  id: janet_update_available
+  trigger:
+    - platform: state
+      entity_id: sensor.up_to_date
+      from: 'true'
+      to: 'false'
+  
+  action:
+    - service: script.janet_speech_engine
+      data:
+        call_greeting: 1
+        call_update: 1
+  
+  
+  
+  
+  
+  
+  
+  
+  

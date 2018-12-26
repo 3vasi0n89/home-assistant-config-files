@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: "Attic Door Lock"
+  command_topic: "cmnd/attic_door_lock/power"
+  state_topic: "stat/attic_door_lock/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

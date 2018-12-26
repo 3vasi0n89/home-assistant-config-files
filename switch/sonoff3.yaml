@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: "Strip Cord3"
+  command_topic: "cmnd/sonoff3/power"
+  state_topic: "stat/sonoff3/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

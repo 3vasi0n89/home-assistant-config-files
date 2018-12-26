@@ -1,0 +1,25 @@
+- id: kodi_paused
+  alias: Kodi Paused
+  trigger:
+    platform: state
+    entity_id: media_player.living_room_kodi
+    to: paused
+  condition:
+    condition: state
+    entity_id: input_boolean.movie_mode
+    state: 'on'
+  action:
+  - service: ifttt.trigger
+    data: {"event":"dining_room_lights_on"}
+  - service: light.lifx_set_state
+    data:
+      entity_id:
+      - light.living_room_lamp
+      - light.left_tv_lamp
+      - light.right_tv_lamp
+      brightness: 255
+      color_name: "white"
+      transition: 10
+  - delay: '00:00:10'
+  - service: light.turn_off
+    entity_id: light.livingroom_tv

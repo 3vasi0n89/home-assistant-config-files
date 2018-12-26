@@ -1,0 +1,22 @@
+- alias: Janet Start Up
+  id: janet_start_up
+  trigger:
+    - event: start
+      platform: homeassistant
+  
+  action:
+    - service: script.janet_speech_engine
+      data:
+        call_greeting: 1
+        call_introduction: 1
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,349 @@
+      page_id: Floorplan
+      image: /local/custom_ui/floorplan/floorplan.svg
+      stylesheet: /local/custom_ui/floorplan/floorplan.css
+      hide_app_toolbar:
+      # These options are optional
+      # warnings:                  # enable warnings (to find out why things might ot be working correctly)
+      # pan_zoom:                  # enable experimental panning / zooming
+      # hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
+      date_format: MMM-DD-YYYY   # Date format to use in hover-over text
+      
+      last_motion_entity: sensor.template_last_motion
+      last_motion_class: last-motion
+
+      groups:
+
+        - name: Sensors
+          entities:
+             -  sensor.dark_sky_temperature
+          #text_template: '${entity.state ? entity.state : "unknown"}'
+          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          class_template: '
+            var temp = parseFloat(entity.state.replace("°", ""));
+            if (temp < 10)
+              return "temp-low";
+            else if (temp < 30)
+              return "temp-medium";
+            else
+              return "temp-high";
+            '
+
+        - name: Presense
+          entities:
+            - device_tracker.joes_iphone
+            - device_tracker.savannahs_iphone
+          states:
+            - state: 'home'
+              class: 'presense-on'
+            - state: 'not_home'
+              class: 'presense-off'
+          text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
+
+            
+        - name: Lights
+          entities:
+             - light.downstairs_hall_light
+             - light.living_room_lamp
+             - light.front_porch_light
+             - light.kitchen_underglow
+             - light.bathroom_light
+             - light.livingroom_tv
+             - light.right_end_table_lamp
+             - light.left_end_table_lamp
+             - light.upstairs_hall_light
+             - light.left_attic_light
+             - light.right_attic_light
+          rgb_template: '
+            return "off-state";
+          '
+          states:
+            - state: 'on'
+              class: 'light-on'
+            - state: 'off'
+              class: 'light-off'
+          action:
+            domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
+            service: toggle
+
+        - name: Switches
+          entities:
+             - switch.christmas_tree_lights
+             - switch.left_dining_room_light
+             - switch.right_dining_room_light
+             - switch.ceiling_fan_light
+             - switch.3d_printer_16
+             - switch.printer_light_17
+          states:
+            - state: 'on'
+              class: 'switch-on'
+            - state: 'off'
+              class: 'switch-off'
+          action:
+            domain: homeassistant
+            service: toggle            
+
+        - name: Fan
+          entities:
+            - switch.ceiling_fan
+          states:
+            - state: 'on'
+              class: 'fan-on'
+            - state: 'off'
+              class: 'fan-off'
+          action:
+            domain: homeassistant
+            service: toggle 
+            
+        - name: NVR
+          entities:
+             - binary_sensor.blue_iris_nvr
+          text_template: '${(entity.state === "on") ? "online" : "offline"}'
+          states:
+            - state: 'off'
+              class: 'danger-text'
+            - state: 'on'
+              class: 'success-text'
+
+        - name: Alarm Panel
+          entities:
+             - alarm_control_panel.security_system
+          text_template: '${(entity.state === "disarmed") ? "Disarmed" : "Armed"}'
+          states:
+            - state: 'armed_away'
+              class: 'alarm-armed'
+            - state: 'armed_home'
+              class: 'alarm-armed'
+            - state: 'disarmed'
+              class: 'alarm-disarmed'
+
+        - name: Binary sensors
+          entities:
+            - binary_sensor.living_room_window_1_46
+            - binary_sensor.living_room_window_2_5
+            - binary_sensor.living_room_window_3_44
+            - binary_sensor.living_room_window_4_7
+            - binary_sensor.dining_room_window_77
+            - binary_sensor.kitchen_window_1_78
+            - binary_sensor.kitchen_window_2_74
+            - binary_sensor.michaels_window_1_75
+            - binary_sensor.michaels_window_2_76
+            - binary_sensor.front_door_8
+            - binary_sensor.back_door_70
+            - binary_sensor.side_door_45
+          states:
+            - state: 'off'
+              class: 'info-background'
+            - state: 'on'
+              class: 'warning-background'
+          state_transitions:
+            - name: On to off
+              from_state: 'on'
+              to_state: 'off'
+              duration: 10
+
+        - name: Cameras
+          entities:
+#            - camera.front_porch_cam
+            - camera.bedroom_cam
+            - camera.octoprint_cam
+#            - camera.weather_radar
+#          states:
+#            - state: 'idle'
+#              class: 'camera-idle'
+#          camera_image_template: '${entity.attributes.entity_picture}'
+          # image_refresh_interval: 20 # in seconds - Future options if needed.
+              
+        - name: Temperature
+          entities:
+            - sensor.ecobee_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °F": "undefined"}'
+#          class_template: '
+#            var temp = parseFloat(entity.state.replace("°", ""));
+#            if (temp < 68)
+#              return "temp-low";
+#            else if (temp < 72)
+#              return "temp-medium";
+#            else
+#              return "temp-high";
+              
+        - name: Time Date
+          entities:
+            - sensor.time_templated_am_pm
+            - sensor.date_format
+            - sensor.time_templated_am_pm_2
+            - sensor.alarm_clock_time_long
+            - sensor.dark_sky_summary
+            - sensor.date_format_2
+            - sensor.time
+            - sensor.number_of_lights_on
+            
+        - name: Music
+          entities:
+            - media_player.living_room_dot
+            - media_player.attic_dot
+            - media_player.bathroom_dot
+            - media_player.hallway_dot
+            - media_player.kitchen_dot
+            - media_player.back_porch_dot
+            - media_player.bedroom_dot
+            - media_player.michaels_dot
+            - media_player.chris_and_bens_dot
+            - media_player.whole_house
+          states:
+            - state: 'playing'
+              class: 'music-on'
+            - state: 'paused'
+              class: 'music-paused'
+            - state: 'standby'
+              class: 'music-off'
+              
+        - name: sleep time
+          entities:
+            - script.s_sleep_power
+          action:
+            service: turn_on
+          text_template: 'Sleep Time'
+
+        - name: all lights off
+          entities:
+            - scene.all_lights_off
+          action:
+            service: turn_on
+          text_template: 'All Lights Off'
+
+        - name: all lights on
+          entities:
+            - scene.all_lights_on
+          action:
+            service: turn_on
+          text_template: 'All Lights On'
+
+        - name: all lights 100
+          entities:
+            - script.all_lights_100
+          action:
+            service: turn_on
+          text_template: 'All Lights 100%'
+          
+        - name: all lights 75
+          entities:
+            - script.all_lights_75
+          action:
+            service: turn_on
+          text_template: 'All Lights 75%'
+          
+        - name: all lights 50
+          entities:
+            - script.all_lights_50
+          action:
+            service: turn_on
+          text_template: 'All Lights 50%'
+          
+        - name: all lights 25
+          entities:
+            - script.all_lights_25
+          action:
+            service: turn_on
+          text_template: 'All Lights 25%'
+          
+        - name: guest mode
+          entities:
+            - input_boolean.guest_mode
+          action:
+            service: toggle
+          text_template: 'Guest Mode'
+          
+        - name: alarm clock status
+          entities:
+            - input_boolean.alarm_clock_status
+          action:
+            service: toggle
+            
+        - name: snooze
+          entities:
+            - script.s_alarm_clock_snooze
+          action:
+            service: turn_on
+          text_template: 'Snooze'
+          
+        - name: lock
+          entities:
+            - lock.front_door_deadbolt_60
+          text_template: '${(entity.state === "locked") ? "Locked" : "Unlocked"}'
+          action:
+            domain: lock
+            service: lock
+            
+        - name: remote
+          entities:
+            - script.living_room_remote_back
+            - script.tvoff
+            - script.living_room_remote_dir_up
+            - script.living_room_remote_dir_left
+            - script.living_room_remote_dir_right
+            - script.living_room_remote_dir_down
+            - script.living_room_remote_select
+            - script.living_room_remote_back
+            - script.living_room_remote_play
+            - script.living_room_remote_home
+            - script.living_room_remote_menu
+            - script.living_room_remote_rewind
+            - script.living_room_remote_fastforward
+            - script.living_room_remote_mute
+            - script.living_room_remote_vol_up
+            - script.living_room_remote_vol_down
+            - script.firetv
+            - script.xboxone
+            - script.wiiu
+          action:
+            service: turn_on
+ #toggles visibility           
+#        - name: Media Players
+#          elements:
+#            - media_players_button
+#          action:
+#            domain: class
+#            service: toggle
+#            data:
+#              elements:
+#                - media_players_layer
+#              classes:
+#                - layer-visible
+#                - layer-hidden
+#              default_class: layer-hidden
+ #long presses
+#        - name: Media Players
+#          longs:
+#            - media_players_button
+#          action:
+#            domain: class
+#            service: toggle
+#            data:
+#              elements:
+#                - media_players_layer
+#              classes:
+#                - layer-visible
+#                - layer-hidden
+#              default_class: layer-hidden
+#        - name: text_states
+#          entities:
+#            - sensor.last_message
+#          text_template: '${entity.state ? entity.state.replace(/\s{3,}/g,"") : "undefined"}'
+#          class_template: 'return "static-text";'
+#        - name: thermostat_temp
+#          entities:
+#            - climate.downstairs
+#            - climate.upstairs
+#          text_template: '${entity.attributes.current_temperature ? entity.attributes.current_temperature : "undefined"}'
+#
+# The above text_template uses extended attributes from the climate.* objects to get current temperature.
+
+#        - name: text_states
+#          entities:
+#            - sensor.downstairs_thermostat_humidity
+#            - sensor.dark_sky_temperature
+#            - sensor.last_message
+#          text_template: '${entity.state ? entity.state.replace(/\s{2,}/g,"") : "undefined"}'
+#
+# The above text_template uses jQuery syntax to search and replace any instance of 2 consecutive (or more) spaces in a string of text.

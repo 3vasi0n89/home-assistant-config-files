@@ -1,0 +1,105 @@
+living_room_remote_vol_up:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46571740'
+        command: 'VolumeUp'
+living_room_remote_vol_down:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46571740'
+        command: 'VolumeDown'
+living_room_remote_mute:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46571740'
+        command: 'Mute'
+living_room_remote_dir_up:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'DirectionUp'
+living_room_remote_dir_down:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'DirectionDown'
+living_room_remote_dir_left:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'DirectionLeft'
+living_room_remote_dir_right:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'DirectionRight'
+living_room_remote_back:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'Back'
+living_room_remote_play:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'Play'
+living_room_remote_menu:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'Menu'
+living_room_remote_rewind:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'Rewind'
+living_room_remote_fastforward:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'FastForward'
+living_room_remote_home:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'Home'
+living_room_remote_search:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46648026'
+        command: 'Search'
+living_room_remote_select:
+  sequence:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46571740'
+        command: 'Select'

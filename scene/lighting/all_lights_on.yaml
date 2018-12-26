@@ -1,0 +1,22 @@
+- name: all lights on
+  entities:
+    light.upstairs_hall_light:
+      state: on
+    light.downstairs_hall_light:
+      state: on
+    light.living_room_lamp:
+      state: on
+    light.bathroom_light:
+      state: on
+    light.left_attic_light:
+      state: on
+    light.right_attic_light:
+      state: on
+    light.left_end_table_lamp:
+      state: on
+    light.right_end_table_lamp:
+      state: on
+    switch.left_dining_room_light:
+      state: on
+    switch.right_dining_room_light:
+      state: on

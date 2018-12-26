@@ -1,0 +1,25 @@
+- name: SCN_x2
+  entities:
+    light.downstairs_hall_light:
+      state: off
+      brightness: 100
+    light.upstairs_hall_light:
+      state: on
+      brightness: 100
+    light.living_room_lamp:
+      state: off
+      brightness: 100
+    light.bathroom_light:
+      state: on
+      brightness: 100
+    light.attic_lights:
+      state: off
+      brightness: 100
+    light.end_table_lamps:
+      state: on
+      brightness: 100
+    light.kitchen_underglow:
+      state: off
+      brightness: 100
+    switch.ceiling_fan_light:
+      state: on

@@ -1,0 +1,21 @@
+- id: a_3d_printer_finished_15_mins
+  alias: 3D Printer Finished 15 Mins
+  trigger:
+    platform: state
+    entity_id: sensor.octoprint_job_percentage
+    to: "100"
+    for:
+      minutes: 15
+  condition:
+    condition: state
+    entity_id: binary_sensor.octoprint_printing
+    state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.3d_printer_16
+        - switch.printer_light_17
+    - service: notify.ios_joes_iphone
+      data:
+        title: 3D Printer Report
+        message: The 3D printer has cooled down and nothing is printing. Let me turn that off for you!

@@ -1,0 +1,17 @@
+- name: Lights Night Mode
+  entities:
+    light.hallway_lights:
+      state: on
+      brightness: 50
+    light.living_room_lamp:
+      state: on
+      brightness: 50
+    light.bathroom_light:
+      state: on
+      brightness: 50
+    light.tv_lamps:
+      state: on
+      brightness: 50
+    light.end_table_lamps:
+      state: on
+      brightness: 50

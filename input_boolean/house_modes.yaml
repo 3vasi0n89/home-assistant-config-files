@@ -1,0 +1,20 @@
+guest_mode:
+  name: Guest Mode
+  icon: mdi:account-alert
+  initial: off
+
+vacation_mode:
+  name: Vacation Mode
+  icon: mdi:plane-shield
+  initial: off
+
+kids_weekend:
+  name: Kids Weekend
+  icon: mdi:account-multiple
+  initial: off
+
+speech_notifications:
+  name: Speech Notifications
+  icon: mdi:speaker-wireless
+  initial: off
+

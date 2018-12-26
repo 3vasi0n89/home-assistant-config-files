@@ -1,0 +1,8 @@
+s_lights_night_mode:
+  sequence:
+    - service: light.lifx_set_state
+      data:
+        entity_id: group.lifx_lights
+        color_name: red
+        brightness: '100'
+        transition: '10'

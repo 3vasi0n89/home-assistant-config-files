@@ -1,0 +1,118 @@
+firetv:
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data:
+        activity: "27735743"
+    - service: light.turn_on
+      entity_id: light.livingroom_tv
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_tv_lamp
+        brightness: '255'
+        color_name: 'blue'
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_tv_lamp
+        brightness: '255'
+        color_name: 'blue'
+        power: true
+    - delay: '00:00:01'
+    - service: light.turn_on
+      entity_id: light.livingroom_tv
+      data_template:
+        color_name: 'blue'
+        brightness: '255'
+pc:
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data:
+        activity: "27680798"
+xboxone:
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data:
+        activity: "27734995"
+    - service: light.turn_on
+      entity_id: light.livingroom_tv
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_tv_lamp
+        brightness: '255'
+        color_name: 'green'
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_tv_lamp
+        brightness: '255'
+        color_name: 'green'
+        power: true
+    - delay: '00:00:01'
+    - service: light.turn_on
+      entity_id: light.livingroom_tv
+      data_template:
+        color_name: 'green'
+        brightness: '255'
+wiiu:
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data:
+        activity: "27734984"
+    - service: light.turn_on
+      entity_id: light.livingroom_tv
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_tv_lamp
+        brightness: '255'
+        color_name: 'lightskyblue'
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_tv_lamp
+        brightness: '255'
+        color_name: 'lightskyblue'
+        power: true
+    - delay: '00:00:01'
+    - service: light.turn_on
+      entity_id: light.livingroom_tv
+      data_template:
+        color_name: 'lightskyblue'
+        brightness: '255'
+echodot:
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data:
+        activity: "27679805"
+tvoff:
+  sequence:
+    - service: remote.turn_off
+      entity_id: remote.living_room
+    - service: light.turn_off
+      entity_id: light.livingroom_tv
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_tv_lamp
+        brightness: '255'
+        color_name: 'white'
+        power: false
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_tv_lamp
+        brightness: '255'
+        color_name: 'white'
+        power: false
+bedroom_tvoff:
+  sequence:
+    - service: remote.turn_off
+      entity_id: remote.bedroom
+nvidia_shield:
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.bedroom
+      data:
+        activity: "29153341"

@@ -1,0 +1,42 @@
+- id: n_alarm_tripped
+  alias: Alarm Tripped
+  trigger:
+  - entity_id:
+    - binary_sensor.front_door_8
+    - binary_sensor.back_door_70
+    - binary_sensor.side_door_45
+    - binary_sensor.living_room_window_1_46
+    - binary_sensor.living_room_window_2_5
+    - binary_sensor.living_room_window_3_44
+    - binary_sensor.living_room_window_4_7
+    - binary_sensor.dining_room_window_77
+    - binary_sensor.kitchen_window_1_78
+    - binary_sensor.kitchen_window_2_74
+    - binary_sensor.michaels_window_1_75
+    - binary_sensor.michaels_window_2_76
+    - binary_sensor.garage_door_sensor_71
+    platform: state
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.security_system
+      state: armed_home
+    - condition: state
+      entity_id: alarm_control_panel.security_system
+      state: armed_away
+  action:
+  - service: script.turn_on
+    entity_id: script.alarm_triggered
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.alarm_triggered
+  - service: notify.ios_all
+    data_template:
+      title: "Alarm Tripped!"
+      message: >
+        "The {{ trigger.to_state.attributes.friendly_name }} Has Been Opened!"
+      data:
+        push:
+          badge: 911
+          category: 'alarm'

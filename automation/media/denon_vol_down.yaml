@@ -1,0 +1,22 @@
+- id: denon_vol_down
+  alias: Denon Volume Down
+  trigger:
+    platform: state
+    entity_id: input_number.denon_volume
+    to: '0.0'
+  action:
+  - service: input_number.set_value
+    entity_id: input_number.denon_volume
+    data:
+      value: '5.0'  
+  - service: remote.send_command
+    entity_id: remote.living_room
+    data:
+      device: '46571740'
+      command: 'VolumeDown'
+      num_repeats: '10'
+  
+  
+  
+  
+  

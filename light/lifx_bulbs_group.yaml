@@ -1,0 +1,11 @@
+- platform: group
+  name: Lifx Bulbs
+  entities:
+    - light.left_end_table_lamp
+    - light.right_end_table_lamp
+    - light.left_tv_lamp
+    - light.right_tv_lamp
+    - light.living_room_lamp
+    - light.downstairs_hall_light
+    - light.upstairs_hall_light
+    - light.bathroom_light

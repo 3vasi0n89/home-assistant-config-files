@@ -1,0 +1,5 @@
+- platform: group
+  name: Attic Lights
+  entities:
+    - light.left_attic_light
+    - light.right_attic_light

@@ -1,0 +1,13 @@
+- id: a_minimote_button_press_6
+  alias: Minimote Button Press 6
+  trigger:
+    platform: state
+    entity_id: sensor.supermote_73
+    to: "6"
+  action:
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: '46571740'
+        command: 'VolumeUp'
+        num_repeats: '5'

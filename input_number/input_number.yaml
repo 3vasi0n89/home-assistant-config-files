@@ -1,0 +1,25 @@
+denon_volume:
+  name: Volume
+  initial: 5
+  min: 0
+  max: 10
+  step: 5
+  mode: slider
+livingroom_lamp_kelvin:
+  name: Living Room Lamp Kelvin
+  min: 2500
+  max: 9000
+  step: 500
+  mode: slider
+left_end_table_lamp_brightness:
+  name: Left End Table Lamp Brightness
+  min: 0
+  max: 255
+  step: 5
+  mode: slider
+right_end_table_lamp_brightness:
+  name: Right End Table Lamp Brightness
+  min: 0
+  max: 255
+  step: 5
+  mode: slider

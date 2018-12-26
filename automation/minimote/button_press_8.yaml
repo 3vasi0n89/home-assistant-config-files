@@ -1,0 +1,9 @@
+- id: a_minimote_button_press_8
+  alias: Minimote Button Press 8
+  trigger:
+    platform: state
+    entity_id: sensor.supermote_73
+    to: "8"
+  action:
+    - service: lock.unlock
+      entity_id: lock.front_door_deadbolt_60

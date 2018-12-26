@@ -1,0 +1,23 @@
+- id: a_show_cr10
+  alias: Show CR10
+  trigger:
+    platform: state
+    entity_id: switch.3d_printer_16
+    to: 'on'
+  action:
+    service: group.set_visibility
+    entity_id: group.cr10_information
+    data:
+      visible: True
+
+- id: a_hide_cr10
+  alias: Hide CR10
+  trigger:
+    platform: state
+    entity_id: switch.3d_printer_16
+    to: 'off'
+  action:
+    service: group.set_visibility
+    entity_id: group.cr10_information
+    data:
+      visible: False

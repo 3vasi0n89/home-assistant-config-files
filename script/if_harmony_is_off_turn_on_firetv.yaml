@@ -1,0 +1,7 @@
+if_harmony_is_off_turn_on_firetv:
+  sequence:
+    - condition: state
+      entity_id: input_select.living_room_tv
+      state: 'Powered Off'
+    - service: script.turn_on
+      entity_id: script.firetv

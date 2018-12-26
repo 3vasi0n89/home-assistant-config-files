@@ -1,0 +1,22 @@
+- id: tv_turned_off_from_hass
+  alias: TV turned off from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+    to: Powered Off
+  action:
+    service: script.turn_on
+    entity_id: script.tvoff
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

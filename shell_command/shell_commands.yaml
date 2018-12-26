@@ -1,0 +1,5 @@
+#shutdown_z800: 'curl -k !secret pc_shutdown
+#restart_z800: !secret pc_restart
+#sleep_z800: !secret pc_sleep
+#hibernate_z800: !secret pc_hibernate
+#open_kodi_firetv: 'curl -k GET http://192.168.1.9:5556/devices/default/apps/org.evasion.kodipro/start'

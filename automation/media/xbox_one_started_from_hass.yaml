@@ -1,0 +1,22 @@
+- id: xboxone_started_from_hass
+  alias: Xbox One started from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+    to: Xbox One
+  action:
+    service: script.turn_on
+    entity_id: script.xboxone
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

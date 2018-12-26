@@ -1,0 +1,251 @@
+group:
+  alarm_clock:
+    name: Joe's Alarm Clock
+    entities:
+      - sensor.time
+      - sensor.alarm_clock_time
+      - input_number.alarm_clock_hour
+      - input_number.alarm_clock_minutes
+      - input_boolean.alarm_clock_status
+      - input_boolean.downstairs
+      
+input_boolean:
+  alarm_clock_status:
+    name: Alarm Clock Status
+  downstairs:
+    name: Downstairs
+    initial: off
+    icon: mdi:stairs
+    
+input_number:
+  alarm_clock_hour:
+    name: Hour
+    icon: mdi:timer
+    min: 0
+    max: 23
+    step: 1
+    mode: slider
+    
+  alarm_clock_minutes:
+    name: Minutes
+    icon: mdi:timer
+    min: 0
+    max: 55
+    step: 5
+    mode: slider
+    
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      
+  - platform: template
+    sensors:
+      alarm_clock_hour:
+        value_template: '{{ states.input_number.alarm_clock_hour.state | int }}'
+      alarm_clock_minutes:
+        value_template: '{{ states.input_number.alarm_clock_minutes.state | int }}'
+      alarm_clock_time:
+        value_template: >-
+          {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minutes.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minutes.state }}
+      alarm_clock_time_long:
+        value_template: >-
+          {% if states.sensor.alarm_clock_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_hour.state }}:
+          {%- if states.sensor.alarm_clock_minutes.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.alarm_clock_minutes.state }}
+        
+automation:
+  ###### automation for turning on the alarm ######
+  - id: alarm_clock_activated
+    alias: Alarm Clock Activated
+    hide_entity: False
+    trigger:
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.alarm_clock_status
+        state: 'on'
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+    action:
+    - service: script.turn_on
+      entity_id: script.s_alarm_clock_wake_up
+    
+  ###### awake actionable notification pushed ######
+  - id: a_alarm_clock_awake_action
+    alias: alarm clock awake action
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: AWAKE
+    action:
+      service: script.turn_on
+      entity_id: script.s_alarm_clock_awake
+  
+  ###### snooze actionable notification pushed ######
+  - id: a_alarm_clock_snooze_action
+    alias: alarm clock snooze action
+    initial_state: true
+    hide_entity: true
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: SNOOZE
+    action:
+      service: script.turn_on
+      entity_id: script.s_alarm_clock_snooze
+      
+script:
+  ###### script for running what happens after awake button is pushed ######
+  s_alarm_clock_awake:
+    sequence:
+    - delay: '00:15:00'
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_end_table_lamp
+        power: false
+        transition: '5'
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_end_table_lamp
+        power: false
+        transition: '5'
+    
+  ###### script for running what happens when snooze button is pushed and for turning on the snooze timer and turning off lights ###### 
+  s_alarm_clock_snooze:
+    sequence:
+    - service: script.turn_off
+      data:
+        entity_id: script.s_alarm_clock_snooze_timer
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_end_table_lamp
+        power: false
+        transition: '3'
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_end_table_lamp
+        power: false
+        transition: '3'
+    - service: script.turn_on
+      data:
+        entity_id: script.s_alarm_clock_snooze_timer
+
+  ###### script for the snooze timer ######
+  s_alarm_clock_snooze_timer:
+    sequence:
+    - delay:
+        minutes: 5
+    - service: automation.trigger
+      data:
+        entity_id: automation.alarm_clock_activated
+  ###### script for running what happens when the alarm clock gets turned on ######
+  s_alarm_clock_wake_up:
+    sequence:
+    - service: script.turn_on
+      entity_id: script.s_alarm_clock_upstairs
+    - service: script.turn_on
+      entity_id: script.s_alarm_clock_downstairs
+  ####### script for running if upstairs and the alarm clock is triggered ###########
+  s_alarm_clock_upstairs:
+    sequence:
+    - condition: state
+      entity_id: input_boolean.downstairs
+      state: 'off'
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.left_end_table_lamp
+        brightness: 100
+        color_name: white
+        power: true
+        transition: 100
+    - service: light.lifx_set_state
+      data:
+        entity_id: light.right_end_table_lamp
+        brightness: 100
+        color_name: white
+        power: true
+        transition: 100
+    - service: climate.set_temperature
+      entity_id: climate.ecobee
+      data:
+        temperature: '70'
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.security_system
+      data:
+        code: '2648'
+    - service: script.turn_on
+      entity_id: script.s_lights_normal_mode
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.bedroom_cast
+        volume_level: '0.25'
+    - service: tts.amazon_polly_say
+      data_template:
+        entity_id: media_player.bedroom_cast
+        message: <>'Good Morning. It's {{ states("sensor.time")}} o'clock. The temperature outside is {{ states("sensor.dark_sky_apparent_temperature")}} degrees and {{ states("sensor.dark_sky_summary")}} with wind up to {{ states("sensor.dark_sky_wind_speed")}} miles per hour.'<>
+        cache: true
+    - service: notify.ios_all
+      data:
+        title: "Alarm Clock"
+        message: "It's Time For You To Wake Up!"
+        data:
+          push:
+            sound: "US-EN-Alexa-Good-Morning.wav"
+            badge: 0
+            category: 'alarmclock'
+  ###### script for running if downstairs and the alarm clock gets triggered ########
+  s_alarm_clock_downstairs:
+    sequence:
+    - condition: state
+      entity_id: input_boolean.downstairs
+      state: 'on'
+    - service: script.turn_on
+      entity_id: script.s_lights_normal_mode
+    - service: light.turn_on
+      entity_id: group.downstairs_lights
+    - service: climate.set_temperature
+      entity_id: climate.ecobee
+      data:
+        temperature: '74'
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.security_system
+      data:
+        code: '2648'
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.livingroom_chromecast
+        volume_level: '0.80'
+    - service: tts.amazon_polly_say
+      data_template:
+        entity_id: media_player.livingroom_chromecast
+        message: <>'Good Morning. It's {{ states("sensor.time")}} o'clock. The temperature outside is {{ states("sensor.dark_sky_apparent_temperature")}} degrees and {{ states("sensor.dark_sky_summary")}} with wind up to {{ states("sensor.dark_sky_wind_speed")}} miles per hour.'<>
+        cache: true
+    - service: notify.ios_joes_iphone
+      data:
+        title: "Alarm Clock"
+        message: "It's Time For You To Wake Up!"
+        data:
+          push:
+            sound: "US-EN-Alexa-Good-Morning.wav"
+            badge: 0
+            category: 'alarmclock'
+    

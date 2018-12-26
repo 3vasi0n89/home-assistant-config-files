@@ -1,0 +1,8 @@
+all_lights_75:
+  sequence:
+    - service: light.lifx_set_state
+      data:
+        entity_id: group.lifx_lights
+        color_name: white
+        brightness: '191'
+        transition: '5'

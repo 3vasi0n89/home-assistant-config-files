@@ -1,0 +1,22 @@
+- id: firetv_started_from_hass
+  alias: Fire TV started from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+    to: Fire TV
+  action:
+    service: script.turn_on
+    entity_id: script.firetv
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

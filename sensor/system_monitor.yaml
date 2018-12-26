@@ -1,0 +1,9 @@
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+    - type: memory_free
+    - type: disk_free
+    - type: disk_use
+    - type: memory_use_percent
+    - type: memory_use
+    - type: processor_use

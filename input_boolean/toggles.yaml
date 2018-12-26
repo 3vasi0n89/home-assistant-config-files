@@ -1,0 +1,39 @@
+fireplace:
+  name: Fireplace
+  icon: mdi:fire
+
+fireplace_temp:
+  name: Fireplace Temp
+  icon: mdi:thermometer
+
+party_time:
+  name: Party Time
+  initial: off
+  icon: mdi:power
+
+dining_room_lights:
+  name: Dining Room Lights
+  icon: mdi:lightbulb
+
+doorbell:
+  name: Doorbell
+  icon: mdi:bell
+  initial: off
+
+out_front_mode:
+  name: Out Front Mode
+  icon: mdi:pine-tree
+  initial: off
+
+out_back_mode:
+  name: Out Back Mode
+  icon: mdi:pine-tree
+  initial: off
+
+movie_mode:
+  name: Movie Mode
+  icon: mdi:movie-roll
+  
+lock_out:
+  name: Lock Out
+  icon: mdi:lock

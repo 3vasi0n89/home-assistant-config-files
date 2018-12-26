@@ -1,0 +1,22 @@
+- platform: mqtt  
+  state_topic: "saraah/sensornode3"  
+  name: "SN3 Humidity"  
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}'
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

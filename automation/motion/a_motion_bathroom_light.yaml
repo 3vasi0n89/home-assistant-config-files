@@ -1,0 +1,22 @@
+- id: a_motion_bathroom_light
+  alias: Motion Bathroom Light
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bathroom_motion
+      to: 'on'
+  action:
+    service: script.turn_on
+    entity_id: script.s_motion_bathroom_light
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

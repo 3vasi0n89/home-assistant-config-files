@@ -1,0 +1,22 @@
+- id: a_motion_master_bedroom_light
+  alias: Motion Master Bedroom Light
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: sensor.sn1_pir
+      to: 'motion detected'
+  action:
+    service: script.turn_on
+    entity_id: script.s_motion_master_bedroom_light
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

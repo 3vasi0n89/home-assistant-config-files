@@ -1,0 +1,22 @@
+- alias: "Janet New device connected"
+  id: janet_new_device_connected
+  trigger:
+    - platform: event
+      event_type: device_tracker_new_device
+  
+  action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.janet_alert_mode
+  
+    - service: script.janet_speech_engine
+      data:
+        call_greeting: 1
+        call_new_device: 1
+      data_template:
+        person: >-
+          {{ trigger.event.data.name }}
+  
+  
+  
+  

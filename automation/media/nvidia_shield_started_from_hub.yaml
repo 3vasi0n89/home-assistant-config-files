@@ -1,0 +1,22 @@
+- id: Nvidia Shield_started_from_hub
+  alias: Nvidia Shield started from Harmony Hub
+  trigger:
+    platform: state
+    entity_id: remote.bedroom
+  condition:
+    condition: template
+    value_template: '{{ trigger.to_state.attributes.current_activity == "TV"
+      }}'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.bedroom_tv
+    data:
+      option: Nvidia Shield
+  
+  
+  
+  
+  
+  
+  
+  

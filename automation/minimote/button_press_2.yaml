@@ -1,0 +1,39 @@
+- id: a_minimote_button_press_2
+  alias: Minimote Button Press 2
+  trigger:
+    platform: state
+    entity_id: sensor.supermote_73
+    to: "2"
+  action:
+    - service: light.lifx_set_state
+      data:
+        entity_id: group.lifx_hallway
+        color_name: white
+        brightness: '50'
+        transition: '5'
+        power: true
+    - service: light.lifx_set_state
+      data:
+        entity_id: group.lifx_bedroom
+        color_name: red
+        brightness: '50'
+        transition: '5'
+        power: true
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.whole_house
+        media_content_id: "rain_noises"
+        media_content_type: "AMAZON_MUSIC"
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.living_room_fire_tv
+    - delay: "00:05:00"
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.livingroom_dot, media_player.hallway_dot
+    - service: light.lifx_set_state
+      data:
+        entity_id: group.lifx_hallway
+        color_name: white
+        brightness: '155'
+        transition: '5'

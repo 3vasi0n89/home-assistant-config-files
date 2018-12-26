@@ -1,0 +1,420 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
+  unit_system: imperial
+  time_zone: America/New_York
+  customize: !include_dir_merge_named customize
+  customize_glob:
+#    "light.*":
+#      custom_ui_state_card: state-card-custom-ui
+#      state_card_mode: break-slider-toggle
+#      stretch_slider: false
+#      extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
+#      hide_control: false
+#      show_last_changed: false
+#      theme: happy
+#      confirm_controls_show_lock: true
+#      slider_theme:
+#        min: 0
+#        max: 255
+#        pin: true
+#        off_when_min: true
+#        report_when_not_changed: false
+    "sensor.dark_sky_*":
+      homebridge_hidden: true
+
+  packages: !include_dir_named packages
+  whitelist_external_dirs:
+    - /config
+#  auth_providers:
+#   - type: homeassistant
+#   - type: legacy_api_password
+
+http:
+  api_password: !secret api_password
+#  ssl_certificate: !secret ssl_cert
+#  ssl_key: !secret ssl_key
+  use_x_forwarded_for: True
+  trusted_proxies:
+    - 127.0.0.1
+  trusted_networks:
+    - 192.168.1.0/24
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  base_url: !secret base_url
+
+config:
+#customizer:
+#  custom_ui: local
+
+cloud:
+  alexa:
+    filter:
+      include_domains:
+        - switch
+        - light
+        - lock
+        - input_boolean
+        - input_select
+      exclude_domains:
+        - device_tracker
+        - media_player
+        - automation
+        - binary_sensor
+        - group
+        - camera
+        - climate
+        - scene
+        - script
+        - sensor
+      exclude_entities:
+        - light.left_attic_light
+        - light.right_attic_light
+        - light.left_end_table_lamp
+        - light.right_end_table_lamp
+        - light.living_room_lamp
+        - light.front_porch_light
+        - light.downstairs_hall_light
+        - light.upstairs_hall_light
+        - light.bathroom_light
+      include_entities:
+        - remote.living_room
+        - remote.bedroom
+homekit:
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - switch
+      - light
+      - lock
+      - input_boolean
+      - input_select
+    exclude_domains:
+      - device_tracker
+      - media_player
+      - automation
+      - binary_sensor
+      - group
+      - camera
+      - climate
+      - scene
+      - script
+      - sensor
+    exclude_entities:
+      - light.left_attic_light
+      - light.right_attic_light
+      - light.left_end_table_lamp
+      - light.right_end_table_lamp
+      - light.living_room_lamp
+      - light.front_porch_light
+      - light.downstairs_hall_light
+      - light.upstairs_hall_light
+      - light.bathroom_light
+    include_entities:
+      - remote.living_room
+      - remote.bedroom
+  entity_config:
+    alarm_control_panel.security_system:
+      code: !secret alarm_code
+    lock.front_door_deadbolt_60:
+      code: !secret front_door_code
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+    region_name: 'us-east-1'
+    voice: Joanna
+    cache: true
+  - platform: google
+notify:
+  - platform: ios
+  - name: ios_all
+    platform: group
+    services:
+      - service: ios_joes_iphone
+      - service: ios_savannahs_iphone
+  - name: ios_joe
+    platform: group
+    services:
+      - service: ios_joes_iphone
+#  - name: janet
+#    platform: telegram
+#    chat_id: !secret chat_id
+
+#telegram_bot:
+#  - platform: polling
+#    api_key: !secret telegram_api_key
+#    allowed_chat_ids:
+#     - !secret chat_id
+#####################################
+#                                   #
+#############DEVICES#################
+#                                   #
+#####################################
+
+#alexa:
+
+wink:
+
+alarm_control_panel:
+  platform: manual
+  code: !secret alarm_code
+  disarm_after_trigger: False
+  name: Security System
+  pending_time: 60
+  trigger_time: 120
+
+octoprint:
+  host: !secret octoprint_ip
+  api_key: !secret octoprint_api
+  bed: true
+  number_of_tools: 1
+
+ios:
+  push:
+    categories:
+      - name: all power off
+        identifier: 'allpoweroff'
+        actions:
+          - identifier: 'ALL_POWER_OFF'
+            title: 'Power Down The House'
+            destructive: yes
+      - name: alarm
+        identifier: 'alarm'
+        actions:
+          - identifier: 'TRIGGER_ALARM'
+            title: 'Trigger the Alarm'
+            destructive: yes
+          - identifier: 'DEACTIVATE_ALARM'
+            title: 'Deactivate the Alarm'
+            destructive: no
+      - name: alarm clock
+        identifier: 'alarmclock'
+        actions:
+          - identifier: 'AWAKE'
+            title: 'Awake'
+            destructive: no
+          - identifier: 'SNOOZE'
+            title: 'Snooze'
+            destructive: yes
+      - name: power on the house
+        identifier: 'poweronthehouse'
+        actions:
+          - identifier: 'UNLOCK_FRONT_DOOR'
+            title: 'Unlock the Door'
+            destructive: no
+          - identifier: 'LOCK_FRONT_DOOR'
+            title: 'Lock the Door'
+            destructive: yes
+            
+media_player:
+  - platform: kodi
+    host: !secret livingroom_host
+    name: Living Room Kodi
+  - platform: kodi
+    host: !secret bedroom_host
+    name: Master Bedroom Kodi
+  - platform: alexa
+    email: !secret email2
+    password: !secret normal_password
+    url: amazon.com
+  - platform: firetv
+    name: Living Room Fire TV
+    host: 192.168.1.17
+    adbkey: /config/android/adbkey
+  - platform: floorplan_speaker
+    name: Living Room Floorplan Speaker
+  - platform: floorplan_speaker
+    name: Bedroom Floorplan Speaker
+#  - platform: emby
+#    host: 192.168.1.9
+#    api_key: !secret emby_api_key
+  
+vera:
+  vera_controller_url: !secret vera_ip
+  
+tuya:
+  username: !secret phone
+  password: !secret normal_password
+  country_code: 1
+  
+#emulated_hue:
+#  host_ip: !secret alexa_host_ip
+#  expose_by_default: true
+#  exposed_domains:
+#  - light
+#  - switch
+#  - input_boolean
+#  - media_player
+  
+coinbase:
+  api_key: !secret coinbase_api
+  api_secret: !secret coinbase_secret
+  exchange_rate_currencies:
+    - LTC
+
+ifttt:
+  key: !secret ifttt_api_key
+  
+remote:
+  - platform: harmony
+    name: Living Room
+    host: !secret harmony_host
+    activity: Fire TV
+  - platform: harmony
+    name: Bedroom
+    host: !secret harmony_host2
+    activity: TV
+ 
+arlo:
+  username: !secret arlo_email
+  password: !secret arlo_pass
+ 
+#dominos:
+#  country_code: us
+#  first_name: !secret first_name
+#  last_name: !secret last_name
+#  email: !secret email
+#  phone: !secret phone
+#  address: !secret address
+#  show_menu: 1
+#  orders:
+#  - name: Medium Pan
+#    codes:
+#      - P12IPAZA
+
+camera:
+  - platform: arlo
+  - platform: foscam
+    ip: !secret foscam_ip
+    name: Bedroom Cam
+    username: !secret foscam_user
+    password: !secret foscam_pass
+    port: !secret foscam_port
+  - platform: mjpeg
+    mjpeg_url: !secret octoprint_camera_ip
+    name: Octoprint Cam
+  - platform: generic
+    name: Weather Radar
+    still_image_url: !secret radar_still_image_url
+
+ffmpeg:
+  
+#panel_iframe:
+#  dashboard:
+#    title: 'HADashboard'
+#    url: 'http://192.168.1.9:5050/main_dash'
+#    icon: mdi:apps
+
+panel_custom:
+#  - name: dominos
+#    sidebar_title: Dominos
+#    sidebar_icon: mdi:pizza
+#    url_path: dominos
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include /config/www/custom_ui/floorplan/floorplan.yaml
+#  - name: floorplan
+#    sidebar_title: 2nd Floor
+#    sidebar_icon: mdi:home
+#    url_path: 2nd_floor
+#    config: !include /config/www/custom_ui/floorplan/doorplan.yaml
+    
+mqtt:
+  broker: !secret mqtt_broker
+  port: 1883
+  client_id: home-assistant-1
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
+  
+ecobee:
+  api_key: !secret ecobee_api_key
+  
+####################################
+#                                  #  
+############PRESENCE TRACKER########
+#                                  #
+####################################
+
+device_tracker:
+  - platform: tile
+    username: !secret email
+    password: !secret normal_password
+  - platform: nmap_tracker
+    hosts: 192.168.1.1-100
+    home_interval: 10
+    exclude:
+      - 192.168.1.9
+      - 192.168.1.11
+      - 192.168.1.15
+      - 192.168.1.71
+      - 192.168.1.72
+      - 192.168.1.73
+      - 192.168.1.74
+      - 192.168.1.77
+      
+#  - platform: netgear
+#    host: !secret netgear_host
+#    username: !secret netgear_user
+#    password: !secret netgear_pass
+
+####################################
+#                                  #
+############INCLUDES################
+#                                  #
+####################################
+
+binary_sensor: !include_dir_merge_list binary_sensor
+sensor: !include_dir_merge_list sensor
+group: !include_dir_merge_named group
+automation: !include_dir_merge_list automation
+input_number: !include_dir_merge_named input_number
+input_select: !include_dir_merge_named input_select
+input_boolean: !include_dir_merge_named input_boolean
+script: !include_dir_merge_named script
+switch: !include_dir_merge_list switch
+shell_command: !include_dir_merge_named shell_command
+weblink: !include weblinks.yaml
+light: !include_dir_merge_list light
+scene: !include_dir_merge_list scene
+intent_script: !include_dir_merge_named alexa_intents/
+
+
+####################################
+#                                  #
+############ENABLES#################
+#                                  #
+####################################
+
+
+discovery:
+conversation:
+history:
+logbook:
+#logger: !include logger.yaml
+sun:
+frontend:
+  themes: !include_dir_merge_named themes/
+  extra_html_url:
+    - /local/custom_ui/state-card-floorplan.html
+#    - /local/custom_ui/state-card-custom_scenes.html
+#    - /local/custom_ui/state-card-custom-ui.html
+#    - /local/custom_ui/state-card-tiles.html
+#  extra_html_url_es5:
+#    - /local/custom_ui/state-card-custom-ui-es5.html
+#    - /local/custom_ui/state-card-tiles_es5.html
+updater:
+  include_used_components: true
+recorder: !include recorder.yaml
+#  include:
+#    domains:
+#      - light
+#      - sensor
+#      - switch
+#      - media_player

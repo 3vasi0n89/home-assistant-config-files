@@ -1,0 +1,9 @@
+- id: a_minimote_button_press_7
+  alias: Minimote Button Press 7
+  trigger:
+    platform: state
+    entity_id: sensor.supermote_73
+    to: "7"
+  action:
+    service: script.turn_on
+    entity_id: script.xboxone

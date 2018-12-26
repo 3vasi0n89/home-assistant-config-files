@@ -1,0 +1,22 @@
+- platform: mqtt
+  state_topic: "/nodemcu4/Humidity/Humidity"
+  name: "bathroom_humidity"
+  unit_of_measurement: "%"
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

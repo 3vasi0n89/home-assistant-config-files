@@ -1,0 +1,81 @@
+alarm_triggered:
+  sequence:
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.living_room_lamp
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.left_tv_lamp
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.right_tv_lamp
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.downstairs_hall_light
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.upstairs_hall_light
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.bathroom_light
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.left_end_table_lamp
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.right_end_table_lamp
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.lifx_effect_pulse
+    data_template:
+      entity_id: light.front_porch_light
+      brightness: 255
+      color_name: red
+      cycles: 3600
+      mode: strobe
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+  - delay: '00:00:01'
+  - service: light.turn_on
+    entity_id: light.livingroom_tv
+    data_template:
+      effect: red_strobe
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.all_cast
+      volume_level: '1.0'
+  - service: tts.amazon_polly_say
+    data_template:
+      entity_id: media_player.all_cast
+      message: <>'The police have been informed of your break in and are on their way. Your actions have been recorded by the cameras since the moment you stepped on the property'<>
+      cache: true

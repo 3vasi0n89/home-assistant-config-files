@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    time_templated_am_pm:
+      friendly_name: 'Time AM/PM'
+      value_template: "{{ now().strftime('%I:%M %p') }}"
+      entity_id: sensor.time

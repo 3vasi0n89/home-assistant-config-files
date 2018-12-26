@@ -1,0 +1,18 @@
+- name: all lights 50
+  entities:
+    light.upstairs_hall_light:
+      brightness: 127
+    light.downstairs_hall_light:
+      brightness: 127
+    light.living_room_lamp:
+      brightness: 127
+    light.bathroom_light:
+      brightness: 127
+    light.left_attic_light:
+      brightness: 127
+    light.right_attic_light:
+      brightness: 127
+    light.left_end_table_lamp:
+      brightness: 127
+    light.right_end_table_lamp:
+      brightness: 127

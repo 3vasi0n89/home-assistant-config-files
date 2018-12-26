@@ -1,0 +1,22 @@
+- id: a_leaving_home
+  alias: Leaving Home
+  trigger:
+    platform: state
+    entity_id: group.family
+    to: not_home
+  condition:
+    condition: state
+    entity_id: input_boolean.guest_mode
+    state: 'off'
+  action:
+  - service: script.turn_on
+    entity_id: script.all_power_off
+  - service: notify.ios_all
+    data:
+      title: You've Left The House
+      message: The house is now shutting down and the security is arming!
+      data:
+        push:
+          sound: "US-EN-Alexa-Good-Night.wav"
+  
+  

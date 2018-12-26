@@ -1,0 +1,69 @@
+binary_sensor.back_door_70:
+  device_class: opening
+  icon: mdi:door
+  
+binary_sensor.front_door_8:
+  device_class: opening
+  icon: mdi:door
+  
+binary_sensor.living_room_window_1_46:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.living_room_window_2_5:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.living_room_window_3_44:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.living_room_window_4_7:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.side_door_45:
+  device_class: opening
+  icon: mdi:door
+  
+binary_sensor.motion_detector_25:
+  device_class: motion
+  friendly_name: Living Room Motion
+  
+binary_sensor.bathroom_motion:
+  friendly_name: Bathroom Motion
+
+binary_sensor.dining_room_window_77:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.kitchen_window_1_78:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.kitchen_window_2_74:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.michaels_window_1_75:
+  device_class: opening
+  icon: mdi:window-closed
+
+binary_sensor.michaels_window_2_76:
+  device_class: opening
+  icon: mdi:window-closed
+  
+binary_sensor.garage_door_sensor_71:
+  device_class: opening
+  icon: mdi:garage
+  friendly_name: Garage Door
+  
+binary_sensor.carpresence:
+  friendly_name: Joes Car
+  icon: mdi:car-sports
+  device_class: occupancy
+  
+binary_sensor.floorplan:
+  custom_ui_state_card: state-card-floorplan
+  config:
+    config: /local/custom_ui/floorplan/floorplan.yaml

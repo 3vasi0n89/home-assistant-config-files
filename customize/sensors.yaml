@@ -1,0 +1,65 @@
+climate.ecobee:
+  friendly_name: Thermostat
+
+sensor.wink_relay_sensor_1_temperature:
+  friendly_name: Room Temperature
+  
+sensor.wink_relay_sensor_1_humidity:
+  friendly_name: Room Humidity
+  icon: mdi:water-percent
+  
+sensor.sn1_pir:
+  friendly_name: Motion Detector
+  icon: mdi:run-fast
+  
+sensor.sn1_ldr:
+  friendly_name: Light Sensor
+  icon: mdi:theme-light-dark  
+  
+sensor.sn1_temperature:
+  friendly_name: Room Temperature
+
+sensor.sn1_humidity:
+  friendly_name: Room Humidity
+  icon: mdi:water-percent
+  
+sensor.sn2_pir:
+  friendly_name: Motion Detector
+  icon: mdi:run-fast
+  
+sensor.sn2_ldr:
+  friendly_name: Light Sensor
+  icon: mdi:theme-light-dark  
+  
+sensor.sn2_temperature:
+  friendly_name: Room Temperature
+
+sensor.sn2_humidity:
+  friendly_name: Room Humidity
+  icon: mdi:water-percent
+
+sensor.dark_sky_temperature:
+  friendly_name: Outside Temperature
+  
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Apparent Temperature
+  
+sensor.dark_sky_humidity:
+  friendly_name: Outside Humidity
+
+sensor.dark_sky_cloud_coverage:
+  friendly_name: Outside Cloud Coverage
+  
+sensor.dark_sky_visibility:
+  friendly_name: Outside Visibility
+  
+sensor.dark_sky_wind_speed:
+  friendly_name: Outside Wind Speed
+
+sensor.ecobee_temperature:
+  friendly_name: Inside Temperature
+  icon: mdi:thermometer
+
+sensor.ecobee_humidity:
+  friendly_name: Inside Humidity
+  icon: mdi:water-percent

@@ -1,0 +1,4 @@
+input_number.denon_volume:
+  icon: mdi:volume-high
+  hidden: false
+  

@@ -1,0 +1,22 @@
+- id: alarm_t
+  alias: alarm turn on
+  trigger:
+    platform: state
+    entity_id: input_boolean.alarm_triggered
+    to: 'on'
+  action:
+    service: script.turn_on
+    entity_id: script.alarm_triggered
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

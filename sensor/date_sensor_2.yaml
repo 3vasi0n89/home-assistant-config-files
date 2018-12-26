@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    date_format_2:
+      friendly_name: 'Date 2'
+      value_template: >
+        {% set months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %}
+        {% set month = months[now().strftime('%m') | int -1] %}
+        {{ month + ' ' + now().strftime('%d') + ' '+ now().strftime('%Y') }}
+      entity_id: sensor.time

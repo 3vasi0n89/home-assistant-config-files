@@ -1,0 +1,9 @@
+- id: a_minimote_button_press_5
+  alias: Minimote Button Press 5
+  trigger:
+    platform: state
+    entity_id: sensor.supermote_73
+    to: "5"
+  action:
+    service: script.turn_on
+    entity_id: script.firetv
