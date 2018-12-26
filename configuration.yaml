@@ -358,11 +358,6 @@ device_tracker:
       - 192.168.1.73
       - 192.168.1.74
       - 192.168.1.77
-      
-#  - platform: netgear
-#    host: !secret netgear_host
-#    username: !secret netgear_user
-#    password: !secret netgear_pass
 
 ####################################
 #                                  #
