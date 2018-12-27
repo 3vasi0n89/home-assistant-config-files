@@ -7,7 +7,7 @@ shower_time:
     - service: alarm_control_panel.alarm_arm_home
       entity_id: alarm_control_panel.security_system
       data:
-        code: '2648'
+        code: !secret alarm_code
     - service: media_player.play_media
       data:
         entity_id: media_player.bathroom_dot

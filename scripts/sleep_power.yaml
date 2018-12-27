@@ -8,7 +8,7 @@ s_sleep_power:
     - service: alarm_control_panel.alarm_arm_home
       entity_id: alarm_control_panel.security_system
       data:
-        code: '2648'
+        code: !secret alarm_code
     - service: script.turn_on
       entity_id: script.tvoff
     - service: light.turn_off

@@ -365,19 +365,19 @@ device_tracker:
 #                                  #
 ####################################
 
-binary_sensor: !include_dir_merge_list binary_sensor
-sensor: !include_dir_merge_list sensor
-group: !include_dir_merge_named group
-automation: !include_dir_merge_list automation
-input_number: !include_dir_merge_named input_number
-input_select: !include_dir_merge_named input_select
-input_boolean: !include_dir_merge_named input_boolean
-script: !include_dir_merge_named script
-switch: !include_dir_merge_list switch
-shell_command: !include_dir_merge_named shell_command
+binary_sensor: !include_dir_merge_list binary_sensors
+sensor: !include_dir_merge_list sensors
+group: !include_dir_merge_named groups
+automation: !include_dir_merge_list automations
+input_number: !include_dir_merge_named input_numbers
+input_select: !include_dir_merge_named input_selects
+input_boolean: !include_dir_merge_named input_booleans
+script: !include_dir_merge_named scripts
+switch: !include_dir_merge_list switches
+shell_command: !include_dir_merge_named shell_commands
 weblink: !include weblinks.yaml
-light: !include_dir_merge_list light
-scene: !include_dir_merge_list scene
+light: !include_dir_merge_list lights
+scene: !include_dir_merge_list scenes
 intent_script: !include_dir_merge_named alexa_intents/
 
 
