@@ -17,6 +17,7 @@ known_devices.yaml
 pihole_switch.yaml
 joes_work_travel_time.yaml
 savannahs_work_travel_time.yaml
+*.gitinstructions
 *.disabled
 *.pid
 *.xml

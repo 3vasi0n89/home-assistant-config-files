@@ -1,7 +1,5 @@
 s_party_mode:
   sequence:
-  - service: scene.turn_on
-    entity_id: scene.party
   - service: media_player.volume_set
     data:
       entity_id: media_player.all_cast

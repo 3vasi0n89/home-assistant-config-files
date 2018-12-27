@@ -7,30 +7,12 @@ homeassistant:
   time_zone: America/New_York
   customize: !include_dir_merge_named customize
   customize_glob:
-#    "light.*":
-#      custom_ui_state_card: state-card-custom-ui
-#      state_card_mode: break-slider-toggle
-#      stretch_slider: false
-#      extra_data_template: "${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : ''}"
-#      hide_control: false
-#      show_last_changed: false
-#      theme: happy
-#      confirm_controls_show_lock: true
-#      slider_theme:
-#        min: 0
-#        max: 255
-#        pin: true
-#        off_when_min: true
-#        report_when_not_changed: false
     "sensor.dark_sky_*":
       homebridge_hidden: true
 
   packages: !include_dir_named packages
   whitelist_external_dirs:
     - /config
-#  auth_providers:
-#   - type: homeassistant
-#   - type: legacy_api_password
 
 http:
   api_password: !secret api_password
@@ -46,8 +28,6 @@ http:
   base_url: !secret base_url
 
 config:
-#customizer:
-#  custom_ui: local
 
 cloud:
   alexa:
@@ -120,6 +100,7 @@ homekit:
       code: !secret alarm_code
     lock.front_door_deadbolt_60:
       code: !secret front_door_code
+
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret aws_access_key_id
@@ -128,6 +109,7 @@ tts:
     voice: Joanna
     cache: true
   - platform: google
+
 notify:
   - platform: ios
   - name: ios_all
@@ -228,9 +210,6 @@ media_player:
     name: Living Room Floorplan Speaker
   - platform: floorplan_speaker
     name: Bedroom Floorplan Speaker
-#  - platform: emby
-#    host: 192.168.1.9
-#    api_key: !secret emby_api_key
   
 vera:
   vera_controller_url: !secret vera_ip
@@ -318,11 +297,6 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan
     config: !include /config/www/custom_ui/floorplan/floorplan.yaml
-#  - name: floorplan
-#    sidebar_title: 2nd Floor
-#    sidebar_icon: mdi:home
-#    url_path: 2nd_floor
-#    config: !include /config/www/custom_ui/floorplan/doorplan.yaml
     
 mqtt:
   broker: !secret mqtt_broker
@@ -394,18 +368,15 @@ history:
 logbook:
 #logger: !include logger.yaml
 sun:
+
 frontend:
   themes: !include_dir_merge_named themes/
   extra_html_url:
     - /local/custom_ui/state-card-floorplan.html
-#    - /local/custom_ui/state-card-custom_scenes.html
-#    - /local/custom_ui/state-card-custom-ui.html
-#    - /local/custom_ui/state-card-tiles.html
-#  extra_html_url_es5:
-#    - /local/custom_ui/state-card-custom-ui-es5.html
-#    - /local/custom_ui/state-card-tiles_es5.html
+    
 updater:
   include_used_components: true
+
 recorder: !include recorder.yaml
 #  include:
 #    domains:

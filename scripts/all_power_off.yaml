@@ -12,8 +12,6 @@ all_power_off:
       entity_id: group.lifx_lights
     - service: switch.turn_off
       entity_id: group.power_switches
-    - service: ifttt.trigger
-      data: {"event":"dining_room_lights_off"}
     - service: climate.set_temperature
       entity_id: climate.ecobee
       data:
