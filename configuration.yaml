@@ -15,7 +15,7 @@ homeassistant:
     - /config
 
 http:
-  api_password: !secret api_password
+#  api_password: !secret api_password
 #  ssl_certificate: !secret ssl_cert
 #  ssl_key: !secret ssl_key
   use_x_forwarded_for: True
