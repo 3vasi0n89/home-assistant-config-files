@@ -1,0 +1,32 @@
+media_players:
+  name: Media Players
+  entities:
+  - media_player.living_room_fire_tv
+  - media_player.living_room_kodi
+  - media_player.master_bedroom_kodi
+  - media_player.amazon_fire_tv
+  - media_player.surround_sound_cast
+  - media_player.livingroom_cast
+  - media_player.master_bedroom_cast
+  - media_player.all_cast
+  - media_player.spotify
+  - media_player.emby__kodi_embycon__embycon
+echo_dots:
+  name: Echo Dots
+  entities:
+  - media_player.livingroom_dot
+  - media_player.hallway_dot
+  - media_player.bathroom_dot
+  - media_player.kitchen_dot
+  - media_player.back_porch_dot
+  - media_player.bedroom_dot
+  - media_player.michaels_dot
+  - media_player.attic_dot
+  - media_player.chris_and_bens_dot
+  - media_player.whole_house
+chromecast_radio:
+  name: Chromecast Radio
+  entities:
+  - input_select.radio_station
+  - input_select.chromecast_radio
+  - script.radio538

@@ -1,0 +1,20 @@
+cr10:
+  name: CR-10
+  entities:
+  - switch.3d_printer_16
+  - switch.printer_light_17
+  - camera.octoprint_cam
+cr10_information:
+  name: Information
+  entities:
+  - weblink.cr10_interface
+  - sensor.octoprint_current_state
+  - binary_sensor.octoprint_printing
+  - binary_sensor.octoprint_printing_error
+  - sensor.octoprint_job_percentage
+  - sensor.octoprint_time_elapsed
+  - sensor.octoprint_time_remaining
+  - sensor.bed
+  - sensor.bed_target
+  - sensor.hotend
+  - sensor.hotend_target

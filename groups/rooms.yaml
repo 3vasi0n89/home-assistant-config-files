@@ -1,0 +1,96 @@
+downstairshallway:
+  name: Downstairs Hallway
+  entities:
+  - lock.front_door_deadbolt_60
+  - light.downstairs_hall_light
+  - binary_sensor.front_door_8
+livingroom:
+  name: Living Room
+  entities:
+  - input_select.living_room_tv
+  - light.livingroom_tv
+  - input_number.denon_volume
+  - switch.ceiling_fan
+  - switch.ceiling_fan_light
+  - light.living_room_lamp
+  - switch.christmas_tree_lights
+  - input_number.livingroom_lamp_dimmer
+  - sensor.wink_relay_sensor_1_temperature
+  - sensor.wink_relay_sensor_1_humidity
+  - binary_sensor.motion_detector_25
+diningroom:
+  name: Dining Room
+  entities:
+  - binary_sensor.back_door_42
+  - climate.ecobee
+  - switch.left_dining_room_light
+  - switch.right_dining_room_light
+  - binary_sensor.dining_room_motion
+downstairsbathroom:
+  name: Downstairs Bathroom
+  entities:
+  - light.bathroom_light
+  - switch.toilet_air_freshener
+  - sensor.bathroom_temperature
+  - sensor.bathroom_humidity
+  - binary_sensor.bathroom_motion
+kitchen:
+  name: Kitchen
+  entities:
+  - light.kitchen_underglow
+  - sensor.sn2_temperature
+  - sensor.sn2_humidity
+  - sensor.sn2_ldr
+  - sensor.sn2_pir
+  - light.sn2_led
+basementstairs:
+  name: Basement Stairs
+  entities:
+  - sensor.owm_temperature
+basement:
+  name: Basement
+  entities:
+  - sensor.owm_temperature
+upstairshallway:
+  name: Upstairs Hallway
+  entities:
+  - light.upstairs_hall_light
+upstairsbathroom:
+  name: Upstairs Bathroom
+  entities:
+  - sensor.owm_temperature
+babiesroom:
+  name: Babies Room
+  entities:
+  - sensor.owm_temperature
+masterbedroom:
+  name: Master Bedroom
+  entities:
+  - input_select.bedroom_tv
+  - input_boolean.fireplace
+  - input_boolean.fireplace_temp
+  - switch.strip_cord1
+  - light.end_table_lamps
+  - sensor.sn1_temperature
+  - sensor.sn1_humidity
+  - sensor.sn1_ldr
+  - sensor.sn1_pir
+  - light.sn1_led
+  - binary_sensor.bedroom_motion
+attic:
+  name: Attic
+  entities:
+  - switch.attic_door_lock
+  - light.attic_lights
+guestroom:
+  name: Guest Room
+  entities:
+  - sensor.owm_temperature
+frontporch:
+  name: Front Porch
+  entities:
+  - light.front_porch_light
+backporch:
+  name: Back Porch
+  entities:
+  - sensor.owm_temperature

@@ -1,0 +1,53 @@
+family:
+  name: Family
+  entities:
+    - device_tracker.joes_iphone
+    - device_tracker.savannahs_iphone
+vehicles:
+  name: Vehicles
+  entities:
+    - binary_sensor.carpresence
+devices:
+  name: Devices
+  entities:
+    - sensor.joes_iphone_battery_level
+    - sensor.savannahs_iphone_battery_level
+enviroment:
+  name: Enviroment
+  entities:
+  - sensor.ecobee_temperature
+  - sensor.ecobee_humidity
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_humidity
+  - sensor.dark_sky_cloud_coverage
+  - sensor.dark_sky_visibility
+  - sensor.dark_sky_wind_speed
+  - sensor.dark_sky_summary
+  - camera.weather_radar
+
+status:
+  name: Status
+  entities:
+    - input_select.holiday
+    - sensor.joes_work_travel_time
+    - sensor.savannahs_work_travel_time
+    - sensor.low_battery
+network:
+  name: Network
+  entities:
+    - sensor.ha_uptime
+    - sensor.ha_installed_version
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    - sensor.speedtest_ping
+    - weblink.router
+    - sensor.homeassistant_v2db
+pihole:
+  name: Pi Hole
+  entities:
+    - switch.pihole_temp_disable
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_dns_unique_clients

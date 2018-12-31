@@ -1,0 +1,70 @@
+default_view:
+  view: true
+  icon: mdi:home
+  entities:
+  - group.frontporch
+  - group.downstairshallway
+  - group.upstairshallway
+  - group.livingroom
+  - group.diningroom
+  - group.kitchen
+  - group.downstairsbathroom
+  - group.masterbedroom
+  - group.attic
+  - group.modes
+
+info_view:
+  view: true
+  icon: mdi:information
+  entities:
+  - group.family
+  - group.vehicles
+  - group.devices
+  - group.status
+  - group.network
+  - group.enviroment
+  - group.alarm_clock
+  - group.pihole
+  name: Info
+
+alarm_view:
+  view: true
+  icon: mdi:security-home
+  entities:
+  - group.alarm_panel
+  - group.doors
+  - group.windows
+  - group.motion_sensors
+  - group.garage
+  - group.all_cameras
+  name: Alarm Panel
+
+media_view:
+  name: Media
+  view: true
+  icon: mdi:youtube
+  entities:
+  - group.media_players
+  - group.echo_dots
+  - group.chromecast_radio
+
+system_view:
+  view: true
+  icon: mdi:settings
+  name: System
+  entities:
+  - group.all_lights_2
+  - group.lifx_lights
+  - group.all_modes
+  - group.all_automations_2
+  - group.all_scenes_2
+  - group.dockers
+  - input_select.hass_theme
+
+octoprint_view:
+  view: true
+  icon: mdi:cloud-print
+  entities:
+  - group.cr10
+  - group.cr10_information
+  name: 3D Printer

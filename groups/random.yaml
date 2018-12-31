@@ -1,0 +1,28 @@
+zones:
+  name: Zones
+  entities:
+    - binary_sensor.floorplan
+sensor_node_1_card:
+  name: Sensor Node 1
+  entities:
+  - sensor.sn1_temperature
+  - sensor.sn1_humidity
+  - sensor.sn1_ldr
+  - sensor.sn1_pir
+  - light.sn1_led
+sensor_node_2_card:
+  name: Kitchen Conditions
+  entities:
+  - sensor.sn2_temperature
+  - sensor.sn2_humidity
+  - sensor.sn2_ldr
+  - sensor.sn2_pir
+  - light.sn2_led
+sensor_node_3_card:
+  name: Sensor Node 3
+  entities:
+  - sensor.sn3_temperature
+  - sensor.sn3_humidity
+  - sensor.sn3_ldr
+  - sensor.sn3_pir
+  - light.sn3_led

@@ -1,0 +1,57 @@
+all_modes:
+  name: All Modes
+  entities:
+    - input_boolean.vacation_mode
+    - input_boolean.alarm_mode
+    - input_boolean.day_mode
+    - input_boolean.night_mode
+    - input_boolean.guest_mode
+    - input_boolean.doorbell
+    - input_boolean.kids_weekend
+    - input_boolean.school_mode
+    - input_boolean.shutdown_mode
+    - input_boolean.sleep_mode
+    - input_boolean.speech_notifications
+    - input_boolean.out_front_mode
+    - input_boolean.out_back_mode
+    - input_boolean.movie_mode
+    - input_boolean.test3
+    - input_boolean.alarm_triggered
+all_automations_2:
+  name: All Automations
+  entities:
+    - automation.leaving_home
+    - automation.entering_home
+    - automation.left_something_open
+    - automation.alarm_armed_away
+    - automation.alarm_armed_home
+    - automation.alarm_disarmed
+    - automation.alarm_tripped
+    - automation.kodi_paused
+    - automation.kodi_playing
+    - automation.kodi_stopped
+    - automation.lock_door_sensor_20_seconds_after_8pm
+modes:
+  name: Modes
+  entities:
+    - input_boolean.movie_mode
+    - input_boolean.guest_mode
+    - input_boolean.vacation_mode
+    - input_boolean.speech_notifications
+all_scenes_2:
+  name: All Scenes
+  entities:
+  - scene.party
+dockers:
+  name: Dockers
+  entities:
+    - switch.mqtt
+    - switch.dasher
+    - switch.binhexdelugevpn
+    - switch.dropbox
+    - switch.embyserver
+    - switch.binhexjackett
+    - switch.binhexsonarr
+    - switch.binhexradarr
+    - switch.krusader
+    - switch.zoneminder

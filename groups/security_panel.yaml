@@ -1,0 +1,42 @@
+alarm_panel:
+  name: Alarm Panel
+  entities:
+    - alarm_control_panel.security_system
+doors:
+  name: Doors
+  entities:
+  - binary_sensor.front_door_8
+  - binary_sensor.back_door_70
+  - binary_sensor.side_door_45
+all_cameras:
+  name: All Cameras
+  entities:
+    - camera.bedroom_cam
+    - camera.front_porch_cam
+motion_sensors:
+  name: Motion Sensors
+  entities:
+    - sensor.template_last_motion
+    - binary_sensor.motion_detector_25
+    - binary_sensor.dining_room_motion
+    - binary_sensor.bedroom_motion
+    - binary_sensor.bathroom_motion
+#    - binary_sensor.kitchen_motion
+#    - binary_sensor.living_room_motion
+#    - binary_sensor.hallway_motion
+windows:
+  name: Windows
+  entities:
+    - binary_sensor.living_room_window_1_46
+    - binary_sensor.living_room_window_2_5
+    - binary_sensor.living_room_window_3_44
+    - binary_sensor.living_room_window_4_7
+    - binary_sensor.dining_room_window_77
+    - binary_sensor.kitchen_window_1_78
+    - binary_sensor.kitchen_window_2_74
+    - binary_sensor.michaels_window_1_75
+    - binary_sensor.michaels_window_2_76
+garage:
+  name: Garage
+  entities:
+    - binary_sensor.garage_door_sensor_71
