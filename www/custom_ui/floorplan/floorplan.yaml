@@ -7,7 +7,7 @@
       # pan_zoom:                  # enable experimental panning / zooming
       # hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
       date_format: MMM-DD-YYYY   # Date format to use in hover-over text
-      
+
       last_motion_entity: sensor.template_last_motion
       last_motion_class: last-motion
 
@@ -18,7 +18,7 @@
              -  sensor.dark_sky_temperature
           #text_template: '${entity.state ? entity.state : "unknown"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
-          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
+          text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
             if (temp < 10)
@@ -40,7 +40,7 @@
               class: 'presense-off'
           text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
 
-            
+
         - name: Lights
           entities:
              - light.downstairs_hall_light
@@ -71,7 +71,7 @@
              - switch.christmas_tree_lights
              - switch.left_dining_room_light
              - switch.right_dining_room_light
-             - switch.ceiling_fan_light
+             - switch.ceiling_fan_light_3
              - switch.3d_printer_16
              - switch.printer_light_17
           states:
@@ -81,11 +81,11 @@
               class: 'switch-off'
           action:
             domain: homeassistant
-            service: toggle            
+            service: toggle
 
         - name: Fan
           entities:
-            - switch.ceiling_fan
+            - switch.ceiling_fan_3
           states:
             - state: 'on'
               class: 'fan-on'
@@ -93,8 +93,8 @@
               class: 'fan-off'
           action:
             domain: homeassistant
-            service: toggle 
-            
+            service: toggle
+
         - name: NVR
           entities:
              - binary_sensor.blue_iris_nvr
@@ -153,7 +153,7 @@
 #              class: 'camera-idle'
 #          camera_image_template: '${entity.attributes.entity_picture}'
           # image_refresh_interval: 20 # in seconds - Future options if needed.
-              
+
         - name: Temperature
           entities:
             - sensor.ecobee_temperature
@@ -166,7 +166,7 @@
 #              return "temp-medium";
 #            else
 #              return "temp-high";
-              
+
         - name: Time Date
           entities:
             - sensor.time_templated_am_pm
@@ -177,7 +177,7 @@
             - sensor.date_format_2
             - sensor.time
             - sensor.number_of_lights_on
-            
+
         - name: Music
           entities:
             - media_player.living_room_dot
@@ -197,7 +197,7 @@
               class: 'music-paused'
             - state: 'standby'
               class: 'music-off'
-              
+
         - name: sleep time
           entities:
             - script.s_sleep_power
@@ -225,48 +225,48 @@
           action:
             service: turn_on
           text_template: 'All Lights 100%'
-          
+
         - name: all lights 75
           entities:
             - script.all_lights_75
           action:
             service: turn_on
           text_template: 'All Lights 75%'
-          
+
         - name: all lights 50
           entities:
             - script.all_lights_50
           action:
             service: turn_on
           text_template: 'All Lights 50%'
-          
+
         - name: all lights 25
           entities:
             - script.all_lights_25
           action:
             service: turn_on
           text_template: 'All Lights 25%'
-          
+
         - name: guest mode
           entities:
             - input_boolean.guest_mode
           action:
             service: toggle
           text_template: 'Guest Mode'
-          
+
         - name: alarm clock status
           entities:
             - input_boolean.alarm_clock_status
           action:
             service: toggle
-            
+
         - name: snooze
           entities:
             - script.s_alarm_clock_snooze
           action:
             service: turn_on
           text_template: 'Snooze'
-          
+
         - name: lock
           entities:
             - lock.front_door_deadbolt_60
@@ -274,7 +274,7 @@
           action:
             domain: lock
             service: lock
-            
+
         - name: remote
           entities:
             - script.living_room_remote_back
@@ -298,7 +298,7 @@
             - script.wiiu
           action:
             service: turn_on
- #toggles visibility           
+ #toggles visibility
 #        - name: Media Players
 #          elements:
 #            - media_players_button

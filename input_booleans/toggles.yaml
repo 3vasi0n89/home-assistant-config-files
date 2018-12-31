@@ -11,10 +11,6 @@ party_time:
   initial: off
   icon: mdi:power
 
-dining_room_lights:
-  name: Dining Room Lights
-  icon: mdi:lightbulb
-
 doorbell:
   name: Doorbell
   icon: mdi:bell
@@ -33,7 +29,7 @@ out_back_mode:
 movie_mode:
   name: Movie Mode
   icon: mdi:movie-roll
-  
+
 lock_out:
   name: Lock Out
   icon: mdi:lock

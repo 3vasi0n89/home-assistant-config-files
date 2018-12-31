@@ -17,6 +17,7 @@ all_modes:
     - input_boolean.movie_mode
     - input_boolean.test3
     - input_boolean.alarm_triggered
+
 modes:
   name: Modes
   entities:
@@ -24,6 +25,7 @@ modes:
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
     - input_boolean.speech_notifications
+
 all_switches_2:
   name: All Switches
   entities:
@@ -44,16 +46,11 @@ all_switches_2:
   - switch.strip_cord3
   - switch.strip_cord4
   - switch.toilet_air_freshener
+
 dockers:
   name: Dockers
   entities:
-    - switch.mqtt
-    - switch.dasher
-    - switch.binhexdelugevpn
-    - switch.dropbox
-    - switch.embyserver
-    - switch.binhexjackett
-    - switch.binhexsonarr
-    - switch.binhexradarr
-    - switch.krusader
-    - switch.zoneminder
+    - switch.ha_dockermon_pihole
+    - switch.ha_dockermon_symbiotehostingdelugevpn
+    - switch.ha_dockermon_symbiotehostingradarr
+    - switch.ha_dockermon_symbiotehostingsonarr

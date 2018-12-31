@@ -1550,30 +1550,30 @@
     <style
        id="style33287"
        type="text/css">
-   
+
     .fil0 {fill:black}
-   
+
   </style>
     <style
        id="style33453"
        type="text/css">
-   
+
     .fil0 {fill:black;fill-rule:nonzero}
-   
+
   </style>
     <style
        id="style6395"
        type="text/css">
-   
+
     .fil0 {fill:black;fill-rule:nonzero}
-   
+
   </style>
     <style
        id="style6440"
        type="text/css">
-   
+
     .fil0 {fill:black}
-   
+
   </style>
   </defs>
   <sodipodi:namedview
@@ -1923,7 +1923,7 @@
        inkscape:label="#path33668" />
     <g
        style="clip-rule:evenodd;fill:#333333;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       id="switch.ceiling_fan_light"
+       id="switch.ceiling_fan_light_3"
        transform="matrix(0.02535536,0,0,0.0237646,189.50481,170.87679)"
        inkscape:label="#g33293-4">
       <circle
@@ -2420,7 +2420,7 @@
          y="234.97516"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;stroke-width:0.30155525">Living Room Motion</tspan></text>
     <g
-       id="switch.ceiling_fan"
+       id="switch.ceiling_fan_3"
        transform="matrix(0.53227014,0,0,0.44570879,187.42456,156.12469)"
        style="fill:#333333"
        inkscape:label="#g6343">

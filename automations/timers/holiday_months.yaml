@@ -1,0 +1,33 @@
+  - alias: holiday_months
+    initial_state: True
+    trigger:
+      platform: time
+      at: "00:00:00"
+    action:
+      service: input_select.select_option
+      entity_id: input_select.holiday_month
+      data_template:
+        option: >
+          {% if now().strftime("%m%d")|int == 0101 %}
+            New Years
+          {% elif now().strftime("%m%d")|int >= 0210 and now().strftime("%m%d")|int <= 0214 %}
+            Valentines Day
+          {% elif now().strftime("%m%d")|int == 0305 %}
+            Mardi Gras
+          {% elif now().strftime("%m%d")|int >= 0311 and now().strftime("%m%d")|int <= 0317 %}
+            St Pattys Day
+          {% elif now().strftime("%m%d")|int >= 0419 and now().strftime("%m%d")|int <= 0421 %}
+            Easter
+          {% elif now().strftime("%m%d")|int == 0704 %}
+            Independence Day
+          {% elif now().strftime("%m%d")|int >= 1001 and now().strftime("%m%d")|int <= 1031 %}
+            Halloween
+          {% elif now().strftime("%m%d")|int >= 1101 and now().strftime("%m%d")|int <= 1130 %}
+            Thanksgiving
+          {% elif now().strftime("%m%d")|int >= 1201 and now().strftime("%m%d")|int <= 1230 %}
+            Christmas
+          {% elif now().strftime("%m%d")|int == 1231 %}
+            New Years
+          {% else %}
+            No Holiday
+          {% endif %}

@@ -1,3 +1,12 @@
 - platform: switch
   name: Christmas Tree Lights
   entity_id: switch.christmas_tree_lights
+- platform: switch
+  name: Left Dining Room Light
+  entity_id: switch.left_dining_room_light
+- platform: switch
+  name: Right Dining Room Light
+  entity_id: switch.right_dining_room_light
+- platform: switch
+  name: Ceiling Fan Light
+  entity_id: switch.ceiling_fan_light_3

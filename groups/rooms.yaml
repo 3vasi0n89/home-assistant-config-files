@@ -10,8 +10,8 @@ livingroom:
   - input_select.living_room_tv
   - light.livingroom_tv
   - input_number.denon_volume
-  - switch.ceiling_fan
-  - switch.ceiling_fan_light
+  - switch.ceiling_fan_3
+  - switch.ceiling_fan_light_3
   - light.living_room_lamp
   - switch.christmas_tree_lights
   - input_number.livingroom_lamp_dimmer

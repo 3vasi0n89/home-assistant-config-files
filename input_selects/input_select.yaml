@@ -8,14 +8,14 @@ living_room_tv:
     - Wii U
     - Echo Dot
   icon: mdi:monitor
-  
+
 bedroom_tv:
   name: Bedroom TV
   options:
     - Powered Off
     - Nvidia Shield
   icon: mdi:monitor
-  
+
 joes_state:
   name: Joe's State
   options:
@@ -24,7 +24,7 @@ joes_state:
     - Not Home
     - Working
 
-    
+
 chromecast_radio:
   name: 'Select Speakers:'
   options:
@@ -32,7 +32,7 @@ chromecast_radio:
     - Bedroom
     - Everywhere
   icon: mdi:speaker-wireless
-    
+
 radio_station:
   name: Select Radio Station
   options:
@@ -53,7 +53,7 @@ radio_station:
     - Ambi Nature Radio
     - Calm Radio - Sleep
     - Dinamo.FM Sleep
-    
+
 hass_theme:
     name: HASS Themes
     options:
@@ -85,3 +85,16 @@ holiday:
   - Joes Birthday
   - Michaels Birthday
   - Our Anniversary
+
+holiday_month:
+  name: Holiday Month
+  options:
+  - No Holiday
+  - New Years
+  - Valentines Day
+  - St Pattys Day
+  - Easter
+  - Independence Day
+  - Halloween
+  - Thanksgiving
+  - Christmas

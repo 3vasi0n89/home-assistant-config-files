@@ -10,7 +10,7 @@
     state: 'on'
   action:
   - service: switch.turn_off
-    entity_id: switch.ceiling_fan_light
+    entity_id: switch.ceiling_fan_light_3
   - service: ifttt.trigger
     data: {"event":"dining_room_lights_off"}
   - service: light.lifx_set_state
