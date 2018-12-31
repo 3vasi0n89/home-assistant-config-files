@@ -219,7 +219,7 @@ devices:
   name: Devices
   entities:
     - sensor.joes_iphone_battery_level
-    - sensor.savannahs_iphone_battery_level_5
+    - sensor.savannahs_iphone_battery_level
 enviroment:
   name: Enviroment
   entities:

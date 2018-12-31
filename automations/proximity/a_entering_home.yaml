@@ -3,7 +3,7 @@
   trigger:
     platform: state
     entity_id: group.family
-    to: home 
+    to: home
   action:
   - service: notify.ios_all
     data:
@@ -15,7 +15,7 @@
   - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.security_system
     data:
-      code: '!secret alarm_code'
+      code: !secret alarm_code
   - service: lock.unlock
     entity_id: lock.front_door_deadbolt_60
   - service: light.turn_on

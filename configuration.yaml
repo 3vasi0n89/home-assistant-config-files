@@ -190,7 +190,7 @@ ios:
           - identifier: 'LOCK_FRONT_DOOR'
             title: 'Lock the Door'
             destructive: yes
-            
+
 media_player:
   - platform: kodi
     host: !secret livingroom_host
@@ -210,15 +210,15 @@ media_player:
     name: Living Room Floorplan Speaker
   - platform: floorplan_speaker
     name: Bedroom Floorplan Speaker
-  
+
 vera:
   vera_controller_url: !secret vera_ip
-  
+
 tuya:
   username: !secret phone
   password: !secret normal_password
   country_code: 1
-  
+
 #emulated_hue:
 #  host_ip: !secret alexa_host_ip
 #  expose_by_default: true
@@ -227,7 +227,7 @@ tuya:
 #  - switch
 #  - input_boolean
 #  - media_player
-  
+
 coinbase:
   api_key: !secret coinbase_api
   api_secret: !secret coinbase_secret
@@ -236,7 +236,7 @@ coinbase:
 
 ifttt:
   key: !secret ifttt_api_key
-  
+
 remote:
   - platform: harmony
     name: Living Room
@@ -246,11 +246,11 @@ remote:
     name: Bedroom
     host: !secret harmony_host2
     activity: TV
- 
+
 arlo:
   username: !secret arlo_email
   password: !secret arlo_pass
- 
+
 #dominos:
 #  country_code: us
 #  first_name: !secret first_name
@@ -280,7 +280,7 @@ camera:
     still_image_url: !secret radar_still_image_url
 
 ffmpeg:
-  
+
 #panel_iframe:
 #  dashboard:
 #    title: 'HADashboard'
@@ -297,7 +297,7 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan
     config: !include /config/www/custom_ui/floorplan/floorplan.yaml
-    
+
 mqtt:
   broker: !secret mqtt_broker
   port: 1883
@@ -306,12 +306,12 @@ mqtt:
   password: !secret mqtt_password
   discovery: true
   discovery_prefix: homeassistant
-  
+
 ecobee:
   api_key: !secret ecobee_api_key
-  
+
 ####################################
-#                                  #  
+#                                  #
 ############PRESENCE TRACKER########
 #                                  #
 ####################################
@@ -373,7 +373,7 @@ frontend:
   themes: !include_dir_merge_named themes/
   extra_html_url:
     - /local/custom_ui/state-card-floorplan.html
-    
+
 updater:
   include_used_components: true
 
