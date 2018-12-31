@@ -57,7 +57,9 @@ system_view:
   - group.lifx_lights
   - group.all_modes
   - group.all_automations_2
+  - group.all_scripts_2
   - group.all_scenes_2
+  - gorup.all_switches_2
   - group.dockers
   - input_select.hass_theme
 

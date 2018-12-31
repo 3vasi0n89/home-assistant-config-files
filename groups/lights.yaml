@@ -12,6 +12,7 @@ all_lights_2:
     - input_boolean.dining_room_lights
     - light.livingroom_tv
     - light.kitchen_floor_lights
+    - light.christmas_tree_lights
     - switch.still_needs_13
     - switch.strip_cord1
     - switch.strip_cord2
@@ -36,6 +37,7 @@ downstairs_lights:
   - light.living_room_lamp
   - switch.dining_room_lights
   - light.bathroom_light
+  - light.christmas_tree_lights
 upstairs_lights:
   name: Upstairs Lights
   entities:

@@ -17,20 +17,6 @@ all_modes:
     - input_boolean.movie_mode
     - input_boolean.test3
     - input_boolean.alarm_triggered
-all_automations_2:
-  name: All Automations
-  entities:
-    - automation.leaving_home
-    - automation.entering_home
-    - automation.left_something_open
-    - automation.alarm_armed_away
-    - automation.alarm_armed_home
-    - automation.alarm_disarmed
-    - automation.alarm_tripped
-    - automation.kodi_paused
-    - automation.kodi_playing
-    - automation.kodi_stopped
-    - automation.lock_door_sensor_20_seconds_after_8pm
 modes:
   name: Modes
   entities:
@@ -38,10 +24,26 @@ modes:
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
     - input_boolean.speech_notifications
-all_scenes_2:
-  name: All Scenes
+all_switches_2:
+  name: All Switches
   entities:
-  - scene.party
+  - switch.3d_print_power_strip_14
+  - switch.3d_printer_16
+  - switch.attic_door_lock
+  - switch.ceiling_fan_3
+  - switch.ceiling_fan_light_3
+  - switch.downstairs_hallway_s_11
+  - switch.emerson_tv_18
+  - switch.flashforge_15
+  - switch.left_dining_room_light
+  - switch.printer_light_17
+  - switch.right_dining_room_light
+  - switch.still_needs_13
+  - switch.strip_cord1
+  - switch.strip_cord2
+  - switch.strip_cord3
+  - switch.strip_cord4
+  - switch.toilet_air_freshener
 dockers:
   name: Dockers
   entities:
