@@ -9,9 +9,9 @@ A little bit of background about the hardware and software that I utilize for my
 
 **Software**
 
-*PfSense
-*Unraid
-*Home Assistant
-*Emby Server
-*Nextcloud
-*Pihole
+* PfSense
+* Unraid
+* Home Assistant
+* Emby Server
+* Nextcloud
+* Pihole
