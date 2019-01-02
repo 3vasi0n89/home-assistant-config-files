@@ -15,6 +15,7 @@ devices:
 enviroment:
   name: Enviroment
   entities:
+  - sensor.period_of_day
   - sensor.ecobee_temperature
   - sensor.ecobee_humidity
   - sensor.dark_sky_temperature

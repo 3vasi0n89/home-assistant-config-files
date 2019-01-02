@@ -37,7 +37,7 @@ Hardware
 
 [Bruh Multisensor](https://github.com/bruhautomation/ESP-MQTT-JSON-Multisensor)
 
-[VeraPlus Controller](https://getvera.com/controllers/veraplus/) but would have used the Aeotec Z-Wave Stick if I had known about it beforehand
+[VeraPlus Controller](https://getvera.com/controllers/veraplus/) (but I would have gone with the Aeotec Z-Wave Stick if I had known about it beforehand)
 
 [Schlage Deadbolt](https://www.amazon.com/Schlage-Connect-Touchscreen-Deadbolt-SmartThings/dp/B00AGK9KOG/ref=asc_df_B00AGK9KOG/?tag=hyprod-20&linkCode=df0&hvadid=193154321880&hvpos=1o1&hvnetw=g&hvrand=13739949994731450318&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9015260&hvtargid=pla-312822707918&psc=1)
 
