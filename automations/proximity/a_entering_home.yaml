@@ -5,13 +5,12 @@
     entity_id: group.family
     to: home
   action:
-  - service: notify.ios_all
+  - service: script.speech_engine
     data:
-      title: Welcome Back Home
-      message: The house is now powering up and the front door is unlocked!
-      data:
-        push:
-          sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
+      call_welcome_home: 1
+      # data:
+      #   push:
+      #     sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
   - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.security_system
     data:

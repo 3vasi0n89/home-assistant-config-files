@@ -13,7 +13,7 @@
   action:
   - service: lock.unlock
     entity_id: lock.front_door_deadbolt_60
-  - service: notify.ios_all
+  - service: notify.ios_family
     data:
       title: Welcome Back Home
       message: Let me unlock the front door for you!

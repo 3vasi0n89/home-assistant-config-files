@@ -17,7 +17,7 @@
     - switch.motion_detector_25
   - service: script.turn_on
     entity_id: script.alarm_disarmed
-  - service: notify.ios_all
+  - service: notify.ios_family
     data:
       title: Alarm Mode Deactivated
       message: Alarm Has Been Disarmed

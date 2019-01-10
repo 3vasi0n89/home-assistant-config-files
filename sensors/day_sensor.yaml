@@ -1,0 +1,7 @@
+- platform: template
+  scan_interval: 30000
+  sensors:
+    clock_day:
+      friendly_name: 'Day'
+      value_template: >-
+        {{now().strftime("%A")}}

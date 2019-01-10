@@ -1,22 +1,12 @@
-- alias: Janet Shut Down
-  id: janet_shut_down
+- alias: N Shut Down
+  id: n_shut_down
   trigger:
     - event: shutdown
       platform: homeassistant
     - event_type: homeassistant.restart
       platform: event
   action:
-    - service: script.janet_speech_engine
+    - service: script.speech_engine
       data:
-        call_bye: 1
+        call_closing: 1
         call_shut_down: 1
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  

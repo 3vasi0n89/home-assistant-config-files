@@ -13,7 +13,7 @@
   action:
   - service: lock.lock
     entity_id: lock.front_door_deadbolt_60
-  - service: notify.ios_all
+  - service: notify.ios_family
     data:
       title: Door Check
       message: You left the front door unlocked! Let me get that for you!

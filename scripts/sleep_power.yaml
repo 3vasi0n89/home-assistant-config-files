@@ -28,7 +28,7 @@ s_sleep_power:
 #        entity_id: media_player.master_bedroom_cast
 #        message: <>'The house in now shutting down and is armed. The time is {{ states("sensor.time")}}. Hope you have a good night.'<>
 #        cache: true
-    - service: notify.ios_all
+    - service: notify.ios_family
       data:
         title: Power Button Pushed
         message: The house is now shutting down and is armed, have a good night!

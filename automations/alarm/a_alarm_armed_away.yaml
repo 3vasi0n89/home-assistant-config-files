@@ -15,7 +15,7 @@
     - switch.back_door_70
     - switch.side_door_45
     - switch.motion_detector_25
-  - service: notify.ios_all
+  - service: notify.ios_family
     data:
       title: Alarm Mode Activated
       message: Alarm Armed for Away

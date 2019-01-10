@@ -29,7 +29,7 @@
       entity_id: binary_sensor.back_door_70
       state: 'on'
   action:
-    service: notify.ios_all
+    service: notify.ios_family
     data_template:
       message: >
         {% if is_state("binary_sensor.front_door_8", "on") %}

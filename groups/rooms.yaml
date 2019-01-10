@@ -38,11 +38,9 @@ kitchen:
   name: Kitchen
   entities:
   - light.kitchen_underglow
-  - sensor.sn2_temperature
-  - sensor.sn2_humidity
-  - sensor.sn2_ldr
-  - sensor.sn2_pir
-  - light.sn2_led
+  - binary_sensor.kitchen_motion
+  - sensor.kitchen_temperature
+  - sensor.kitchen_humidity
 basementstairs:
   name: Basement Stairs
   entities:

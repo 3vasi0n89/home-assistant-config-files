@@ -83,6 +83,16 @@ svg, svg * {
   fill: #8a6d3b !important;
 }
 
+/* Locks */
+
+.locked {
+  fill: #00FF00 !important;
+}
+
+.unlocked {
+  fill: #8a6d3b !important;
+}
+
 /* Camera */
 
 .camera-idle {
@@ -199,7 +209,7 @@ svg, svg * {
 
 .fan-on {
   fill: #FFD42A !important;
-  -webkit-animation: rotation 2s infinite linear; 
+  -webkit-animation: rotation 2s infinite linear;
   transform-box: fill-box;
 }
 

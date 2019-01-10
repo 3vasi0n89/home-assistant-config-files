@@ -1,0 +1,3 @@
+- platform: mqtt
+  state_topic: "tts/last_message"
+  name: "Last Message"

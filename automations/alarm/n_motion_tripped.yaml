@@ -9,7 +9,7 @@
     entity_id: alarm_control_panel.security_system
     state: armed_away
   action:
-  - service: notify.ios_all
+  - service: notify.ios_family
     data_template:
       title: "Alarm Tripped!"
       message: >

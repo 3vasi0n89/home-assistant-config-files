@@ -95,16 +95,6 @@
             domain: homeassistant
             service: toggle
 
-        - name: NVR
-          entities:
-             - binary_sensor.blue_iris_nvr
-          text_template: '${(entity.state === "on") ? "online" : "offline"}'
-          states:
-            - state: 'off'
-              class: 'danger-text'
-            - state: 'on'
-              class: 'success-text'
-
         - name: Alarm Panel
           entities:
              - alarm_control_panel.security_system
@@ -142,6 +132,10 @@
               to_state: 'off'
               duration: 10
 
+        - name: Motion
+          entities:
+            - sensor.template_last_motion
+            
         - name: Cameras
           entities:
 #            - camera.front_porch_cam
@@ -177,6 +171,11 @@
             - sensor.date_format_2
             - sensor.time
             - sensor.number_of_lights_on
+            - sensor.clock_day
+
+        - name: last message
+          entities:
+            - sensor.last_message
 
         - name: Music
           entities:
@@ -274,6 +273,11 @@
           action:
             domain: lock
             service: lock
+          states:
+            - state: 'locked'
+              class: 'locked'
+            - state: 'unlocked'
+              class: 'unlocked'
 
         - name: remote
           entities:

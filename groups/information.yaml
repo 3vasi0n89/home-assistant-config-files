@@ -34,6 +34,7 @@ status:
     - sensor.joes_work_travel_time
     - sensor.savannahs_work_travel_time
     - sensor.low_battery
+    - input_select.log_level
 network:
   name: Network
   entities:

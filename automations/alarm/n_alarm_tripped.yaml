@@ -31,7 +31,7 @@
     entity_id: script.alarm_triggered
   - service: input_boolean.turn_on
     entity_id: input_boolean.alarm_triggered
-  - service: notify.ios_all
+  - service: notify.ios_family
     data_template:
       title: "Alarm Tripped!"
       message: >

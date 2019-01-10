@@ -1,0 +1,514 @@
+group:
+  notification_view:
+    name: Notifications
+    view: yes
+    entities:
+      - group.notifications
+      - group.notification_settings
+
+  notifications:
+    name: Notifications
+    entities:
+      - automation.n_new_device_connected
+      - automation.n_update_available
+      - automation.n_start_up
+      - automation.n_shut_down
+
+  notification_settings:
+    name: Settings
+    entities:
+      - input_boolean.speech_notifications
+      - input_boolean.text_notifications
+      - input_select.notification_media_player_cast
+      - input_select.notification_media_player_alexa
+      - input_number.notification_volume
+      - input_boolean.guest_mode
+      - input_boolean.alert_mode
+
+
+input_boolean:
+
+  alert_mode:
+    name: Alert Mode
+    icon: mdi:bell
+
+  speech_notifications:
+    name: Speech Notifications
+    icon: mdi:bell-outline
+
+  text_notifications:
+    name: Text Notifications
+    icon: mdi:message-text-outline
+
+input_number:
+  notification_volume:
+    name: Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.01
+
+###### CHANGE THESE TO MATCH FRIENDLY NAME OF MEDIA PLAYERS #####
+input_select:
+  notification_media_player_cast:
+    name: Source Chromecast
+    icon: mdi:speaker
+    options:
+      - All Cast
+      - Livingroom Cast
+      - Master Bedroom Cast
+      - Surround Sound Cast
+
+  notification_media_player_alexa:
+    name: Source Alexa
+    icon: mdi:speaker
+    options:
+      - Whole House
+      - Attic Dot
+      - Living Room Dot
+      - Downstairs Hall Dot
+      - Bathroom Dot
+      - Kitchen Dot
+      - Back Porch Dot
+      - Master Bedroom Dot
+      - Chris and Bens Dot
+      - Michaels Dot
+
+script:
+######################################################################################################
+##    within speech_engine the string message is generated with the use of macro's.           ##
+######################################################################################################
+
+######################################################################################################
+###Script to send notifications to the ChromeCast Audios during normal hours and only when we are home! Call like this:
+  # action:
+    # service: script.speech_engine
+    # data:
+    #   call_no_announcement:
+    #   call_greeting
+    #   call_dark_outside:
+    #   call_window_check:
+    #   call_garage_check:
+    #   call_responsibilities
+    #   call_light_check
+    #   call_inside_weather
+    #   call_outside_weather
+    #   call_closing
+# # @CCOSTAN
+# Original Repo : https://github.com/CCOSTAN/Home-AssistantConfig
+######################################################################################################
+
+  speech_engine:
+    sequence:
+      - service: script.notification_hub
+        data_template:
+          media_player_cast: >-
+            {%- for device in states.media_player -%}
+              {%- if device.name == states.input_select.notification_media_player_cast.state -%}
+                {{ device.entity_id }}
+              {%- endif -%}
+            {%- endfor -%}
+          media_player_alexa: >-
+            {%- for device in states.media_player -%}
+              {%- if device.name == states.input_select.notification_media_player_alexa.state -%}
+                {{ device.entity_id }}
+              {%- endif -%}
+            {%- endfor -%}
+          speech_message: >-
+            {%- macro dark_outside() -%}
+              {{ [
+                "It's pretty dark outside. I will turn on the outside lights now. ",
+                "It's a little past Sunset. Time to turn on the outside lights. ",
+                "I will switch on the outside lights. It is getting dark outside. ",
+                "Time to turn on the front lights. I will take care of it. "
+              ]|random }}
+            {%- endmacro -%}
+
+            {%- macro responsibilities() -%}
+              {% if now().strftime('%a') == 'Mon' or now().strftime('%a') == 'Sun' %}
+                Today is {{ now().strftime('%A') }} and {{ now().strftime('%A') }} is garbage day.
+              {% endif %}
+              {% if now().strftime('%a') == 'Mon' %}
+                Garbage goes out. Please take out all of the garbage cans tonight.
+              {% endif %}
+              {% if now().strftime('%j')|int % 2 != 0 %}
+                Today is Joe's day to do the chores.
+              {% else %}
+                Today is Savannah's day to do the chores.
+              {% endif %}
+            {%- endmacro -%}
+
+            {%- macro inside_weather() -%}
+              Inside the house, it is {{ states.climate.ecobee.attributes['current_temperature'] }} degrees with around {{ states.climate.ecobee.attributes['actual_humidity'] }} percent humidity.
+            {%- endmacro -%}
+
+            {%- macro outside_weather() -%}
+              Outside, it is going to be {{ states('sensor.dark_sky_minutely_summary') }}
+            {%- endmacro -%}
+
+            {%- macro light_check() -%}
+              {% if states.group.all_lights.state != 'off' -%}
+                There are
+              {% for state in states.light if state.state == 'on' -%}
+                {%- if loop.last -%}
+                  {{ loop.index }}
+                {%- endif -%}
+              {%- endfor %}
+              lights on right now.
+              {% set comma = joiner(', ') %}
+              The
+              {% for group in states.group|groupby('state') -%}
+                {%- for entity in group.list if entity.state == 'on'
+                and entity.name.split(' ')[1]|lower == 'lights'
+                and entity.name.split(' ')[0]|lower != 'all'
+                and entity.name.split(' ')[0]|lower != 'interior'
+                -%}
+                  {{ 'and' if loop.last and not loop.first else comma() }}
+                  {{ entity.name|replace('Lights','')}}
+                {%- endfor -%}
+              {%- endfor -%}
+              lights are on.
+              {%- endif -%}
+            {%- endmacro -%}
+
+            {%- macro window_check() -%}
+              {% if states.group.windows.state != 'off' -%}
+                {% set comma = joiner(', ') %}
+                The
+                {% for state in states.binary_sensor if state.state == 'on' and state.attributes.device_class == 'opening' -%}
+                {%- endfor %}
+                {% for group in states.binary_sensor|groupby('state') -%}
+                  {%- for entity in group.list  if entity.state == 'on' and entity.attributes.device_class == 'opening' -%}
+                    {{ ' and' if loop.last and not loop.first else comma() }}
+                    {{ entity.attributes.friendly_name }}
+                  {%- endfor -%}
+                {% endfor %}
+                needs to be closed.
+              {%- endif -%}
+            {%- endmacro -%}
+
+            {%- macro garage_check() -%}
+              {% if states.binary_sensor.garage_door_sensor_71.state !='off' -%}
+                The
+                {% for state in states.binary_sensor if state.state == 'on' -%}
+                {%- endfor %}
+                {% for group in states.binary_sensor|groupby('state') -%}
+                  {%- for entity in group.list  if entity.state == 'on' and entity.attributes.device_class == 'opening'  -%}
+                    {{ ' and' if loop.last and not loop.first }}
+                    {{ entity.attributes.friendly_name }}
+                  {%- endfor -%}
+                {%- endfor %}
+                needs to be closed.
+              {%- endif -%}
+            {%- endmacro -%}
+
+            {%- macro iss() -%}
+              {% if is_state('binary_sensor.iss', 'on') -%}
+                Here is something interesting. The international space station is above us now. There are {{ states.binary_sensor.iss.attributes['number_of_people_in_space'] }} people in space right now.
+                {{ outside_weather() }}
+              {% endif -%}
+            {%- endmacro -%}
+
+            {%- macro moon() -%}
+              {%- if states.sensor.moon.state == 'Full moon' -%}
+                Check out the full moon tonight!
+              {%- endif -%}
+            {%- endmacro -%}
+
+            {%- macro uv() -%}
+              {% if states.sensor.dark_sky_uv_index.state|int >= 6 and states.sensor.dark_sky_uv_index.state|int <= 7.9 %}
+                Today's UV index is {{ states.sensor.dark_sky_uv_index.state }}.  You should wear sunscreen if going outside.
+              {% elif states.sensor.dark_sky_uv_index.state|int >= 8 and states.sensor.dark_sky_uv_index.state|int <=10.9 %}
+                Today's UV index is {{ states.sensor.dark_sky_uv_index.state }}.  This is VERY HIGH. Be sure wear sunscreen and re-apply.
+              {% elif states.sensor.dark_sky_uv_index.state|int >= 11 %}
+                Today's UV index is {{ states.sensor.dark_sky_uv_index.state }}.  This is EXTREME. You should be very cautious going outside.
+              {% endif %}
+            {%- endmacro -%}
+
+            {%- macro holiday() -%}
+              {% if states.sensor.holiday.state != '' %}
+                Today is {{ states.sensor.holiday.state }}.
+              {% endif %}
+            {%- endmacro -%}
+
+            {% macro greeting(person) %}
+              {% set greetings = [
+                "Welcome home " ~ person,
+                "Hey there " ~ person,
+                person ~ "! You're home!",
+                "Welcome back " ~ person
+              ] %}
+              {{greetings|random}}.
+            {% endmacro %}
+
+            {%- macro start_up() -%}
+              {% set start_up = [
+                "I'm all booted up and ready to go! ",
+                "My reboot has completed! ",
+                "Finally I'm back up and running! "
+              ] %}
+              {{ start_up | random }}
+            {%- endmacro -%}
+
+            {%- macro shut_down() -%}
+              {% set shut_down = [
+                "I'm shutting down now! I'll be back up shortly though! ",
+                "Self-destruct time... Don't worry, I won't feel anything. ",
+                "It's time for me to shut down. ",
+                "Shutting down. ",
+                "Time to get some new stuff! Shutting down to apply! "
+              ] %}
+              {{ shut_down | random }}
+            {%- endmacro -%}
+
+            {%- macro update() -%}
+              {% set update = [
+                "It's time for an update! ",
+                "Ooh look! It's a new update available! ",
+                "There's a new update available! ",
+                "Go and install the new update! ",
+                "Time to run an update because there's one available! "
+              ] %}
+              {{ update | random }}
+            {%- endmacro -%}
+
+            {%- macro leaving() -%}
+              {% set leaving = [
+                "The house is now shutting down and the security is arming! ",
+                "It looks like you've left. Let me shut down the house. ",
+                "Nobody's home! Looks like we don't need all of this stuff on then. ",
+                "Looks like you've left. Don't worry, I'll take care of everything. That's what I'm here for. ",
+                "Well since everyone left I guess I will shut down the house and prepare the alarm. "
+              ] %}
+              {{ leaving | random }}
+            {%- endmacro -%}
+
+            {%- macro welcome_home() -%}
+              {% set welcome_home = [
+                "Welcome back! The house is now powering up and the front door is unlocked! ",
+                "Welcome Home! It's nice to see you again! Let me turn on the house. ",
+                "Well look who's finally home. I'll get the house ready for you. ",
+                "It's good to see you made it back safely! Let me unlock the door and prepare the house. ",
+                "Awesome, you're back! Allow me to turn on the house for you. "
+              ] %}
+              {{ welcome_home | random }}
+            {%- endmacro -%}
+
+            {% macro closing() %}
+              {% set closings = [
+                "Have a great evening! ",
+                "Enjoy your night. ",
+                "Take it easy this evening. ",
+                "Have fun tonight! ",
+              ] %}
+              {{closings|random}}
+            {% endmacro %}
+
+
+            {# ********************************************* #}
+            {#  ******** Start the Speech routines ********  #}
+            {# ********************************************* #}
+
+            {% if call_no_announcement != 1 %}
+              {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
+                Good morning.
+              {% elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 %}
+                Good afternoon.
+              {% else %}
+                Good evening.
+              {% endif %}
+            {% endif %}
+
+            {% if call_start_up == 1 %}
+              {{ start_up() }}
+            {% endif %}
+
+            {% if call_greeting == 1 %}
+              {{ greeting() }}
+            {% endif %}
+
+            {% if call_inside_weather == 1 %}
+              {{ inside_weather() }}
+            {% endif %}
+
+            {% if call_outside_weather == 1 and is_state('sun.sun', 'above_horizon') %}
+              {{ outside_weather() }}
+            {% endif %}
+
+            {{ DoorOpened }}
+            {{ DoorClosed }}
+
+            {% if call_dark_outside == 1 %}
+              {{ dark_outside() }}
+            {% endif %}
+
+            {% if call_garage_check == 1 or is_state('sun.sun', 'below_horizon') %}
+              {{ garage_check() }}
+            {% endif %}
+
+            {% if (call_window_check == 1 or is_state('sun.sun', 'below_horizon')) or is_state('group.windows', 'on') %}
+              {{ window_check() }}
+            {% endif %}
+
+            {{ NewDevice }}
+
+            {% if call_light_check == 1 %}
+              {{ light_check() }}
+            {% endif %}
+
+            {% if call_responsibilities == 1 %}
+              {{ responsibilities() }}
+            {% endif %}
+
+            {% if value1 is not none %}
+              {{ value1 }}
+            {% endif %}
+
+            {{ CustomMessage }}
+
+            {% if call_shut_down == 1 %}
+              {{ shut_down() }}
+            {% endif %}
+
+            {% if call_update == 1 %}
+              {{ update() }}
+            {% endif %}
+
+            {% if call_closing == 1 %}
+              {{ closing() }}
+            {% endif %}
+
+            {% if call_welcome_home == 1 %}
+              {{ welcome_home() }}
+            {% endif %}
+
+            {% if call_leaving == 1 %}
+              {{ leaving() }}
+            {% endif %}
+
+      - service: input_boolean.turn_off
+        data:
+          entity_id:
+            - input_boolean.alert_mode
+
+######################################################################################################
+##  notification_hub is the bridge between the speech_engine and the processing units.        ##
+######################################################################################################
+
+  notification_hub:
+    sequence:
+      - service: script.speech_processing
+        data_template:
+          media_player_cast: >-
+            {{ media_player_cast }}
+          media_player_alexa: >-
+            {{ media_player_alexa }}
+          speech_message: >-
+            {{ speech_message }}
+      - service: script.text_processing
+        data_template:
+          speech_message: >-
+            {{ speech_message }}
+######################################################################################################
+##                  Within speech_processing the TTS-service is called.                       ##
+######################################################################################################
+
+  speech_processing:
+    sequence:
+      - service: mqtt.publish
+        data_template:
+          topic: 'tts/last_message'
+          payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }}. {{ speech_message | truncate(220)}}"
+          retain: true
+      - condition: and
+        conditions:
+          - condition: or
+            conditions:
+              - condition: time
+                after: '07:00:00'
+                before: '23:00:00'
+              - condition: state
+                entity_id: input_boolean.alert_mode
+                state: 'on'
+          - condition: state
+            entity_id: input_boolean.speech_notifications
+            state: 'on'
+          - condition: or
+            conditions:
+              - condition: state
+                #### CHANGE GROUP TO MATCH YOUR PRESENCE DETECTOR #####
+                entity_id: group.family
+                state: 'home'
+              - condition: state
+                entity_id: input_boolean.guest_mode
+                state: 'on'
+      - wait_template: "{{ not is_state( media_player, 'playing') }}"
+        timeout: 00:00:30
+
+      - service: media_player.volume_set
+        data_template:
+          entity_id: >
+            {{ media_player_cast }}
+          volume_level: >-
+            {{ states.input_number.notification_volume.state }}
+        #### CHANGE TO MATCH YOUR TTS OUTPUT (I.E. tts.google_say or tts.amazon_polly_say #####
+      - service: tts.amazon_polly_say
+        data_template:
+          entity_id: >
+            {{ media_player_cast }}
+          message: >-
+            <speak>
+              {{ speech_message }}
+            </speak>
+      - service: media_player.alexa_tts
+        data_template:
+          entity_id: >
+            {{ media_player_alexa }}
+          message: >-
+              {{ speech_message }}
+      - service: input_boolean.turn_off
+        data:
+          entity_id:
+            - input_boolean.last_message
+            - input_boolean.alert_mode
+######################################################################################################
+###Script to send notifications to IFTTT to notify me on the mobile Phone! Call like this:
+  # action:
+    # service: script.notify_engine
+    # data_template:
+      # value1: 'Startup: Home Assistant is Up and Running!'
+      # value2: ''
+      # value3: "{{ trigger.to_state.state }}"
+      # who: "stacey | carlo | paige | family | parents"
+
+    # IFTTT Maker channel should look like this: https://files.gitter.im/home-assistant/home-assistant/phkx/blob
+######################################################################################################
+
+  text_processing:
+    sequence:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.text_notifications
+            state: 'on'
+      - service: notify.ios_joes_iphone
+        data_template:
+          #TODO
+          title: "Home Assistant Notify"
+          message: >-
+            {{ speech_message | replace("\n","") | replace("   ","") |
+               replace("eight hundred and sixty one thousand","861.000") }}
+      # - service_template: >
+      #       {% if who == 'Joe' %}
+      #         notify.ios_joes_iphone
+      #       {% elif who == 'Savannah' %}
+      #         notify.ios_savannahs_iphone
+      #       {% elif who == 'parents' %}
+      #         notify.ios_parents
+      #       {% else %}
+      #         notify.ios_family
+      #       {% endif %}
+      #   data_template:
+      #     message: "{{ value1 }} {{ value2 }} {{ value3 }}"
+      #     data:
+      #       subtitle: "Home Assistant Notify"

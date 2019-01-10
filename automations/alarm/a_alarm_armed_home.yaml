@@ -16,7 +16,7 @@
     - switch.living_room_window_4_7
     - switch.back_door_70
     - switch.side_door_45
-  - service: notify.ios_all
+  - service: notify.ios_family
     data:
       title: Alarm Mode Activated
       message: Alarm Armed for Home!

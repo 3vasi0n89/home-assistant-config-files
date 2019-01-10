@@ -112,15 +112,16 @@ tts:
 
 notify:
   - platform: ios
-  - name: ios_all
+  - name: ios_parents
     platform: group
     services:
       - service: ios_joes_iphone
       - service: ios_savannahs_iphone
-  - name: ios_joe
+  - name: ios_family
     platform: group
     services:
       - service: ios_joes_iphone
+      - service: ios_savannahs_iphone
 #  - name: janet
 #    platform: telegram
 #    chat_id: !secret chat_id
@@ -366,7 +367,7 @@ discovery:
 conversation:
 history:
 logbook:
-#logger: !include logger.yaml
+logger: !include logger.yaml
 sun:
 
 frontend:

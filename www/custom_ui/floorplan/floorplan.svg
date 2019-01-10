@@ -6769,23 +6769,24 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:51.95866776px;line-height:1.25;font-family:Georgia;-inkscape-font-specification:'Georgia, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000080;fill-opacity:1;stroke:none;stroke-width:1.36527073"
-       x="312.41373"
-       y="208.86075"
-       id="text7067"
-       transform="scale(1.3652708,0.73245542)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;line-height:1.25;font-family:Georgia;-inkscape-font-specification:'Georgia, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000080;fill-opacity:1;stroke:none;stroke-width:0.7949599"
+       x="499.68701"
+       y="127.35598"
+       id="sensor.last_message"
+       transform="scale(0.85295142,1.1723997)"
+       inkscape:label="#text7067"><tspan
          sodipodi:role="line"
          id="tspan7065"
-         x="312.41373"
-         y="208.86075"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:51.95866776px;font-family:Georgia;-inkscape-font-specification:'Georgia, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000080;stroke-width:1.36527073">Last HA Notification</tspan></text>
+         x="499.68701"
+         y="127.35598"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;font-family:Georgia;-inkscape-font-specification:'Georgia, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000080;stroke-width:0.7949599">Last HA Notification</tspan></text>
   </g>
   <g
      transform="translate(0,-85.333316)"
      id="page0"
      inkscape:groupmode="layer"
      inkscape:label="page0"
-     style="display:inline">
+     style="display:none">
     <rect
        y="191.30034"
        x="333.04636"
@@ -7857,7 +7858,7 @@
     </g>
   </g>
   <g
-     style="display:inline"
+     style="display:none"
      inkscape:label="page1"
      inkscape:groupmode="layer"
      id="page1"
@@ -8292,7 +8293,7 @@
      inkscape:groupmode="layer"
      id="page2"
      inkscape:label="page2"
-     style="display:inline">
+     style="display:none">
     <rect
        style="opacity:1;fill:#005480;fill-opacity:1;stroke:#00f3fc;stroke-width:6.58681583;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect7539"
@@ -8512,7 +8513,7 @@
      inkscape:groupmode="layer"
      id="page3"
      inkscape:label="page3"
-     style="display:inline">
+     style="display:none">
     <rect
        style="opacity:0.25;fill:#0000ff;fill-opacity:1;stroke:#00f3fc;stroke-width:6.96883345;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect9009"
@@ -8570,79 +8571,62 @@
       <g
          id="g2582"
          style="fill:#00ffff">
-	<path
-   id="path2578"
-   d="M 251,512 H 115 C 51.589,512 0,460.411 0,397 V 115 C 0,51.589 51.589,0 115,0 H 251 Z M 115,30 C 68.131,30 30,68.131 30,115 v 282 c 0,46.869 38.131,85 85,85 H 221 V 30 Z"
-   style="fill:#00ffff"
-   inkscape:connector-curvature="0" />
-
-	<path
-   id="path2580"
-   d="M 125.5,211 C 92.141,211 65,183.859 65,150.5 65,117.141 92.141,90 125.5,90 c 33.359,0 60.5,27.141 60.5,60.5 0,33.359 -27.141,60.5 -60.5,60.5 z"
-   style="fill:#00ffff"
-   inkscape:connector-curvature="0" />
-
-</g>
+        <path
+           id="path2578"
+           d="M 251,512 H 115 C 51.589,512 0,460.411 0,397 V 115 C 0,51.589 51.589,0 115,0 H 251 Z M 115,30 C 68.131,30 30,68.131 30,115 v 282 c 0,46.869 38.131,85 85,85 H 221 V 30 Z"
+           style="fill:#00ffff"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path2580"
+           d="M 125.5,211 C 92.141,211 65,183.859 65,150.5 65,117.141 92.141,90 125.5,90 c 33.359,0 60.5,27.141 60.5,60.5 0,33.359 -27.141,60.5 -60.5,60.5 z"
+           style="fill:#00ffff"
+           inkscape:connector-curvature="0" />
+      </g>
       <g
          id="g2584"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2586"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2588"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2590"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2592"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2594"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2596"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2598"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2600"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2602"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2604"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2606"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2608"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2610"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g2612"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
     </g>
     <path
        style="fill:#00ffff;stroke-width:0.6636768"
@@ -11119,80 +11103,64 @@
       <g
          id="g4999"
          style="fill:#00ffff">
-	<path
-   id="path4997"
-   d="M 5.733,2.183 C 5.72,2.193 5.71,2.204 5.698,2.214 5.771,2.137 5.876,2.054 5.945,2.009 7.959,0.7 10.286,0 12.868,0 c 2.415,0 4.677,0.667 6.608,1.827 0.14,0.083 0.522,0.345 0.719,0.583 V 2.411 C 18.332,0.357 12.856,4.764 12.856,4.764 10.962,3.304 9.22,2.309 7.923,1.955 6.839,1.658 6.089,1.906 5.733,2.183 Z M 22.305,4.125 C 22.248,4.062 22.186,4.003 22.129,3.938 21.658,3.421 21.079,3.296 20.557,3.33 c -0.475,0.149 -2.67,0.94 -5.375,3.494 0,0 3.045,2.961 4.91,5.988 1.863,3.027 2.977,5.406 2.292,8.708 2.079,-2.285 3.347,-5.321 3.347,-8.655 0,-3.374 -1.299,-6.445 -3.426,-8.74 z m -4.648,9.98 C 16.831,13.178 15.602,11.85 13.979,10.236 13.624,9.883 13.249,9.515 12.855,9.134 c 0,0 -0.593,0.593 -1.365,1.373 v -10e-4 c -0.988,0.998 -2.269,2.3 -2.98,3.06 -1.266,1.351 -4.893,5.594 -5.097,7.973 0,0 -0.807,-1.887 0.964,-6.239 1.157,-2.845 4.653,-7.117 6.113,-8.509 0,0 -1.334,-1.468 -3.008,-2.482 L 7.472,4.306 c 0,0 -0.019,-0.015 -0.049,-0.034 C 6.618,3.792 5.739,3.422 4.893,3.373 4.029,3.434 3.482,4.066 3.482,4.066 c -2.159,2.302 -3.48,5.396 -3.48,8.8 0,7.105 5.76,12.866 12.866,12.866 3.771,0 7.164,-1.626 9.518,-4.211 -10e-4,-0.004 -0.271,-1.7 -2.002,-4.133 -0.407,-0.57 -1.894,-2.349 -2.727,-3.283 z"
-   style="fill:#00ffff"
-   inkscape:connector-curvature="0" />
-
-</g>
+        <path
+           id="path4997"
+           d="M 5.733,2.183 C 5.72,2.193 5.71,2.204 5.698,2.214 5.771,2.137 5.876,2.054 5.945,2.009 7.959,0.7 10.286,0 12.868,0 c 2.415,0 4.677,0.667 6.608,1.827 0.14,0.083 0.522,0.345 0.719,0.583 V 2.411 C 18.332,0.357 12.856,4.764 12.856,4.764 10.962,3.304 9.22,2.309 7.923,1.955 6.839,1.658 6.089,1.906 5.733,2.183 Z M 22.305,4.125 C 22.248,4.062 22.186,4.003 22.129,3.938 21.658,3.421 21.079,3.296 20.557,3.33 c -0.475,0.149 -2.67,0.94 -5.375,3.494 0,0 3.045,2.961 4.91,5.988 1.863,3.027 2.977,5.406 2.292,8.708 2.079,-2.285 3.347,-5.321 3.347,-8.655 0,-3.374 -1.299,-6.445 -3.426,-8.74 z m -4.648,9.98 C 16.831,13.178 15.602,11.85 13.979,10.236 13.624,9.883 13.249,9.515 12.855,9.134 c 0,0 -0.593,0.593 -1.365,1.373 v -10e-4 c -0.988,0.998 -2.269,2.3 -2.98,3.06 -1.266,1.351 -4.893,5.594 -5.097,7.973 0,0 -0.807,-1.887 0.964,-6.239 1.157,-2.845 4.653,-7.117 6.113,-8.509 0,0 -1.334,-1.468 -3.008,-2.482 L 7.472,4.306 c 0,0 -0.019,-0.015 -0.049,-0.034 C 6.618,3.792 5.739,3.422 4.893,3.373 4.029,3.434 3.482,4.066 3.482,4.066 c -2.159,2.302 -3.48,5.396 -3.48,8.8 0,7.105 5.76,12.866 12.866,12.866 3.771,0 7.164,-1.626 9.518,-4.211 -10e-4,-0.004 -0.271,-1.7 -2.002,-4.133 -0.407,-0.57 -1.894,-2.349 -2.727,-3.283 z"
+           style="fill:#00ffff"
+           inkscape:connector-curvature="0" />
+      </g>
       <g
          id="g5001"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5003"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5005"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5007"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5009"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5011"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5013"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5015"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5017"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5019"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5021"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5023"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5025"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5027"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
       <g
          id="g5029"
-         style="fill:#00ffff">
-</g>
+         style="fill:#00ffff" />
     </g>
   </g>
   <g
      inkscape:groupmode="layer"
      id="page4"
      inkscape:label="page4"
-     style="display:inline">
+     style="display:none">
     <g
        id="scene.all_lights_on"
        inkscape:label="#g13745"
@@ -12321,7 +12289,7 @@
      inkscape:groupmode="layer"
      id="page5"
      inkscape:label="page5"
-     style="display:inline">
+     style="display:none">
     <image
        transform="translate(0,-85.333316)"
        style="display:inline"
@@ -12350,8 +12318,9 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:60.35356522px;line-height:1.25;font-family:Georgia;-inkscape-font-specification:'Georgia, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#00ffff;fill-opacity:1;stroke:none;stroke-width:0.56934059"
        x="6.9137683"
        y="55.93708"
-       id="text12725-9"
-       transform="scale(1.2646195,0.7907517)"><tspan
+       id="sensor.clock_day"
+       transform="scale(1.2646195,0.7907517)"
+       inkscape:label="#text12725-9"><tspan
          sodipodi:role="line"
          id="tspan12723-2"
          x="6.9137683"
@@ -12389,7 +12358,7 @@
        transform="matrix(1.6910416,0,0,1.5273844,-9.636372,650.49473)">
       <polygon
          style="fill:#00ffff"
-         points="78.546,53.93 70.217,58.74 55.082,50 70.217,41.26 78.537,46.064 81.069,41.672 75.292,38.337 84.11,33.238 81.578,28.851 72.739,33.95 72.739,27.247 67.674,27.247 67.674,36.875 52.514,45.629 52.514,28.125 60.863,23.306 58.331,18.916 52.514,22.271 52.514,12.077 47.442,12.077 47.442,22.258 41.66,18.918 39.126,23.31 47.442,28.115 47.442,45.591 32.308,36.85 32.308,27.247 27.236,27.247 27.236,33.927 18.422,28.836 15.89,33.226 24.714,38.322 18.916,41.67 21.448,46.06 29.783,41.25 44.938,50 29.783,58.755 21.444,53.936 18.905,58.33 24.714,61.681 15.894,66.774 18.433,71.161 27.236,66.075 27.236,72.754 32.308,72.754 32.308,63.15 47.442,54.409 47.442,71.89 39.132,76.685 41.669,81.077 47.442,77.742 47.442,87.923 52.514,87.923 52.514,77.731 58.32,81.084 60.854,76.69 52.514,71.877 52.514,54.375 67.674,63.125 67.674,72.754 72.739,72.754 72.739,66.053 81.567,71.149 84.106,66.759 75.292,61.668 81.08,58.323 "
+         points="55.082,50 70.217,41.26 78.537,46.064 81.069,41.672 75.292,38.337 84.11,33.238 81.578,28.851 72.739,33.95 72.739,27.247 67.674,27.247 67.674,36.875 52.514,45.629 52.514,28.125 60.863,23.306 58.331,18.916 52.514,22.271 52.514,12.077 47.442,12.077 47.442,22.258 41.66,18.918 39.126,23.31 47.442,28.115 47.442,45.591 32.308,36.85 32.308,27.247 27.236,27.247 27.236,33.927 18.422,28.836 15.89,33.226 24.714,38.322 18.916,41.67 21.448,46.06 29.783,41.25 44.938,50 29.783,58.755 21.444,53.936 18.905,58.33 24.714,61.681 15.894,66.774 18.433,71.161 27.236,66.075 27.236,72.754 32.308,72.754 32.308,63.15 47.442,54.409 47.442,71.89 39.132,76.685 41.669,81.077 47.442,77.742 47.442,87.923 52.514,87.923 52.514,77.731 58.32,81.084 60.854,76.69 52.514,71.877 52.514,54.375 67.674,63.125 67.674,72.754 72.739,72.754 72.739,66.053 81.567,71.149 84.106,66.759 75.292,61.668 81.08,58.323 78.546,53.93 70.217,58.74 "
          id="polygon12761" />
     </g>
     <g

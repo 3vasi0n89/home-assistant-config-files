@@ -11,12 +11,10 @@
   action:
   - service: script.turn_on
     entity_id: script.all_power_off
-  - service: notify.ios_all
+  - service: script.speech_engine
     data:
-      title: You've Left The House
-      message: The house is now shutting down and the security is arming!
-      data:
-        push:
-          sound: "US-EN-Alexa-Good-Night.wav"
-  
-  
+      call_leaving: 1
+      call_window_check: 1
+      # data:
+      #   push:
+      #     sound: "US-EN-Alexa-Good-Night.wav"

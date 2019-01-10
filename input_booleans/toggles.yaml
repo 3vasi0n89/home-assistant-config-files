@@ -33,3 +33,8 @@ movie_mode:
 lock_out:
   name: Lock Out
   icon: mdi:lock
+
+last_message:
+  name: Last Message
+  initial: off
+  icon: mdi:repeat-once

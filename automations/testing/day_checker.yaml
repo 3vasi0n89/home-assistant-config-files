@@ -1,0 +1,10 @@
+- alias: Day Start
+  id: n_day_start
+  trigger:
+    - platform: time
+      at: '07:00:00'
+
+  action:
+    - service: script.speech_engine
+      data:
+        call_responsibilities: 1

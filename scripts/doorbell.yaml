@@ -8,7 +8,7 @@ s_doorbell:
       data_template:
         entity_id: media_player.livingroom_dot, media_player.kitchen_dot, media_player.bathroom_dot, media_player.bedroom_dot, media_player.attic_dot
         message: "Someone is at the front door"
-    - service: notify.ios_all
+    - service: notify.ios_family
       data:
         title: Doorbell
         message: Someone is at the front door!
