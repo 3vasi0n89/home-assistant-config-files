@@ -35,12 +35,12 @@ xboxone:
       data_template:
         color_name: 'green'
         brightness: '255'
-wiiu:
+nintendo_switch:
   sequence:
     - service: remote.turn_on
       entity_id: remote.living_room
       data:
-        activity: "27734984"
+        activity: "38492156"
     - service: light.turn_on
       entity_id: light.livingroom_tv
     - delay: '00:00:01'

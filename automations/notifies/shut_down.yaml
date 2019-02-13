@@ -1,5 +1,5 @@
 - alias: N Shut Down
-  id: n_shut_down
+  id: notification_shut_down
   trigger:
     - event: shutdown
       platform: homeassistant
@@ -10,3 +10,4 @@
       data:
         call_closing: 1
         call_shut_down: 1
+        ios_title: "Shutdown"

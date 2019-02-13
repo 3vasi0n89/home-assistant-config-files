@@ -54,6 +54,9 @@
              - light.upstairs_hall_light
              - light.left_attic_light
              - light.right_attic_light
+             - light.right_dining_room_light
+             - light.left_dining_room_light
+             - light.ceiling_fan_light
           rgb_template: '
             return "off-state";
           '
@@ -135,7 +138,7 @@
         - name: Motion
           entities:
             - sensor.template_last_motion
-            
+
         - name: Cameras
           entities:
 #            - camera.front_porch_cam
@@ -167,7 +170,7 @@
             - sensor.date_format
             - sensor.time_templated_am_pm_2
             - sensor.alarm_clock_time_long
-            - sensor.dark_sky_summary
+            - sensor.dark_sky_minutely_summary
             - sensor.date_format_2
             - sensor.time
             - sensor.number_of_lights_on

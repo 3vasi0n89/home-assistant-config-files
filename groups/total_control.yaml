@@ -15,7 +15,6 @@ all_modes:
     - input_boolean.out_front_mode
     - input_boolean.out_back_mode
     - input_boolean.movie_mode
-    - input_boolean.test3
     - input_boolean.alarm_triggered
 
 modes:
@@ -51,6 +50,6 @@ dockers:
   name: Dockers
   entities:
     - switch.ha_dockermon_pihole
-    - switch.ha_dockermon_symbiotehostingdelugevpn
-    - switch.ha_dockermon_symbiotehostingradarr
-    - switch.ha_dockermon_symbiotehostingsonarr
+    - switch.ha_dockermon_symbiotehosting_delugevpn
+    - switch.ha_dockermon_symbiotehosting_radarr
+    - switch.ha_dockermon_symbiotehosting_sonarr

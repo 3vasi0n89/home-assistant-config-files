@@ -215,10 +215,10 @@ media_player:
 vera:
   vera_controller_url: !secret vera_ip
 
-tuya:
-  username: !secret phone
-  password: !secret normal_password
-  country_code: 1
+# tuya:
+#   username: !secret phone
+#   password: !secret normal_password
+#   country_code: 1
 
 #emulated_hue:
 #  host_ip: !secret alexa_host_ip
@@ -237,6 +237,11 @@ coinbase:
 
 ifttt:
   key: !secret ifttt_api_key
+
+counter:
+  motion_activated:
+    step: 1
+    icon: mdi:history
 
 remote:
   - platform: harmony
@@ -279,6 +284,10 @@ camera:
   - platform: generic
     name: Weather Radar
     still_image_url: !secret radar_still_image_url
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
 
 ffmpeg:
 
@@ -355,6 +364,7 @@ light: !include_dir_merge_list lights
 scene: !include_dir_merge_list scenes
 intent_script: !include_dir_merge_named alexa_intents/
 
+shopping_list:
 
 ####################################
 #                                  #
@@ -362,7 +372,7 @@ intent_script: !include_dir_merge_named alexa_intents/
 #                                  #
 ####################################
 
-
+zone: !include zones.yaml
 discovery:
 conversation:
 history:

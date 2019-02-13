@@ -25,12 +25,12 @@ school_mode:
 
 alarm_mode:
   name: Alarm Mode
-  icon: mdi:security-home
+  icon: mdi:shield-home
   initial: off
 
 alarm_triggered:
   name: Alarm Triggered
-  icon: mdi:alarm_light
+  icon: mdi:alarm-light
   initial: off
 
 power:

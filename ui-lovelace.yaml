@@ -1,0 +1,456 @@
+title: Home
+resources:
+  - url: /local/mini-media-player-bundle.js?v=0.9.8
+    type: module
+views:
+  - badges: []
+    cards:
+      - entities:
+          - light.front_porch_light
+        show_header_toggle: true
+        theme: Backend-selected
+        title: Front Porch
+        type: entities
+      - entities:
+          - lock.front_door_deadbolt_60
+          - light.downstairs_hall_light
+          - binary_sensor.front_door_8
+        show_header_toggle: false
+        title: Downstairs Hallway
+        type: entities
+      - entities:
+          - light.upstairs_hall_light
+        show_header_toggle: false
+        title: Upstairs Hallway
+        type: entities
+      - entities:
+          - input_select.living_room_tv
+          - light.livingroom_tv
+          - input_number.denon_volume
+          - switch.ceiling_fan_3
+          - switch.ceiling_fan_light_3
+          - light.living_room_lamp
+          - sensor.wink_relay_sensor_1_temperature_2
+          - sensor.wink_relay_sensor_1_humidity
+          - binary_sensor.motion_detector_25
+        show_header_toggle: false
+        title: Living Room
+        type: entities
+      - entities:
+          - switch.left_dining_room_light
+          - switch.right_dining_room_light
+          - binary_sensor.dining_room_motion
+        title: Dining Room
+        type: entities
+      - entity: climate.ecobee
+        type: thermostat
+      - entities:
+          - light.kitchen_underglow
+          - binary_sensor.kitchen_motion
+          - sensor.kitchen_temperature
+          - sensor.kitchen_humidity
+        show_header_toggle: false
+        title: Kitchen
+        type: entities
+      - entities:
+          - light.bathroom_light
+          - switch.toilet_air_freshener
+          - binary_sensor.bathroom_motion
+        show_header_toggle: false
+        title: Downstairs Bathroom
+        type: entities
+      - entities:
+          - input_select.bedroom_tv
+          - input_boolean.fireplace
+          - input_boolean.fireplace_temp
+          - switch.strip_cord1
+          - light.end_table_lamps
+          - binary_sensor.bedroom_motion
+        show_header_toggle: false
+        title: Master Bedroom
+        type: entities
+      - entities:
+          - switch.attic_door_lock
+          - light.attic_lights
+        title: Attic
+        type: entities
+      - entities:
+          - input_boolean.movie_mode
+          - input_boolean.guest_mode
+          - input_boolean.vacation_mode
+          - input_boolean.speech_notifications
+        show_header_toggle: false
+        title: Modes
+        type: entities
+    icon: 'mdi:home'
+    path: default_view
+    title: default_view
+  - badges: []
+    cards:
+      - entities:
+          - device_tracker.joes_iphone
+          - device_tracker.savannahs_iphone
+        title: Family
+        type: entities
+      - entities:
+          - sensor.joes_iphone_battery_level
+          - sensor.savannahs_iphone_battery_level
+        title: Devices
+        type: entities
+      - entities:
+          - input_select.holiday
+          - sensor.joes_work_travel_time
+          - sensor.savannahs_work_travel_time
+          - sensor.low_battery
+          - input_select.log_level
+        title: Status
+        type: entities
+      - entities:
+          - sensor.ha_uptime
+          - sensor.ha_installed_version
+          - sensor.speedtest_download
+          - sensor.speedtest_upload
+          - sensor.speedtest_ping
+          - weblink.router
+        title: Network
+        type: entities
+      - entities:
+          - sensor.period_of_day
+          - sensor.ecobee_temperature
+          - sensor.ecobee_humidity
+          - sensor.dark_sky_temperature
+          - sensor.dark_sky_apparent_temperature
+          - sensor.dark_sky_humidity
+          - sensor.dark_sky_cloud_coverage
+          - sensor.dark_sky_visibility
+          - sensor.dark_sky_wind_speed
+          - sensor.dark_sky_summary
+        title: Enviroment
+        type: entities
+      - entity: camera.weather_radar
+        type: picture-entity
+      - entities:
+          - sensor.time
+          - sensor.alarm_clock_time
+          - input_number.alarm_clock_hour
+          - input_number.alarm_clock_minutes
+          - input_boolean.alarm_clock_status
+          - input_boolean.downstairs
+        title: Joe's Alarm Clock
+        type: entities
+      - entities:
+          - switch.pihole_temp_disable
+        title: Pi Hole
+        type: entities
+    icon: 'mdi:information'
+    path: info_view
+    title: Info
+  - badges: []
+    cards:
+      - entity: alarm_control_panel.security_system
+        type: alarm-panel
+      - entities:
+          - binary_sensor.front_door_8
+          - binary_sensor.back_door_70
+          - binary_sensor.side_door_45
+        show_header_toggle: false
+        title: Doors
+        type: entities
+      - entities:
+          - binary_sensor.living_room_window_1_46
+          - binary_sensor.living_room_window_2_5
+          - binary_sensor.living_room_window_3_44
+          - binary_sensor.living_room_window_4_7
+          - binary_sensor.dining_room_window_77
+          - binary_sensor.kitchen_window_1_78
+          - binary_sensor.kitchen_window_2_74
+          - binary_sensor.michaels_window_1_75
+          - binary_sensor.michaels_window_2_76
+        show_header_toggle: false
+        title: Windows
+        type: entities
+      - entities:
+          - sensor.template_last_motion
+          - binary_sensor.motion_detector_25
+          - binary_sensor.dining_room_motion
+          - binary_sensor.bedroom_motion
+          - binary_sensor.bathroom_motion
+        show_header_toggle: false
+        theme: Backend-selected
+        title: Motion Sensors
+        type: entities
+      - entities:
+          - binary_sensor.garage_door_sensor_71
+        show_header_toggle: false
+        title: Garage
+        type: entities
+      - entity: camera.bedroom_cam
+        type: picture-entity
+      - entity: camera.front_porch_cam
+        type: picture-entity
+    icon: 'mdi:security-home'
+    path: alarm_view
+    title: Alarm Panel
+  - badges: []
+    cards:
+      - entity: media_player.living_room_fire_tv
+        type: media-control
+      - entity: media_player.living_room_kodi
+        type: media-control
+      - entity: media_player.master_bedroom_kodi
+        type: media-control
+      - entity: media_player.livingroom_cast
+        type: media-control
+      - entity: media_player.all_cast
+        type: media-control
+      - entity: media_player.living_room_dot
+        type: media-control
+      - entity: media_player.hallway_dot
+        type: media-control
+      - entity: media_player.bathroom_dot
+        type: media-control
+      - entity: media_player.kitchen_dot
+        type: media-control
+      - entity: media_player.back_porch_dot
+        type: media-control
+      - entity: media_player.bedroom_dot
+        type: media-control
+      - entity: media_player.michaels_dot
+        type: media-control
+      - entity: media_player.attic_dot
+        type: media-control
+      - entity: media_player.chris_and_bens_dot
+        type: media-control
+      - entity: media_player.whole_house
+        type: media-control
+      - entities:
+          - input_select.radio_station
+          - input_select.chromecast_radio
+          - script.radio538
+        title: Chromecast Radio
+        type: entities
+      - artwork_border: true
+        entity: media_player.attic_dot
+        icon: 'mdi:router-wireless'
+        show_source: true
+        type: 'custom:mini-media-player'
+    icon: 'mdi:youtube'
+    path: media_view
+    title: Media
+  - badges: []
+    cards:
+      - entities:
+          - light.downstairs_hall_light
+          - light.living_room_lamp
+          - light.bathroom_light
+          - light.left_end_table_lamp
+          - light.right_end_table_lamp
+          - light.upstairs_hall_light
+          - switch.ceiling_fan_light_3
+          - light.livingroom_tv
+          - light.kitchen_underglow
+          - light.christmas_tree_lights
+          - switch.still_needs_13
+          - switch.strip_cord1
+          - switch.strip_cord2
+          - switch.strip_cord3
+          - switch.strip_cord4
+        title: All Lights
+        type: entities
+      - entities:
+          - light.living_room_lamp
+          - light.downstairs_hall_light
+          - light.left_attic_light
+          - light.right_attic_light
+          - light.upstairs_hall_light
+          - light.left_end_table_lamp
+          - light.right_end_table_lamp
+          - light.bathroom_light
+        title: Lifx Lights
+        type: entities
+      - entities:
+          - input_select.hass_theme
+        title: Input select
+        type: entities
+      - entities:
+          - input_boolean.vacation_mode
+          - input_boolean.alarm_mode
+          - input_boolean.day_mode
+          - input_boolean.night_mode
+          - input_boolean.guest_mode
+          - input_boolean.doorbell
+          - input_boolean.kids_weekend
+          - input_boolean.school_mode
+          - input_boolean.shutdown_mode
+          - input_boolean.sleep_mode
+          - input_boolean.speech_notifications
+          - input_boolean.out_front_mode
+          - input_boolean.out_back_mode
+          - input_boolean.movie_mode
+          - input_boolean.alarm_triggered
+        title: All Modes
+        type: entities
+      - entities:
+          - switch.ha_dockermon_pihole
+          - switch.ha_dockermon_symbiotehosting_delugevpn
+          - switch.ha_dockermon_symbiotehosting_radarr
+          - switch.ha_dockermon_symbiotehosting_sonarr
+        title: Dockers
+        type: entities
+    icon: 'mdi:settings'
+    path: system_view
+    title: System
+  - badges: []
+    cards:
+      - entities:
+          - switch.3d_printer_16
+          - switch.printer_light_17
+        title: CR-10
+        type: entities
+      - entity: camera.octoprint_cam
+        type: picture-entity
+      - entities:
+          - entity: weblink.cr_10_interface
+          - entity: sensor.octoprint_current_state
+          - entity: binary_sensor.octoprint_printing
+          - entity: binary_sensor.octoprint_printing_error
+          - entity: sensor.octoprint_job_percentage
+          - entity: sensor.octoprint_time_elapsed
+          - entity: sensor.octoprint_time_remaining
+          - entity: sensor.bed
+          - entity: sensor.bed_target
+          - entity: sensor.hotend
+          - entity: sensor.hotend_target
+        title: Information
+        type: entities
+    icon: 'mdi:cloud-print'
+    path: octoprint_view
+    title: 3D Printer
+  - badges: []
+    cards:
+      - entities:
+          - automation.n_new_device_connected
+          - automation.n_update_available
+          - automation.n_start_up
+          - automation.n_shut_down
+        title: Notifications
+        type: entities
+      - entities:
+          - input_boolean.speech_notifications
+          - input_boolean.text_notifications
+          - input_select.notification_media_player_cast
+          - input_select.notification_media_player_alexa
+          - input_number.notification_volume
+          - input_boolean.guest_mode
+          - input_boolean.alert_mode
+        title: Settings
+        type: entities
+    path: notification_view
+    title: Notifications
+  - badges: []
+    cards:
+      - aspect_ratio: 16x9
+        entities:
+          - light.front_porch_light
+        entity: light.front_porch_light
+        state_image:
+          'off': /local/lovelace/front_porch_bw.png
+          'on': /local/lovelace/front_porch.png
+        title: Front Porch
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - lock.front_door_deadbolt_60
+          - light.downstairs_hall_light
+          - binary_sensor.front_door_8
+        entity: light.downstairs_hall_light
+        state_image:
+          'off': /local/lovelace/downstairs_hallway_bw.jpg
+          'on': /local/lovelace/downstairs_hallway.jpg
+        title: Downstairs Hallway
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - input_select.living_room_tv
+          - light.livingroom_tv
+          - input_number.denon_volume
+          - switch.ceiling_fan_3
+          - switch.ceiling_fan_light_3
+          - light.living_room_lamp
+          - binary_sensor.motion_detector_25
+        entity: light.living_room_lamp
+        state_image:
+          'off': /local/lovelace/living_room_bw.jpg
+          'on': /local/lovelace/living_room.png
+        title: Living Room
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - light.kitchen_underglow
+          - binary_sensor.kitchen_motion
+          - sensor.kitchen_temperature
+          - sensor.kitchen_humidity
+        entity: light.kitchen_underglow
+        state_image:
+          'off': /local/lovelace/kitchen_bw.png
+          'on': /local/lovelace/kitchen.png
+        title: Kitchen
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - input_select.bedroom_tv
+          - input_boolean.fireplace
+          - input_boolean.fireplace_temp
+          - switch.strip_cord1
+          - light.end_table_lamps
+          - binary_sensor.bedroom_motion
+        entity: light.end_table_lamps
+        state_image:
+          'off': /local/lovelace/bedroom_bw.png
+          'on': /local/lovelace/bedroom.png
+        title: Master Bedroom
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - light.bathroom_light
+          - switch.toilet_air_freshener
+          - binary_sensor.bathroom_motion
+        entity: light.bathroom_light
+        state_image:
+          'off': /local/lovelace/bathroom_bw.png
+          'on': /local/lovelace/bathroom.png
+        title: Downstairs Bathroom
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - climate.ecobee
+          - switch.left_dining_room_light
+          - switch.right_dining_room_light
+          - binary_sensor.dining_room_motion
+        entity: switch.left_dining_room_light
+        state_image:
+          'off': /local/lovelace/dining_room_bw.png
+          'on': /local/lovelace/dining_room.png
+        title: Dining Room
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - switch.attic_door_lock
+          - light.attic_lights
+        entity: light.attic_lights
+        state_image:
+          'off': /local/lovelace/attic_bw.png
+          'on': /local/lovelace/attic.png
+        title: Attic
+        type: picture-glance
+      - aspect_ratio: 16x9
+        entities:
+          - light.upstairs_hall_light
+        entity: light.upstairs_hall_light
+        state_image:
+          'off': /local/lovelace/upstairs_hallway_bw.png
+          'on': /local/lovelace/upstairs_hallway.png
+        title: Upstairs Hallway
+        type: picture-glance
+    path: home2
+    title: Home2

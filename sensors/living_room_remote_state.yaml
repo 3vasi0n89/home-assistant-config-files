@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    living_room_remote_activity:
+      value_template: >
+        {% if is_state("remote.living_room", 'on') %}
+          {{ states.remote.living_room.attributes.current_activity }}
+        {% else %}
+          PowerOff
+        {% endif %}

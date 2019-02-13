@@ -1,0 +1,7 @@
+- platform: mqtt
+  name: "Left Dining Room Light"
+  command_topic: "cmnd/left_dining_room_light/power"
+  state_topic: "stat/left_dining_room_light/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"

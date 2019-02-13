@@ -1,12 +1,12 @@
 living_room_tv:
-  name: Livingroom TV
+  name: Living Room TV
   options:
     - Powered Off
     - Fire TV
-    - PC
     - Xbox One
-    - Wii U
+    - Nintendo Switch
     - Echo Dot
+    - Surround Sound Cast
   icon: mdi:monitor
 
 bedroom_tv:
@@ -30,6 +30,7 @@ chromecast_radio:
   options:
     - Livingroom
     - Bedroom
+    - Surround Sound
     - Everywhere
   icon: mdi:speaker-wireless
 
@@ -59,10 +60,15 @@ hass_theme:
     options:
     - default
     - solarized
-    - dark_cyan
-    - dark_red
+    - darkcyan
+    - darkred
+    - PmxMononight
     - christmas
+    - Clear-Nightz-II
+    - Dark-Nightz
+    - Purple-Haze
     icon: mdi:theme-light-dark
+    initial: default
 
 holiday:
   name: Holiday

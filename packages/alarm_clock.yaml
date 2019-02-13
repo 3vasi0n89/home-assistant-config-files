@@ -8,15 +8,14 @@ group:
       - input_number.alarm_clock_minutes
       - input_boolean.alarm_clock_status
       - input_boolean.downstairs
-      
+
 input_boolean:
   alarm_clock_status:
     name: Alarm Clock Status
   downstairs:
     name: Downstairs
-    initial: off
     icon: mdi:stairs
-    
+
 input_number:
   alarm_clock_hour:
     name: Hour
@@ -25,7 +24,7 @@ input_number:
     max: 23
     step: 1
     mode: slider
-    
+
   alarm_clock_minutes:
     name: Minutes
     icon: mdi:timer
@@ -33,13 +32,13 @@ input_number:
     max: 55
     step: 5
     mode: slider
-    
+
 sensor:
   - platform: time_date
     display_options:
       - 'time'
       - 'date'
-      
+
   - platform: template
     sensors:
       alarm_clock_hour:
@@ -63,7 +62,7 @@ sensor:
             0
           {%- endif -%}
             {{ states.sensor.alarm_clock_minutes.state }}
-        
+
 automation:
   ###### automation for turning on the alarm ######
   - id: alarm_clock_activated
@@ -84,7 +83,7 @@ automation:
     action:
     - service: script.turn_on
       entity_id: script.s_alarm_clock_wake_up
-    
+
   ###### awake actionable notification pushed ######
   - id: a_alarm_clock_awake_action
     alias: alarm clock awake action
@@ -98,7 +97,7 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.s_alarm_clock_awake
-  
+
   ###### snooze actionable notification pushed ######
   - id: a_alarm_clock_snooze_action
     alias: alarm clock snooze action
@@ -112,7 +111,7 @@ automation:
     action:
       service: script.turn_on
       entity_id: script.s_alarm_clock_snooze
-      
+
 script:
   ###### script for running what happens after awake button is pushed ######
   s_alarm_clock_awake:
@@ -128,8 +127,8 @@ script:
         entity_id: light.right_end_table_lamp
         power: false
         transition: '5'
-    
-  ###### script for running what happens when snooze button is pushed and for turning on the snooze timer and turning off lights ###### 
+
+  ###### script for running what happens when snooze button is pushed and for turning on the snooze timer and turning off lights ######
   s_alarm_clock_snooze:
     sequence:
     - service: script.turn_off
@@ -248,4 +247,3 @@ script:
             sound: "US-EN-Alexa-Good-Morning.wav"
             badge: 0
             category: 'alarmclock'
-    

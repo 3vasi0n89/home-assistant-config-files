@@ -1,0 +1,24 @@
+- id: n_hdd_temp_too_high
+  alias: HDD Temp Too High Notify
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: numeric_state
+    above: '110'
+    entity_id:
+    - sensor.hd_temperature_dev_sdf
+    - sensor.hd_temperature_dev_sdg
+    - sensor.hd_temperature_dev_sdh
+    - sensor.hd_temperature_dev_sdi
+    - sensor.hd_temperature_dev_sdj
+    - sensor.hd_temperature_dev_sdk
+
+  action:
+      service: notify.ios_family
+      data_template:
+        title: "ATTENTION"
+        message: >
+          "The {{ trigger.to_state.attributes.friendly_name }} has reached {{ trigger.to_state.state }} degrees! Please open the closet door immediately"
+        data:
+          push:
+            badge: '911'

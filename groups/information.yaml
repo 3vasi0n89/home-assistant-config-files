@@ -3,10 +3,10 @@ family:
   entities:
     - device_tracker.joes_iphone
     - device_tracker.savannahs_iphone
-vehicles:
-  name: Vehicles
-  entities:
-    - binary_sensor.carpresence
+# vehicles:
+#   name: Vehicles
+#   entities:
+#     - binary_sensor.carpresence
 devices:
   name: Devices
   entities:
@@ -35,6 +35,17 @@ status:
     - sensor.savannahs_work_travel_time
     - sensor.low_battery
     - input_select.log_level
+
+unraid_info:
+  name: Unraid Info
+  entities:
+    - sensor.hd_temperature_dev_sdf
+    - sensor.hd_temperature_dev_sdg
+    - sensor.hd_temperature_dev_sdh
+    - sensor.hd_temperature_dev_sdi
+    - sensor.hd_temperature_dev_sdj
+    - sensor.hd_temperature_dev_sdk
+    
 network:
   name: Network
   entities:
@@ -44,12 +55,12 @@ network:
     - sensor.speedtest_upload
     - sensor.speedtest_ping
     - weblink.router
-    - sensor.homeassistant_v2db
+    - sensor.homeassistant_v2_db
 pihole:
   name: Pi Hole
   entities:
     - switch.pihole_temp_disable
-    - sensor.pihole_ads_blocked_today
-    - sensor.pihole_ads_percentage_blocked_today
-    - sensor.pihole_dns_queries_today
-    - sensor.pihole_dns_unique_clients
+    # - sensor.pihole_ads_blocked_today
+    # - sensor.pihole_ads_percentage_blocked_today
+    # - sensor.pihole_dns_queries_today
+    # - sensor.pihole_dns_unique_clients

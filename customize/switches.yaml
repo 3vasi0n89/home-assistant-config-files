@@ -1,2 +1,11 @@
 switch.attic_door_lock:
   icon: mdi:lock
+
+switch.fire_tv:
+  icon: mdi:amazon
+
+switch.nintendo_switch:
+  icon: mdi:nintendo-switch
+
+switch.xbox_one:
+  icon: mdi:xbox

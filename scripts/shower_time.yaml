@@ -1,4 +1,5 @@
 shower_time:
+  alias: Shower Time
   sequence:
     - service: light.turn_on
       entity_id: light.bathroom_light

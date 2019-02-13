@@ -7,7 +7,7 @@ cr10:
 cr10_information:
   name: Information
   entities:
-  - weblink.cr10_interface
+  - weblink.cr_10_interface
   - sensor.octoprint_current_state
   - binary_sensor.octoprint_printing
   - binary_sensor.octoprint_printing_error

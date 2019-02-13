@@ -1,0 +1,43 @@
+- platform: template
+  switches:
+      # XBOX HARMONY ACTIVITY
+      xbox_one:
+        value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'Xbox One') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.living_room
+            activity: 'Xbox One'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.living_room
+            activity: 'PowerOff'
+      
+      # SWITCH HARMONY ACTIVITY
+      nintendo_switch:
+        value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'Nintendo Switch') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.living_room
+            activity: 'Nintendo Switch'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.living_room
+            activity: 'PowerOff'
+      
+      # TV HARMONY ACTIVITY
+      fire_tv:
+        value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'Fire TV') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.living_room
+            activity: 'Fire TV'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.living_room
+            activity: 'PowerOff'

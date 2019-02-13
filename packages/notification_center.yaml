@@ -9,10 +9,10 @@ group:
   notifications:
     name: Notifications
     entities:
-      - automation.n_new_device_connected
-      - automation.n_update_available
-      - automation.n_start_up
-      - automation.n_shut_down
+      - automation.notification_new_device_connected
+      - automation.notification_update_available
+      - automation.notification_start_up
+      - automation.notification_shut_down
 
   notification_settings:
     name: Settings
@@ -20,15 +20,16 @@ group:
       - input_boolean.speech_notifications
       - input_boolean.text_notifications
       - input_select.notification_media_player_cast
+      - input_number.notification_google_volume
       - input_select.notification_media_player_alexa
-      - input_number.notification_volume
+      - input_number.notification_alexa_volume
       - input_boolean.guest_mode
-      - input_boolean.alert_mode
+      - input_boolean.notification_alert_mode
 
 
 input_boolean:
 
-  alert_mode:
+  notification_alert_mode:
     name: Alert Mode
     icon: mdi:bell
 
@@ -41,8 +42,14 @@ input_boolean:
     icon: mdi:message-text-outline
 
 input_number:
-  notification_volume:
-    name: Volume
+  notification_google_volume:
+    name: Google Volume
+    icon: mdi:volume-high
+    min: 0.0
+    max: 1.0
+    step: 0.01
+  notification_alexa_volume:
+    name: Alexa Volume
     icon: mdi:volume-high
     min: 0.0
     max: 1.0
@@ -54,8 +61,10 @@ input_select:
     name: Source Chromecast
     icon: mdi:speaker
     options:
+      - None
       - All Cast
-      - Livingroom Cast
+      - Living Room Speaker
+      - Living Room Cast
       - Master Bedroom Cast
       - Surround Sound Cast
 
@@ -63,10 +72,11 @@ input_select:
     name: Source Alexa
     icon: mdi:speaker
     options:
+      - None
       - Whole House
       - Attic Dot
-      - Living Room Dot
-      - Downstairs Hall Dot
+      - Livingroom Dot
+      - Hallway Dot
       - Bathroom Dot
       - Kitchen Dot
       - Back Porch Dot
@@ -309,13 +319,13 @@ script:
             {#  ******** Start the Speech routines ********  #}
             {# ********************************************* #}
 
-            {% if call_no_announcement != 1 %}
+            {% if call_announcement == 1 %}
               {% if now().strftime('%H')|int < 12 and now().strftime('%H')|int > 6 %}
-                Good morning.
+                "Good morning. "
               {% elif now().strftime('%H')|int >= 12 and now().strftime('%H')|int < 17 %}
-                Good afternoon.
+                "Good afternoon. "
               {% else %}
-                Good evening.
+                "Good evening. "
               {% endif %}
             {% endif %}
 
@@ -386,6 +396,19 @@ script:
               {{ leaving() }}
             {% endif %}
 
+          ios_title: >-
+            {{ ios_title }}
+          content_type: >-
+            {{ content_type }}
+          ios_sound: >-
+            {{ ios_sound }}
+          ios_badge: >-
+            {{ ios_badge }}
+          ios_category: >-
+            {{ ios_category }}
+          camera_entity: >-
+            {{ camera_entity }}
+
       - service: input_boolean.turn_off
         data:
           entity_id:
@@ -407,8 +430,21 @@ script:
             {{ speech_message }}
       - service: script.text_processing
         data_template:
+          ios_title: >-
+            {{ ios_title }}
           speech_message: >-
             {{ speech_message }}
+          content_type: >-
+            {{ content_type }}
+          ios_sound: >-
+            {{ ios_sound }}
+          ios_badge: >-
+            {{ ios_badge }}
+          ios_category: >-
+            {{ ios_category }}
+          camera_entity: >-
+            {{ camera_entity }}
+
 ######################################################################################################
 ##                  Within speech_processing the TTS-service is called.                       ##
 ######################################################################################################
@@ -418,7 +454,7 @@ script:
       - service: mqtt.publish
         data_template:
           topic: 'tts/last_message'
-          payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }}. {{ speech_message | truncate(220)}}"
+          payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }} {{ speech_message | truncate(220)}}"
           retain: true
       - condition: and
         conditions:
@@ -428,7 +464,7 @@ script:
                 after: '07:00:00'
                 before: '23:00:00'
               - condition: state
-                entity_id: input_boolean.alert_mode
+                entity_id: input_boolean.notification_alert_mode
                 state: 'on'
           - condition: state
             entity_id: input_boolean.speech_notifications
@@ -442,7 +478,7 @@ script:
               - condition: state
                 entity_id: input_boolean.guest_mode
                 state: 'on'
-      - wait_template: "{{ not is_state( media_player, 'playing') }}"
+      - wait_template: "{{ not is_state( media_player_cast, 'playing') }}"
         timeout: 00:00:30
 
       - service: media_player.volume_set
@@ -450,22 +486,26 @@ script:
           entity_id: >
             {{ media_player_cast }}
           volume_level: >-
-            {{ states.input_number.notification_volume.state }}
+            {{ states.input_number.notification_google_volume.state }}
         #### CHANGE TO MATCH YOUR TTS OUTPUT (I.E. tts.google_say or tts.amazon_polly_say #####
       - service: tts.amazon_polly_say
         data_template:
           entity_id: >
             {{ media_player_cast }}
           message: >-
-            <speak>
-              {{ speech_message }}
-            </speak>
+            {{ speech_message | replace("\n","") | replace("   ","") | replace("  "," ") }}
+      - service: media_player.volume_set
+        data_template:
+          entity_id: >
+            {{ media_player_alexa }}
+          volume_level: >-
+            {{ states.input_number.notification_alexa_volume.state }}
       - service: media_player.alexa_tts
         data_template:
           entity_id: >
             {{ media_player_alexa }}
           message: >-
-              {{ speech_message }}
+            {{ speech_message | replace("\n","") | replace("   ","") | replace("  "," ") }}
       - service: input_boolean.turn_off
         data:
           entity_id:
@@ -486,24 +526,31 @@ script:
 
   text_processing:
     sequence:
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: input_boolean.text_notifications
-            state: 'on'
+      - condition: state
+        entity_id: input_boolean.text_notifications
+        state: 'on'
       - service: notify.ios_joes_iphone
         data_template:
           #TODO
-          title: "Home Assistant Notify"
+          title: "{{ ios_title }}"
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") |
                replace("eight hundred and sixty one thousand","861.000") }}
+          data:
+            attachment:
+              content-type: "{{ content_type }}"
+            push:
+              sound: "{{ ios_sound }}"
+              badge: "{{ ios_badge }}"
+              category: "{{ ios_category }}"
+            entity_id: "{{ camera_entity }}"
+
       # - service_template: >
       #       {% if who == 'Joe' %}
       #         notify.ios_joes_iphone
       #       {% elif who == 'Savannah' %}
       #         notify.ios_savannahs_iphone
-      #       {% elif who == 'parents' %}
+      #       {% elif who == 'Parents' %}
       #         notify.ios_parents
       #       {% else %}
       #         notify.ios_family

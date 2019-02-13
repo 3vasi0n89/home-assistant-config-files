@@ -13,15 +13,12 @@ livingroom:
   - switch.ceiling_fan_3
   - switch.ceiling_fan_light_3
   - light.living_room_lamp
-  - switch.christmas_tree_lights
-  - input_number.livingroom_lamp_dimmer
-  - sensor.wink_relay_sensor_1_temperature
+  - sensor.wink_relay_sensor_1_temperature_2
   - sensor.wink_relay_sensor_1_humidity
   - binary_sensor.motion_detector_25
 diningroom:
   name: Dining Room
   entities:
-  - binary_sensor.back_door_42
   - climate.ecobee
   - switch.left_dining_room_light
   - switch.right_dining_room_light
@@ -31,8 +28,6 @@ downstairsbathroom:
   entities:
   - light.bathroom_light
   - switch.toilet_air_freshener
-  - sensor.bathroom_temperature
-  - sensor.bathroom_humidity
   - binary_sensor.bathroom_motion
 kitchen:
   name: Kitchen
@@ -69,11 +64,6 @@ masterbedroom:
   - input_boolean.fireplace_temp
   - switch.strip_cord1
   - light.end_table_lamps
-  - sensor.sn1_temperature
-  - sensor.sn1_humidity
-  - sensor.sn1_ldr
-  - sensor.sn1_pir
-  - light.sn1_led
   - binary_sensor.bedroom_motion
 attic:
   name: Attic

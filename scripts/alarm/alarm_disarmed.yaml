@@ -10,12 +10,12 @@ alarm_disarmed:
       color_name: white
   - service: light.lifx_set_state
     data_template:
-      entity_id: light.right_tv_lamp
+      entity_id: light.right_attic_light
       brightness: 255
       color_name: white
   - service: light.lifx_set_state
     data_template:
-      entity_id: light.left_tv_lamp
+      entity_id: light.left_attic_light
       brightness: 255
       color_name: white
   - service: light.lifx_set_state

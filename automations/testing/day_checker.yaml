@@ -2,7 +2,7 @@
   id: n_day_start
   trigger:
     - platform: time
-      at: '07:00:00'
+      at: '10:00:00'
 
   action:
     - service: script.speech_engine

@@ -19,6 +19,7 @@ joes_work_travel_time.yaml
 savannahs_work_travel_time.yaml
 *.gitinstructions
 *.disabled
+*.shopping_list.json
 *.pid
 *.xml
 *.csr
@@ -30,6 +31,7 @@ savannahs_work_travel_time.yaml
 .storage
 .uuid
 .3vasi0n89gmailcom.tile.conf
+.3vasi0n89_gmail_com.tile.conf
 .homekit.state
 core.*
 OZW_Log.txt

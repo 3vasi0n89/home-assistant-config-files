@@ -20,6 +20,7 @@ info_view:
   - group.family
   - group.vehicles
   - group.devices
+  - group.unraid_info
   - group.status
   - group.network
   - group.enviroment
@@ -29,7 +30,7 @@ info_view:
 
 alarm_view:
   view: true
-  icon: mdi:security-home
+  icon: mdi:shield-home
   entities:
   - group.alarm_panel
   - group.doors

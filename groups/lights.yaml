@@ -7,37 +7,34 @@ all_lights_2:
     - light.left_end_table_lamp
     - light.right_end_table_lamp
     - light.upstairs_hall_light
-    - light.upstairs_hall_light_20
-    - switch.ceiling_fan_light
-    - input_boolean.dining_room_lights
+    - light.ceiling_fan_light
     - light.livingroom_tv
-    - light.kitchen_floor_lights
+    - light.left_dining_room_light
+    - light.right_dining_room_light
+    - light.kitchen_underglow
     - light.christmas_tree_lights
-    - switch.still_needs_13
-    - switch.strip_cord1
-    - switch.strip_cord2
-    - switch.strip_cord3
-    - switch.strip_cord4
+
 lifx_lights:
   name: Lifx Lights
   entities:
   - light.living_room_lamp
   - light.downstairs_hall_light
-  - light.left_attic_light
-  - light.right_attic_light
   - light.upstairs_hall_light
   - light.left_end_table_lamp
   - light.right_end_table_lamp
   - light.bathroom_light
+
 downstairs_lights:
   name: Downstairs Lights
   entities:
   - light.downstairs_hall_light
-  - switch.ceiling_fan_light
+  - light.ceiling_fan_light
   - light.living_room_lamp
-  - switch.dining_room_lights
+  - light.left_dining_room_light
+  - light.right_dining_room_light
   - light.bathroom_light
   - light.christmas_tree_lights
+
 upstairs_lights:
   name: Upstairs Lights
   entities:

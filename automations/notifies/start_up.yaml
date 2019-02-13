@@ -1,5 +1,5 @@
 - alias: N Start Up
-  id: n_start_up
+  id: notification_start_up
   trigger:
     - event: start
       platform: homeassistant
@@ -7,5 +7,5 @@
   action:
     - service: script.speech_engine
       data:
-        call_no_announcement: 1
         call_start_up: 1
+        ios_title: "Start Up"

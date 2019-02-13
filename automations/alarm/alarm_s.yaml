@@ -6,17 +6,4 @@
     to: 'off'
   action:
     service: script.turn_on
-    entity_id: script.alarm_alarm_disarmed
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    entity_id: script.alarm_disarmed

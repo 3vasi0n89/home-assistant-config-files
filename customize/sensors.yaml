@@ -1,58 +1,28 @@
 climate.ecobee:
   friendly_name: Thermostat
 
-sensor.wink_relay_sensor_1_temperature:
+sensor.wink_relay_sensor_1_temperature_2:
   friendly_name: Room Temperature
-  
+
 sensor.wink_relay_sensor_1_humidity:
-  friendly_name: Room Humidity
-  icon: mdi:water-percent
-  
-sensor.sn1_pir:
-  friendly_name: Motion Detector
-  icon: mdi:run-fast
-  
-sensor.sn1_ldr:
-  friendly_name: Light Sensor
-  icon: mdi:theme-light-dark  
-  
-sensor.sn1_temperature:
-  friendly_name: Room Temperature
-
-sensor.sn1_humidity:
-  friendly_name: Room Humidity
-  icon: mdi:water-percent
-  
-sensor.sn2_pir:
-  friendly_name: Motion Detector
-  icon: mdi:run-fast
-  
-sensor.sn2_ldr:
-  friendly_name: Light Sensor
-  icon: mdi:theme-light-dark  
-  
-sensor.sn2_temperature:
-  friendly_name: Room Temperature
-
-sensor.sn2_humidity:
   friendly_name: Room Humidity
   icon: mdi:water-percent
 
 sensor.dark_sky_temperature:
   friendly_name: Outside Temperature
-  
+
 sensor.dark_sky_apparent_temperature:
   friendly_name: Apparent Temperature
-  
+
 sensor.dark_sky_humidity:
   friendly_name: Outside Humidity
 
 sensor.dark_sky_cloud_coverage:
   friendly_name: Outside Cloud Coverage
-  
+
 sensor.dark_sky_visibility:
   friendly_name: Outside Visibility
-  
+
 sensor.dark_sky_wind_speed:
   friendly_name: Outside Wind Speed
 
@@ -63,3 +33,27 @@ sensor.ecobee_temperature:
 sensor.ecobee_humidity:
   friendly_name: Inside Humidity
   icon: mdi:water-percent
+
+sensor.hd_temperature_dev_sdk:
+  friendly_name: HDD Parity
+  icon: mdi:harddisk
+
+sensor.hd_temperature_dev_sdg:
+  friendly_name: HDD 2
+  icon: mdi:harddisk
+
+sensor.hd_temperature_dev_sdh:
+  friendly_name: HDD 1
+  icon: mdi:harddisk
+
+sensor.hd_temperature_dev_sdi:
+  friendly_name: Cache
+  icon: mdi:harddisk
+
+sensor.hd_temperature_dev_sdj:
+  friendly_name: HDD 4
+  icon: mdi:harddisk
+
+sensor.hd_temperature_dev_sdf:
+  friendly_name: HDD 3
+  icon: mdi:harddisk

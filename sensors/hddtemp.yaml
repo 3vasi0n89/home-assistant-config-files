@@ -1,0 +1,8 @@
+- platform: hddtemp
+  disks:
+    - /dev/sdk
+    - /dev/sdh
+    - /dev/sdg
+    - /dev/sdf
+    - /dev/sdi
+    - /dev/sdj

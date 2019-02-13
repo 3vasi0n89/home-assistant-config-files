@@ -1,17 +1,2 @@
-sensor.desktop:
-  icon: mdi:desktop-tower
-
-sensor.hassbian:
-  icon: mdi:home-assistant
-  
-sensor.vera:
-  icon: mdi:home-automation
-  
-sensor.xboxone:
-  icon: mdi:xbox
-
 camera.bedroom_cam:
   name: Bedroom Cam
-  
-sensor.arloq_tracker:
-  icon: mdi:camcorder

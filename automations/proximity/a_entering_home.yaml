@@ -8,9 +8,9 @@
   - service: script.speech_engine
     data:
       call_welcome_home: 1
-      # data:
-      #   push:
-      #     sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
+    data_template:
+      push:
+        sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
   - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.security_system
     data:

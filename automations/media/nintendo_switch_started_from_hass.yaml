@@ -1,0 +1,22 @@
+- id: nintendo_switch_started_from_hass
+  alias: Nintendo Switch started from HASS
+  trigger:
+    platform: state
+    entity_id: input_select.living_room_tv
+    to: Nintendo Switch
+  action:
+    service: script.turn_on
+    entity_id: script.nintendo_switch
+
+
+
+
+
+
+
+
+
+
+
+
+  

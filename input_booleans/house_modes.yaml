@@ -5,7 +5,7 @@ guest_mode:
 
 vacation_mode:
   name: Vacation Mode
-  icon: mdi:plane-shield
+  icon: mdi:shield-airplane
   initial: off
 
 kids_weekend:
@@ -17,4 +17,3 @@ speech_notifications:
   name: Speech Notifications
   icon: mdi:speaker-wireless
   initial: off
-

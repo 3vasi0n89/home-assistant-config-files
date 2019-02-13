@@ -1,22 +1,23 @@
 - platform: darksky
-  api_key: 004c3e25990dddafdf1d2541e650c082
+  api_key: !secret darksky_api
   monitored_conditions:
     - summary
-    - icon
+    - precip_type
+    - precip_intensity
+    - precip_intensity_max
     - temperature
-    - apparent_temperature
+    - dew_point
     - wind_speed
+    - wind_bearing
     - cloud_cover
     - humidity
+    - nearest_storm_distance
+    - minutely_summary
+    - pressure
     - visibility
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    - ozone
+    - uv_index
+    - sunrise_time
+    - sunset_time
+    - icon
+    - apparent_temperature

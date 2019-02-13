@@ -1,5 +1,5 @@
 - alias: "N New device connected"
-  id: n_new_device_connected
+  id: notification_new_device_connected
   trigger:
     - platform: event
       event_type: device_tracker_new_device

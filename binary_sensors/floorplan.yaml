@@ -5,29 +5,23 @@
 - platform: mqtt
   state_topic: floorplan/kiosk/living_room
   name: Living Room Tablet
-  retain: true
 
 - platform: mqtt
   state_topic: floorplan/kiosk/bedroom
   name: Bedroom Tablet
-  retain: true
-  
+
 - platform: mqtt
   state_topic: floorplan/kiosk/living_room/motion
   name: Living Room Tablet Motion
-  retain: true
 
 - platform: mqtt
   state_topic: floorplan/kiosk/living_room/plugged
   name: Living Room Tablet Plugged
-  retain: true
 
 - platform: mqtt
   state_topic: floorplan/kiosk/bedroom/motion
   name: Bedroom Tablet Motion
-  retain: true
 
 - platform: mqtt
   state_topic: floorplan/kiosk/bedroom/plugged
   name: Bedroom Tablet Plugged
-  retain: true
