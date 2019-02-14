@@ -7,8 +7,8 @@
   - service: script.turn_on
     entity_id: script.s_lights_dimmed_mode
 
-- alias: 'Battery Alert'
-  id: battery_alert
+- alias: 'Notification Battery Alert'
+  id: notification_battery_alert
   initial_state: 'on'
   trigger:
     - platform: time
@@ -26,7 +26,7 @@
       data_template:
         title: Low Battery
         message: "Low battery levels: {{ states('sensor.low_battery') }}"
-        
+
 - id: lock_out_mode_on
   alias: Lock Out Mode On
   trigger:
@@ -66,9 +66,9 @@
     data:
       title: Automatic Lock
       message: The Front Door Has Been Locked
-      
-- id: turn_on_light_when_sundown
-  alias: Turn On Lights When Sun Goes Down
+
+- id: notification_lights_when_sundown
+  alias: Notification Lights When Sundown
   trigger:
     platform: sun
     event: sunset

@@ -1,5 +1,5 @@
-- id: n_hdd_temp_too_high
-  alias: HDD Temp Too High Notify
+- id: notification_hdd_temp
+  alias: Notification HDD Temp
   initial_state: true
   hide_entity: true
   trigger:

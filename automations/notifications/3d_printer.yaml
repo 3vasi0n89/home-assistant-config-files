@@ -1,0 +1,15 @@
+- id: notification_3d_printer_finished
+  alias: Notification 3D Printer Finished
+  trigger:
+    platform: state
+    entity_id: sensor.octoprint_job_percentage
+    to: "100"
+  action:
+    - service: script.speech_engine
+      data:
+        who: "Joe"
+        call_printer_finished: 1
+        ios_title: "3D Printer Report"
+        content_type: "jpeg"
+        ios_category: "camera"
+        camera_entity: "camera.octoprint_cam"

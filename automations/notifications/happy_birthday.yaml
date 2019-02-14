@@ -1,0 +1,12 @@
+- alias: 'Notification Happy Birthday'
+  id: notification_happy_birthday
+  trigger:
+    platform: template
+    value_template: '{{ now.now().strftime("%b") == "Aug" and now.now().strftime("%-d") == "20" and now.now().strftime("%-H") == "0" }}'
+  action:
+    service: notify.ios_joes_iphone
+    data:
+      message: >
+          {% set age = now.now().strftime("%Y") | int - 1989 %}
+          Happy {{ age }}{% if age % 10 == 1 %}st{% elif age % 10 == 2 %}nd{% elif age % 10 == 3 %}rd{% else %}th{% endif %} Birthday Joe!
+      title: "Happy Birthday"

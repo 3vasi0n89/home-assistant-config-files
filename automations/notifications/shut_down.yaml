@@ -1,0 +1,13 @@
+- alias: Notification Shut Down
+  id: notification_shut_down
+  trigger:
+    - event: shutdown
+      platform: homeassistant
+    - event_type: homeassistant.restart
+      platform: event
+  action:
+    - service: script.speech_engine
+      data:
+        call_closing: 1
+        call_shut_down: 1
+        ios_title: "Shutdown"

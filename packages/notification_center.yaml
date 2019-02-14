@@ -2,6 +2,7 @@ group:
   notification_view:
     name: Notifications
     view: yes
+    icon: mdi:speaker
     entities:
       - group.notifications
       - group.notification_settings
@@ -13,13 +14,22 @@ group:
       - automation.notification_update_available
       - automation.notification_start_up
       - automation.notification_shut_down
+      - automation.notification_battery_alert
+      - automation.notification_3d_printer_finished
+      - automation.notification_left_something_open
+      - automation.notification_last_message
+      - automation.notification_happy_birthday
+      - automation.notification_go_to_bed
+      - automation.notification_hdd_temp
+      - automation.notification_lights_when_sundown
+
 
   notification_settings:
     name: Settings
     entities:
       - input_boolean.speech_notifications
       - input_boolean.text_notifications
-      - input_select.notification_media_player_cast
+      - input_select.notification_media_player_google
       - input_number.notification_google_volume
       - input_select.notification_media_player_alexa
       - input_number.notification_alexa_volume
@@ -57,8 +67,8 @@ input_number:
 
 ###### CHANGE THESE TO MATCH FRIENDLY NAME OF MEDIA PLAYERS #####
 input_select:
-  notification_media_player_cast:
-    name: Source Chromecast
+  notification_media_player_google:
+    name: Source Google
     icon: mdi:speaker
     options:
       - None
@@ -84,13 +94,12 @@ input_select:
       - Chris and Bens Dot
       - Michaels Dot
 
-script:
 ######################################################################################################
 ##    within speech_engine the string message is generated with the use of macro's.           ##
 ######################################################################################################
 
 ######################################################################################################
-###Script to send notifications to the ChromeCast Audios during normal hours and only when we are home! Call like this:
+###Script to send notifications to the Google Homes and Alexa Devices during normal hours and only when we are home! Call like this:
   # action:
     # service: script.speech_engine
     # data:
@@ -107,14 +116,14 @@ script:
 # # @CCOSTAN
 # Original Repo : https://github.com/CCOSTAN/Home-AssistantConfig
 ######################################################################################################
-
+script:
   speech_engine:
     sequence:
       - service: script.notification_hub
         data_template:
-          media_player_cast: >-
+          media_player_google: >-
             {%- for device in states.media_player -%}
-              {%- if device.name == states.input_select.notification_media_player_cast.state -%}
+              {%- if device.name == states.input_select.notification_media_player_google.state -%}
                 {{ device.entity_id }}
               {%- endif -%}
             {%- endfor -%}
@@ -154,6 +163,17 @@ script:
 
             {%- macro outside_weather() -%}
               Outside, it is going to be {{ states('sensor.dark_sky_minutely_summary') }}
+            {%- endmacro -%}
+
+            {%- macro printer_finished() -%}
+              {% set printer_finished = [
+                "The 3D printer has finished printing something awesome! ",
+                "The 3D printer has finished printing a fucking masterpiece! ",
+                "The 3D printer has finished printing something completely useless! ",
+                "The 3D printer has finished printing another thing someone asked for! ",
+                "The 3D printer has finished printing a dumb box "
+              ] %}
+              {{ printer_finished | random }}
             {%- endmacro -%}
 
             {%- macro light_check() -%}
@@ -370,6 +390,10 @@ script:
               {{ responsibilities() }}
             {% endif %}
 
+            {% if call_printer_finished == 1 %}
+              {{ printer_finished() }}
+            {% endif %}
+
             {% if value1 is not none %}
               {{ value1 }}
             {% endif %}
@@ -422,8 +446,8 @@ script:
     sequence:
       - service: script.speech_processing
         data_template:
-          media_player_cast: >-
-            {{ media_player_cast }}
+          media_player_google: >-
+            {{ media_player_google }}
           media_player_alexa: >-
             {{ media_player_alexa }}
           speech_message: >-
@@ -472,28 +496,31 @@ script:
           - condition: or
             conditions:
               - condition: state
-                #### CHANGE GROUP TO MATCH YOUR PRESENCE DETECTOR #####
                 entity_id: group.family
                 state: 'home'
               - condition: state
                 entity_id: input_boolean.guest_mode
                 state: 'on'
-      - wait_template: "{{ not is_state( media_player_cast, 'playing') }}"
+      - wait_template: "{{ not is_state( media_player_google, 'playing') }}"
         timeout: 00:00:30
 
       - service: media_player.volume_set
         data_template:
           entity_id: >
-            {{ media_player_cast }}
+            {{ media_player_google }}
           volume_level: >-
             {{ states.input_number.notification_google_volume.state }}
-        #### CHANGE TO MATCH YOUR TTS OUTPUT (I.E. tts.google_say or tts.amazon_polly_say #####
       - service: tts.amazon_polly_say
         data_template:
           entity_id: >
-            {{ media_player_cast }}
+            {{ media_player_google }}
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") | replace("  "," ") }}
+      - service: media_player.alexa_tts
+        data_template:
+          entity_id: >
+            {{ media_player_alexa }}
+          message: "..."
       - service: media_player.volume_set
         data_template:
           entity_id: >
@@ -512,16 +539,20 @@ script:
             - input_boolean.last_message
             - input_boolean.alert_mode
 ######################################################################################################
-###Script to send notifications to IFTTT to notify me on the mobile Phone! Call like this:
+###Script to send notifications to our iPhones. Can be called using script.speech_engine or use script.text_processing if you want to bypass audible notifications. Call like this:
   # action:
-    # service: script.notify_engine
-    # data_template:
-      # value1: 'Startup: Home Assistant is Up and Running!'
-      # value2: ''
-      # value3: "{{ trigger.to_state.state }}"
-      # who: "stacey | carlo | paige | family | parents"
-
-    # IFTTT Maker channel should look like this: https://files.gitter.im/home-assistant/home-assistant/phkx/blob
+    # service: script.speech_engine
+    # data:
+      # who: "Joe | Savannah | Parents | Family"
+      # title: 'Home Assistant Notify'
+      # CustomMessage: "This can be any custom text you want to add"
+      # call_greeting: 1
+      # call_printer_finished: 1
+      # content_type: "jpeg"
+      # ios_sound: "US-EN-Morgan-Freeman-Turning-On-The-Lights.wav"
+      # ios_badge: "911"
+      # ios_category: "camera"
+      # camera_entity: "camera.octoprint_cam"
 ######################################################################################################
 
   text_processing:
@@ -529,9 +560,17 @@ script:
       - condition: state
         entity_id: input_boolean.text_notifications
         state: 'on'
-      - service: notify.ios_joes_iphone
+      - service_template: >-
+          {% if who == 'Joe' %}
+            notify.ios_joes_iphone
+          {% elif who == 'Savannah' %}
+            notify.ios_savannahs_iphone
+          {% elif who == 'Parents' %}
+            notify.ios_parents
+          {% else %}
+            notify.ios_family
+          {% endif %}
         data_template:
-          #TODO
           title: "{{ ios_title }}"
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") |
@@ -544,18 +583,3 @@ script:
               badge: "{{ ios_badge }}"
               category: "{{ ios_category }}"
             entity_id: "{{ camera_entity }}"
-
-      # - service_template: >
-      #       {% if who == 'Joe' %}
-      #         notify.ios_joes_iphone
-      #       {% elif who == 'Savannah' %}
-      #         notify.ios_savannahs_iphone
-      #       {% elif who == 'Parents' %}
-      #         notify.ios_parents
-      #       {% else %}
-      #         notify.ios_family
-      #       {% endif %}
-      #   data_template:
-      #     message: "{{ value1 }} {{ value2 }} {{ value3 }}"
-      #     data:
-      #       subtitle: "Home Assistant Notify"

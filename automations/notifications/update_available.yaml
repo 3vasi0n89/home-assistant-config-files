@@ -1,0 +1,10 @@
+- alias: Notification Update Available
+  id: notification_update_available
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    - service: script.speech_engine
+      data:
+        call_no_announcement: 1
+        call_update: 1
