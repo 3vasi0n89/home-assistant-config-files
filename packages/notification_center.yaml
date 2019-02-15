@@ -103,6 +103,7 @@ input_select:
   # action:
     # service: script.speech_engine
     # data:
+    #   who:
     #   call_no_announcement:
     #   call_greeting
     #   call_dark_outside:
@@ -113,8 +114,6 @@ input_select:
     #   call_inside_weather
     #   call_outside_weather
     #   call_closing
-# # @CCOSTAN
-# Original Repo : https://github.com/CCOSTAN/Home-AssistantConfig
 ######################################################################################################
 script:
   speech_engine:

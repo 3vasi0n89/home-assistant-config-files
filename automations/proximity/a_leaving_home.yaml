@@ -15,6 +15,4 @@
     data:
       call_leaving: 1
       call_window_check: 1
-      # data:
-      #   push:
-      #     sound: "US-EN-Alexa-Good-Night.wav"
+      ios_sound: "US-EN-Alexa-Good-Night.wav"

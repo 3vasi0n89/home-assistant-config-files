@@ -1,0 +1,26 @@
+- id: notification_savannah_arrived_work
+  alias: Notification Savannah Arrived Work
+  trigger:
+    platform: state
+    entity_id: device_tracker.savannahs_iphone
+    to: "Savannahs Work"
+  action:
+    - service: script.speech_engine
+      data:
+        who: "Joe"
+        CustomMessage: "Savannah safely arrived to work!"
+        ios_title: "Attention"
+
+- id: notification_savannah_left_work
+  alias: Notification Savannah Left Work
+  trigger:
+    platform: state
+    entity_id: device_tracker.savannahs_iphone
+    to: "Away"
+    from: "Savannahs Work"
+  action:
+    - service: script.speech_engine
+      data:
+        who: "Joe"
+        CustomMessage: "Savannah left work!"
+        ios_title: "Attention"
