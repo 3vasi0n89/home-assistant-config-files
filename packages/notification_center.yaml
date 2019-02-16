@@ -1,3 +1,9 @@
+################################################################################
+#   This Package is designed to use all of Home Assistants Notify Components   #
+#                #COMMENT out anything that you don't use                      #
+# lines that need to be edited to match your config are 80-85, 92-102, 574-581 #
+################################################################################
+
 group:
   notification_view:
     name: Notifications
@@ -65,12 +71,12 @@ input_number:
     max: 1.0
     step: 0.01
 
-###### CHANGE THESE TO MATCH FRIENDLY NAME OF MEDIA PLAYERS #####
 input_select:
   notification_media_player_google:
     name: Source Google
     icon: mdi:speaker
     options:
+###### Change these to match the FRIENDLY NAME of Google MEDIA PLAYERS #####
       - None
       - All Cast
       - Living Room Speaker
@@ -82,6 +88,7 @@ input_select:
     name: Source Alexa
     icon: mdi:speaker
     options:
+###### Change these to match the FRIENDLY NAME of Alexa MEDIA PLAYERS #####
       - None
       - Whole House
       - Attic Dot
@@ -95,25 +102,20 @@ input_select:
       - Michaels Dot
 
 ######################################################################################################
-##    within speech_engine the string message is generated with the use of macro's.           ##
+##    within speech_engine the string message is generated with the use of macro's.                 ##
 ######################################################################################################
 
 ######################################################################################################
-###Script to send notifications to the Google Homes and Alexa Devices during normal hours and only when we are home! Call like this:
-  # action:
+###Service call to send notifications! NOTE all data calls are optional. Call like this:
     # service: script.speech_engine
     # data:
-    #   who:
-    #   call_no_announcement:
-    #   call_greeting
-    #   call_dark_outside:
-    #   call_window_check:
-    #   call_garage_check:
-    #   call_responsibilities
-    #   call_light_check
-    #   call_inside_weather
-    #   call_outside_weather
-    #   call_closing
+    #   who: "Joe"
+    #   call_greeting: 1
+    #   call_window_check: 1
+    #   call_garage_check: 1
+    #   call_light_check: 1
+    #   call_outside_weather: 1
+    #   call_leaving: 1
 ######################################################################################################
 script:
   speech_engine:
@@ -440,7 +442,7 @@ script:
             - input_boolean.alert_mode
 
 ######################################################################################################
-##  notification_hub is the bridge between the speech_engine and the processing units.        ##
+##  notification_hub is the bridge between the speech_engine and the processing units.              ##
 ######################################################################################################
 
   notification_hub:
@@ -473,7 +475,7 @@ script:
             {{ camera_entity }}
 
 ######################################################################################################
-##                  Within speech_processing the TTS-service is called.                       ##
+##                  Within speech_processing the TTS-service is called.                             ##
 ######################################################################################################
 
   speech_processing:
@@ -543,7 +545,6 @@ script:
             - input_boolean.alert_mode
 ######################################################################################################
 ###Script to send notifications to our iPhones. Can be called using script.speech_engine or use script.text_processing if you want to bypass audible notifications. Call like this:
-  # action:
     # service: script.speech_engine
     # data:
       # who: "Joe | Savannah | Parents | Family"
@@ -563,6 +564,7 @@ script:
       - condition: state
         entity_id: input_boolean.text_notifications
         state: 'on'
+##### Change the notify entities in the service_template to match your devices #####
       - service_template: >-
           {% if who == 'Joe' %}
             notify.ios_joes_iphone
