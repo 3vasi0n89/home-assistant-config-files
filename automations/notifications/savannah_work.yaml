@@ -7,7 +7,7 @@
   action:
     - service: script.speech_engine
       data:
-        who: "Joe"
+        who: "Family"
         CustomMessage: "Savannah safely arrived to work!"
         ios_title: "Attention"
 
@@ -16,11 +16,24 @@
   trigger:
     platform: state
     entity_id: device_tracker.savannahs_iphone
-    to: "Away"
+    to: "not_home"
     from: "Savannahs Work"
   action:
     - service: script.speech_engine
       data:
         who: "Joe"
         CustomMessage: "Savannah left work!"
+        ios_title: "Attention"
+
+- id: notification_joe_arrived_work
+  alias: Notification Joe Arrived Work
+  trigger:
+    platform: state
+    entity_id: device_tracker.joes_iphone
+    to: "Joes Work"
+  action:
+    - service: script.speech_engine
+      data:
+        who: "Family"
+        CustomMessage: "Joe safely arrived to work!"
         ios_title: "Attention"

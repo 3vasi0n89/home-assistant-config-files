@@ -1,13 +1,13 @@
-- alias: 'Motion Counter'
-  id: motion_counter
-
-  trigger:
-
-    platform: state
-    entity_id: binary_sensor.kitchen_motion
-    to: 'on'
-
-  action:
-
-    - service: counter.increment
-      entity_id: counter.motion_activated
+# - alias: 'Motion Counter'
+#   id: motion_counter
+#
+#   trigger:
+#
+#     platform: state
+#     entity_id: binary_sensor.kitchen_motion
+#     to: 'on'
+#
+#   action:
+#
+#     - service: counter.increment
+#       entity_id: counter.motion_activated

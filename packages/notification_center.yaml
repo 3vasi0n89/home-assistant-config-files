@@ -167,7 +167,7 @@ script:
             {%- macro printer_finished() -%}
               {% set printer_finished = [
                 "The 3D printer has finished printing something awesome! ",
-                "The 3D printer has finished printing a fucking masterpiece! ",
+                "The 3D printer has finished printing another masterpiece! ",
                 "The 3D printer has finished printing something completely useless! ",
                 "The 3D printer has finished printing another thing someone asked for! ",
                 "The 3D printer has finished printing a dumb box "
@@ -356,6 +356,14 @@ script:
               {{ greeting() }}
             {% endif %}
 
+            {% if call_welcome_home == 1 %}
+              {{ welcome_home() }}
+            {% endif %}
+
+            {% if call_leaving == 1 %}
+              {{ leaving() }}
+            {% endif %}
+
             {% if call_inside_weather == 1 %}
               {{ inside_weather() }}
             {% endif %}
@@ -411,14 +419,6 @@ script:
               {{ closing() }}
             {% endif %}
 
-            {% if call_welcome_home == 1 %}
-              {{ welcome_home() }}
-            {% endif %}
-
-            {% if call_leaving == 1 %}
-              {{ leaving() }}
-            {% endif %}
-
           ios_title: >-
             {{ ios_title }}
           content_type: >-
@@ -431,6 +431,8 @@ script:
             {{ ios_category }}
           camera_entity: >-
             {{ camera_entity }}
+          who: >-
+            {{ who }}
 
       - service: input_boolean.turn_off
         data:
@@ -453,6 +455,8 @@ script:
             {{ speech_message }}
       - service: script.text_processing
         data_template:
+          who: >-
+            {{ who }}
           ios_title: >-
             {{ ios_title }}
           speech_message: >-

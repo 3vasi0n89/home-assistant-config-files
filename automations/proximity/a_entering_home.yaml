@@ -1,33 +1,33 @@
-- id: a_entering_home
-  alias: Entering Home
-  trigger:
-    platform: state
-    entity_id: group.family
-    to: home
-  action:
-  - service: script.speech_engine
-    data:
-      call_welcome_home: 1
-      ios_sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
-  - service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.security_system
-    data:
-      code: !secret alarm_code
-  - service: lock.unlock
-    entity_id: lock.front_door_deadbolt_60
-  - service: light.turn_on
-    entity_id:
-    - light.downstairs_hall_light
-    - light.living_room_lamp
-  - service: climate.set_temperature
-    entity_id: climate.ecobee
-    data:
-      temperature: '72'
-  - service: script.turn_on
-    entity_id: script.livingroom_temp_over_78
-  - service: script.turn_on
-    entity_id: script.if_harmony_is_off_turn_on_firetv
-  - service: media_player.alexa_tts
-    data_template:
-      entity_id: media_player.hallway_dot
-      message: “Welcome Home”
+# - id: a_entering_home
+#   alias: Entering Home
+#   trigger:
+#     platform: state
+#     entity_id: group.family
+#     to: home
+#   action:
+#   - service: script.speech_engine
+#     data:
+#       call_welcome_home: 1
+#       ios_sound: "US-EN-Morgan-Freeman-Welcome-Home.wav"
+#   - service: alarm_control_panel.alarm_disarm
+#     entity_id: alarm_control_panel.security_system
+#     data:
+#       code: !secret alarm_code
+#   - service: lock.unlock
+#     entity_id: lock.front_door_deadbolt_60
+#   - service: light.turn_on
+#     entity_id:
+#     - light.downstairs_hall_light
+#     - light.living_room_lamp
+#   - service: climate.set_temperature
+#     entity_id: climate.ecobee
+#     data:
+#       temperature: '72'
+#   - service: script.turn_on
+#     entity_id: script.livingroom_temp_over_78
+#   - service: script.turn_on
+#     entity_id: script.if_harmony_is_off_turn_on_firetv
+#   - service: media_player.alexa_tts
+#     data_template:
+#       entity_id: media_player.hallway_dot
+#       message: “Welcome Home”

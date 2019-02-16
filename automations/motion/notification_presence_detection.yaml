@@ -11,24 +11,25 @@
       - binary_sensor.master_bedroom_motion
       - binary_sensor.attic_motion
     to: "on"
+    from: "off"
 
   action:
     - service: input_select.select_option
       entity_id: input_select.notification_media_player_alexa
       data_template:
         option: >-
-          {% if is_state("binary_sensor.motion_detector_25", "on") %}
-          Livingroom Dot
+          {% if is_state("binary_sensor.attic_motion", "on") %}
+          Attic Dot
           {% elif is_state("binary_sensor.hallway_motion", "on") %}
           Hallway Dot
           {% elif is_state("binary_sensor.dining_room_motion", "on") %}
-          Dining Room Dot
+          Back Porch Dot
           {% elif is_state("binary_sensor.bathroom_motion", "on") %}
           Bathroom Dot
           {% elif is_state("binary_sensor.kitchen_motion", "on") %}
-          Kitch Dot
+          Kitchen Dot
           {% elif is_state("binary_sensor.master_bedroom_motion", "on") %}
           Master Bedroom Dot
-          {% elif is_state("binary_sensor.attic_motion", "on") %}
-          Attic Dot
+          {% elif is_state("binary_sensor.motion_detector_25", "on") %}
+          Livingroom Dot
           {% endif %}

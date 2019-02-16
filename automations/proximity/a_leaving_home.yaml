@@ -1,18 +1,18 @@
-- id: a_leaving_home
-  alias: Leaving Home
-  trigger:
-    platform: state
-    entity_id: group.family
-    to: not_home
-  condition:
-    condition: state
-    entity_id: input_boolean.guest_mode
-    state: 'off'
-  action:
-  - service: script.turn_on
-    entity_id: script.all_power_off
-  - service: script.speech_engine
-    data:
-      call_leaving: 1
-      call_window_check: 1
-      ios_sound: "US-EN-Alexa-Good-Night.wav"
+# - id: a_leaving_home
+#   alias: Leaving Home
+#   trigger:
+#     platform: state
+#     entity_id: group.family
+#     to: not_home
+#   condition:
+#     condition: state
+#     entity_id: input_boolean.guest_mode
+#     state: 'off'
+#   action:
+#   - service: script.turn_on
+#     entity_id: script.all_power_off
+#   - service: script.speech_engine
+#     data:
+#       call_leaving: 1
+#       call_window_check: 1
+#       ios_sound: "US-EN-Alexa-Good-Night.wav"
