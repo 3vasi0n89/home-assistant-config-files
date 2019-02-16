@@ -1,0 +1,19 @@
+- id: a_heat_fan_on
+  alias: Heat Fan On
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.wink_relay_sensor_1_temperature_2
+    above: '78.0'
+  action:
+    service: switch.turn_on
+    entity_id: switch.ceiling_fan_3
+
+- id: a_heat_fan_off
+  alias: Heat Fan Off
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.wink_relay_sensor_1_temperature_2
+    below: '75.0'
+  action:
+    service: switch.turn_off
+    entity_id: switch.ceiling_fan_3

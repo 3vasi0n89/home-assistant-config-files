@@ -1,7 +1,0 @@
-livingroom_temp_over_78:
-  sequence:
-    - condition: numeric_state
-      entity_id: sensor.wink_relay_sensor_1_temperature
-      above: '78.0'
-    - service: switch.turn_on
-      entity_id: switch.ceiling_fan_3
