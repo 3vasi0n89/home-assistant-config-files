@@ -22,4 +22,4 @@
       transition: 10
   - delay: '00:00:10'
   - service: light.turn_off
-    entity_id: light.livingroom_tv
+    entity_id: light.tv_backlight

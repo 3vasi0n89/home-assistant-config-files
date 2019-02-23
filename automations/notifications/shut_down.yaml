@@ -8,6 +8,7 @@
   action:
     - service: script.speech_engine
       data:
+        notify: "Joe"
         call_closing: 1
         call_shut_down: 1
-        ios_title: "Shutdown"
+        title: "Shutdown"

@@ -5,10 +5,10 @@ firetv:
       data:
         activity: "27735743"
     - service: light.turn_on
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
     - delay: '00:00:01'
     - service: light.turn_on
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
       data_template:
         color_name: 'blue'
         brightness: '255'
@@ -25,13 +25,13 @@ xboxone:
       data:
         activity: "27734995"
     - service: light.turn_on
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
       data_template:
         color_name: 'green'
         brightness: '255'
     - delay: '00:00:01'
     - service: light.turn_on
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
       data_template:
         color_name: 'green'
         brightness: '255'
@@ -42,10 +42,10 @@ nintendo_switch:
       data:
         activity: "38492156"
     - service: light.turn_on
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
     - delay: '00:00:01'
     - service: light.turn_on
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
       data_template:
         color_name: 'lightskyblue'
         brightness: '255'
@@ -60,7 +60,7 @@ tvoff:
     - service: remote.turn_off
       entity_id: remote.living_room
     - service: light.turn_off
-      entity_id: light.livingroom_tv
+      entity_id: light.tv_backlight
 bedroom_tvoff:
   sequence:
     - service: remote.turn_off

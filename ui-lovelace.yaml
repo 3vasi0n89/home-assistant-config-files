@@ -25,7 +25,7 @@ views:
         type: entities
       - entities:
           - input_select.living_room_tv
-          - light.livingroom_tv
+          - light.tv_backlight
           - input_number.denon_volume
           - switch.ceiling_fan_3
           - switch.ceiling_fan_light_3
@@ -247,7 +247,7 @@ views:
           - light.right_end_table_lamp
           - light.upstairs_hall_light
           - switch.ceiling_fan_light_3
-          - light.livingroom_tv
+          - light.tv_backlight
           - light.kitchen_underglow
           - light.christmas_tree_lights
           - switch.still_needs_13
@@ -372,7 +372,7 @@ views:
       - aspect_ratio: 16x9
         entities:
           - input_select.living_room_tv
-          - light.livingroom_tv
+          - light.tv_backlight
           - input_number.denon_volume
           - switch.ceiling_fan_3
           - switch.ceiling_fan_light_3

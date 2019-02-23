@@ -48,7 +48,7 @@
              - light.front_porch_light
              - light.kitchen_underglow
              - light.bathroom_light
-             - light.livingroom_tv
+             - light.tv_backlight
              - light.right_end_table_lamp
              - light.left_end_table_lamp
              - light.upstairs_hall_light

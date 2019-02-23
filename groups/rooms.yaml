@@ -8,7 +8,7 @@ livingroom:
   name: Living Room
   entities:
   - input_select.living_room_tv
-  - light.livingroom_tv
+  - light.tv_backlight
   - input_number.denon_volume
   - switch.ceiling_fan_3
   - switch.ceiling_fan_light_3

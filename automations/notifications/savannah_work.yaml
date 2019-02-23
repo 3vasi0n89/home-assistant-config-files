@@ -7,9 +7,9 @@
   action:
     - service: script.speech_engine
       data:
-        who: "Family"
+        notify: "Family"
         CustomMessage: "Savannah safely arrived to work!"
-        ios_title: "Attention"
+        title: "Attention"
 
 - id: notification_savannah_left_work
   alias: Notification Savannah Left Work
@@ -21,9 +21,9 @@
   action:
     - service: script.speech_engine
       data:
-        who: "Joe"
+        notify: "Joe"
         CustomMessage: "Savannah left work!"
-        ios_title: "Attention"
+        title: "Attention"
 
 - id: notification_joe_arrived_work
   alias: Notification Joe Arrived Work
@@ -34,6 +34,6 @@
   action:
     - service: script.speech_engine
       data:
-        who: "Family"
+        notify: "Family"
         CustomMessage: "Joe safely arrived to work!"
-        ios_title: "Attention"
+        title: "Attention"

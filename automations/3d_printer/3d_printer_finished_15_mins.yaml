@@ -3,7 +3,7 @@
   trigger:
     platform: state
     entity_id: sensor.octoprint_job_percentage
-    to: "100"
+    to: "100.0"
     for:
       minutes: 15
   condition:

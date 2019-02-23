@@ -3,5 +3,6 @@
   sensors:
     clock_day:
       friendly_name: 'Day'
+      entity_id: sensor.date
       value_template: >-
         {{now().strftime("%A")}}

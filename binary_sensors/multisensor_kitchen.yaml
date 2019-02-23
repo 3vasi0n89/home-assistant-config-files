@@ -1,6 +1,0 @@
-- platform: mqtt
-  state_topic: "stat/multisensor_kitchen/POWER"
-  name: "Kitchen Motion"
-  payload_on: 'ON'
-  payload_off: 'OFF'
-  device_class: motion

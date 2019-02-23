@@ -8,7 +8,7 @@ all_lights_2:
     - light.right_end_table_lamp
     - light.upstairs_hall_light
     - light.ceiling_fan_light
-    - light.livingroom_tv
+    - light.tv_backlight
     - light.left_dining_room_light
     - light.right_dining_room_light
     - light.kitchen_underglow

@@ -29,6 +29,8 @@ http:
 
 config:
 
+api:
+
 cloud:
   alexa:
     filter:
@@ -100,6 +102,14 @@ homekit:
       code: !secret alarm_code
     lock.front_door_deadbolt_60:
       code: !secret front_door_code
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 35
+  monitored_conditions:
+    - ping
+    - download
+    - upload
 
 tts:
   - platform: amazon_polly
@@ -314,8 +324,8 @@ mqtt:
   client_id: home-assistant-1
   username: !secret mqtt_username
   password: !secret mqtt_password
-  discovery: true
-  discovery_prefix: homeassistant
+  # discovery: true
+  # discovery_prefix: homeassistant
 
 ecobee:
   api_key: !secret ecobee_api_key
@@ -379,7 +389,7 @@ history:
 logbook:
 logger: !include logger.yaml
 sun:
-
+system_health:
 frontend:
   themes: !include_dir_merge_named themes/
   extra_html_url:

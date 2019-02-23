@@ -7,5 +7,6 @@
   action:
     - service: script.speech_engine
       data:
+        notify: "Joe"
         call_start_up: 1
-        ios_title: "Start Up"
+        title: "Start Up"

@@ -4,12 +4,12 @@
     - platform: state
       entity_id: input_boolean.last_message
       to: 'on'
-      
+
   action:
     - service: script.speech_engine
       data:
-        who: "Joe"
-        ios_title: "Repeating The Last Message"
+        notify: "Joe"
+        title: "Repeating The Last Message"
         CustomMessage: "{{states ('sensor.last_message') }}"
 
     - service: input_boolean.turn_off

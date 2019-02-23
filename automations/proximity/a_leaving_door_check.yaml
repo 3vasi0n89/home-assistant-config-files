@@ -6,6 +6,7 @@
     - device_tracker.savannahs_iphone
     platform: state
     to: not_home
+    from: home
   condition:
     condition: state
     entity_id: lock.front_door_deadbolt_60

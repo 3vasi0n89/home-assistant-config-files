@@ -33,3 +33,22 @@
           {% elif is_state("binary_sensor.motion_detector_25", "on") %}
           Livingroom Dot
           {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.notification_media_player_google
+      data_template:
+        option: >-
+          {% if is_state("binary_sensor.attic_motion", "on") %}
+          All Cast
+          {% elif is_state("binary_sensor.hallway_motion", "on") %}
+          All Cast
+          {% elif is_state("binary_sensor.dining_room_motion", "on") %}
+          All Cast
+          {% elif is_state("binary_sensor.bathroom_motion", "on") %}
+          All Cast
+          {% elif is_state("binary_sensor.kitchen_motion", "on") %}
+          All Cast
+          {% elif is_state("binary_sensor.master_bedroom_motion", "on") %}
+          Master Bedroom Cast
+          {% elif is_state("binary_sensor.motion_detector_25", "on") %}
+          Living Room Speaker
+          {% endif %}

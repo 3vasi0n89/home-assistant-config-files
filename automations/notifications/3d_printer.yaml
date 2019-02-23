@@ -3,11 +3,11 @@
   trigger:
     platform: state
     entity_id: sensor.octoprint_job_percentage
-    to: "100"
+    to: "100.0"
   action:
     - service: script.speech_engine
       data:
-        who: "Joe"
+        notify: "Joe"
         call_printer_finished: 1
         ios_title: "3D Printer Report"
         content_type: "jpeg"

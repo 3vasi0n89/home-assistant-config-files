@@ -1,9 +1,9 @@
-switch.ceiling_fan_light_3:
+light.ceiling_fan_light:
   friendly_name: Fan Light
   icon: mdi:ceiling-light
   hidden: false
 
-switch.christmas_tree_lights:
+light.christmas_tree_lights:
   friendly_name: Christmas Tree Lights
   icon: mdi:pine-tree
   hidden: false
@@ -13,13 +13,12 @@ switch.ceiling_fan_3:
   icon: mdi:fan
   hidden: false
 
-light.livingroom_tv:
+light.tv_backlight:
   friendly_name: TV Backlight
   icon: mdi:led-on
   hidden: false
 
-light.kitchen_underglow:
-  friendly_name: Kitchen Floor Lights
+light.kitchen_ledstrip:
   icon: mdi:led-on
   hidden: false
 
@@ -36,12 +35,6 @@ light.front_porch_light:
   icon: mdi:ceiling-light
 
 input_boolean.dining_room_lights:
-  icon: mdi:ceiling-light
-
-switch.left_dining_room_light_2:
-  icon: mdi:ceiling-light
-
-switch.right_dining_room_light_2:
   icon: mdi:ceiling-light
 
 light.left_dining_room_light:
@@ -73,3 +66,6 @@ light.left_end_table_lamp:
 
 light.living_room_lamp:
   icon: mdi:lamp
+
+light.attic_lights:
+  icon: mdi:ceiling-light

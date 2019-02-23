@@ -64,10 +64,10 @@ alarm_triggered:
       cycles: 3600
       mode: strobe
   - service: light.turn_on
-    entity_id: light.livingroom_tv
+    entity_id: light.tv_backlight
   - delay: '00:00:01'
   - service: light.turn_on
-    entity_id: light.livingroom_tv
+    entity_id: light.tv_backlight
     data_template:
       effect: red_strobe
   - service: media_player.volume_set

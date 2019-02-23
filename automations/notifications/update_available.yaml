@@ -6,5 +6,6 @@
   action:
     - service: script.speech_engine
       data:
+        notify: "Joe"
         call_no_announcement: 1
         call_update: 1
