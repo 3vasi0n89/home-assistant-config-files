@@ -2,8 +2,14 @@
   sensors:
     template_last_motion:
       friendly_name: 'Last Motion'
+      icon_template: 'mdi:walk'
+      entity_id:
+        - binary_sensor.motion_detector_25
+        - binary_sensor.kitchen_motion
+        - binary_sensor.bathroom_motion
+        - binary_sensor.attic_motion
       value_template: >
-        {%- set sensors = [states.binary_sensor.motion_detector_25, states.binary_sensor.kitchen_motion, states.binary_sensor.dining_room_motion, states.binary_sensor.bedroom_motion, states.binary_sensor.bathroom_motion] %}
+        {%- set sensors = [states.binary_sensor.motion_detector_25, states.binary_sensor.kitchen_motion, states.binary_sensor.bathroom_motion, states.binary_sensor.attic_motion] %}
         {% for sensor in sensors %}
           {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
             {{ sensor.name }}

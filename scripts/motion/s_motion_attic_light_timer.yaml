@@ -1,0 +1,14 @@
+s_motion_attic_light_timer:
+  sequence:
+  - delay:
+      minutes: 30
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.left_attic_light
+      transition: 5
+      power: false
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.right_attic_light
+      transition: 5
+      power: false
