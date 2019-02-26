@@ -203,24 +203,35 @@ ios:
             destructive: yes
 
 media_player:
-  - platform: kodi
-    host: !secret livingroom_host
-    name: Living Room Kodi
-  - platform: kodi
-    host: !secret bedroom_host
-    name: Master Bedroom Kodi
-  - platform: alexa
-    email: !secret email2
-    password: !secret normal_password
-    url: amazon.com
+  # - platform: kodi
+  #   host: !secret livingroom_host
+  #   name: Living Room Kodi
+  # - platform: kodi
+  #   host: !secret bedroom_host
+  #   name: Master Bedroom Kodi
+  # - platform: alexa
+  #   email: !secret email2
+  #   password: !secret normal_password
+  #   url: amazon.com
   - platform: firetv
     name: Living Room Fire TV
     host: 192.168.1.17
-    adbkey: /config/android/adbkey
+    adbkey: "/config/android/adbkey"
   - platform: floorplan_speaker
     name: Living Room Floorplan Speaker
   - platform: floorplan_speaker
     name: Bedroom Floorplan Speaker
+  - platform: emby
+    host: 192.168.1.9
+    api_key: !secret emby_api_key
+    auto_hide: true
+
+alexa_media:
+  accounts:
+    - email: !secret email2
+      password: !secret normal_password
+      url: amazon.com
+      scan_interval: 30
 
 vera:
   vera_controller_url: !secret vera_ip
