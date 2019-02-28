@@ -7,6 +7,6 @@ script:
   - hass -c . --script check_config
 before_install:
   - mv travis_secrets.yaml secrets.yaml
-  - mv travis_home-assistant_v2_db home-assistant_v2.db
-  - mv travis_adbkey adbkey
-  - mv travis_adbkey_pub adbkey.pub
+  - touch home-assistant_v2.db
+  - touch adbkey
+  - touch adbkey.pub
