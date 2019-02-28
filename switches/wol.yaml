@@ -1,0 +1,4 @@
+- platform: wake_on_lan
+  mac_address: "00:24:b2:e2:e8:14"
+  host: "192.168.1.12"
+  name: Attic PC

@@ -391,6 +391,8 @@ intent_script: !include_dir_merge_named alexa_intents/
 
 shopping_list:
 
+wake_on_lan:
+
 ####################################
 #                                  #
 ############ENABLES#################
