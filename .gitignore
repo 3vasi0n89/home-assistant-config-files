@@ -42,7 +42,8 @@ home-assistant_v2.db
 *.db-wal
 *.sqlite
 deps
-android
+adbkey
+adbkey.pub
 __pycache__
 tts
 update.sh
