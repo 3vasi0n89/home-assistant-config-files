@@ -384,7 +384,6 @@ input_boolean: !include_dir_merge_named input_booleans
 script: !include_dir_merge_named scripts
 switch: !include_dir_merge_list switches
 shell_command: !include_dir_merge_named shell_commands
-weblink: !include weblinks.yaml
 light: !include_dir_merge_list lights
 scene: !include_dir_merge_list scenes
 intent_script: !include_dir_merge_named alexa_intents/
