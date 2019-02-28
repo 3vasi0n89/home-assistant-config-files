@@ -196,13 +196,14 @@ script:
     - service: media_player.volume_set
       data:
         entity_id: media_player.bedroom_cast
-        volume_level: '0.25'
+        volume_level: '1'
+    - delay: "00:00:01"
     - service: tts.amazon_polly_say
       data_template:
         entity_id: media_player.bedroom_cast
-        message: <>'Good Morning. It's {{ states("sensor.time")}} o'clock. The temperature outside is {{ states("sensor.dark_sky_apparent_temperature")}} degrees and {{ states("sensor.dark_sky_summary")}} with wind up to {{ states("sensor.dark_sky_wind_speed")}} miles per hour.'<>
+        message: <>'Good Morning. It's {{ states("sensor.time_templated_am_pm")}}. The temperature outside is {{ states("sensor.dark_sky_apparent_temperature")}} degrees and {{ states("sensor.dark_sky_summary")}} with wind up to {{ states("sensor.dark_sky_wind_speed")}} miles per hour.'<>
         cache: true
-    - service: notify.ios_family
+    - service: notify.ios_joes_iphone
       data:
         title: "Alarm Clock"
         message: "It's Time For You To Wake Up!"

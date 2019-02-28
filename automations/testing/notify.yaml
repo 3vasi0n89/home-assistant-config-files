@@ -1,0 +1,15 @@
+- id: notify_test
+  alias: Notify Test
+  trigger:
+  - entity_id: input_boolean.follow_lights
+    platform: state
+    to: "off"
+    from: "on"
+  action:
+  - service: script.speech_engine
+    data:
+      call_door_check: 1
+      notify: "ios_joes_iphone"
+    data_template:
+      person:  >-
+        {{ trigger.to_state.attributes.friendly_name }}

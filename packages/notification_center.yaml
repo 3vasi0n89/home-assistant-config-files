@@ -153,6 +153,75 @@ script:
               {{ printer_finished | random }}
             {%- endmacro -%}
 
+            {%- macro unknown() -%}
+              {% set unknown = [
+                "Hmm, I don't know ",
+                "I wish I knew ",
+                "My programming prohibits me from telling you "
+              ] %}
+              {{ unknown | random }}
+            {%- endmacro -%}
+
+            {%- macro location_not_home() -%}
+              {% set not_home = [
+                " is going somewhere. ",
+                " is currently not in this neighbourhood. ",
+                "'s location is not in my database. "
+              ] %}
+              {{ not_home | random }}
+            {%- endmacro -%}
+
+            {%- macro location_inquiry( person, not_home ) -%}
+            {%- for device in states.device_tracker -%}
+              {%- if device.name == person -%}
+                {%- set location = device.state -%}
+                {% if location == "not_home" %}
+                  {{ person }} {{ not_home }}
+                {%- else -%}
+                  {{ person }} is at {{ location }}.
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- endmacro -%}
+
+            {%- macro bad_weather() -%}
+              {% set rain = [
+                " You might want to change your schedule. ",
+                " Maybe you should ask for a ride. ",
+                " It's no weather to be outside. ",
+                " All those poor people outside... "
+              ] %}
+              {{ rain | random }}
+            {%- endmacro -%}
+
+            {%- macro rain_warning( bad_weather ) -%}
+              {% set rain = [
+                Event ~ " there will be " ~ WeatherRain ~ " rain. " ,
+                Event ~ " I predict " ~ WeatherRain ~ " rain. ",
+                " I think that " ~ Event ~ " there will be " ~ WeatherRain ~ " rain. "
+              ] %}
+              {{ rain | random }}{{ bad_weather }}
+            {%- endmacro -%}
+
+            {%- macro okay()-%}
+              {% set okay = [
+                "Extraordinarily bad idea. Oh well.. ",
+                "Funny, I was just about to do that. ",
+                "Here you go. ",
+                "I'll do that. ",
+                "Of course! ",
+                "Of course! Glad to help. ",
+                "OK ",
+                "Okay ",
+                "Okie-dokie ",
+                "Sure ",
+                "Sure thing! ",
+                "There. Happy to help. ",
+                "There you go! "
+              ] %}
+              {{ okay|random }}
+            {%- endmacro -%}
+
             {%- macro light_check() -%}
               {% if states.group.all_lights.state != 'off' -%}
                 There are
@@ -192,6 +261,24 @@ script:
                 {% endfor %}
                 needs to be closed.
               {%- endif -%}
+            {%- endmacro -%}
+
+            {%- macro door_check(person) -%}
+              {% set door_check = [
+                person~" you left the door unlocked! Let me get that for you! ",
+                "Ooops! Looks like "~person~" left the door unlocked, allow me to get that! ",
+                "Hey "~person~" left the door unlocked! I guess I can get that! "
+              ] %}
+              {{ door_check | random }}
+            {%- endmacro -%}
+
+            {%- macro door_open(person) -%}
+              {% set door_open = [
+                person~" you left the door open! Turn back around and close it! ",
+                person~" you really left the door open and left the house?! ",
+                "Hey "~person~"! You forgot to close the door!! "
+              ] %}
+              {{ door_open | random }}
             {%- endmacro -%}
 
             {%- macro garage_check() -%}
@@ -239,13 +326,13 @@ script:
             {%- endmacro -%}
 
             {% macro greeting(person) %}
-              {% set greetings = [
-                "Welcome home " ~ person,
-                "Hey there " ~ person,
-                person ~ "! You're home!",
-                "Welcome back " ~ person
+              {% set greeting = [
+                "Welcome home " ~person,
+                "Hey there " ~person,
+                person~ "! You're home!",
+                "Welcome back "~person
               ] %}
-              {{greetings|random}}.
+              {{greeting|random}}.
             {% endmacro %}
 
             {%- macro start_up() -%}
@@ -281,24 +368,44 @@ script:
 
             {%- macro leaving() -%}
               {% set leaving = [
-                "The house is now shutting down and the security is arming! ",
-                "It looks like you've left. Let me shut down the house. ",
+                "Nobody's home! The house is now shutting down and the security is arming! ",
+                "It looks like everyone has left. Let me shut down the house. ",
                 "Nobody's home! Looks like we don't need all of this stuff on then. ",
-                "Looks like you've left. Don't worry, I'll take care of everything. That's what I'm here for. ",
+                "Looks like nobody's here. Don't worry, I'll take care of everything. That's what I'm here for! ",
                 "Well since everyone left I guess I will shut down the house and prepare the alarm. "
               ] %}
               {{ leaving | random }}
             {%- endmacro -%}
 
-            {%- macro welcome_home() -%}
+            {%- macro welcome_home(person) -%}
               {% set welcome_home = [
-                "Welcome back! The house is now powering up and the front door is unlocked! ",
-                "Welcome Home! It's nice to see you again! Let me turn on the house. ",
-                "Well look who's finally home. I'll get the house ready for you. ",
-                "It's good to see you made it back safely! Let me unlock the door and prepare the house. ",
-                "Awesome, you're back! Allow me to turn on the house for you. "
+                "Welcome back "~person~"! The house is now powering up and the front door is unlocked! ",
+                "Welcome home "~person~"! It's nice to see you again! Let me turn on the house. ",
+                "Well it looks like "~person~"'s finally home! I'll get the house ready for you. ",
+                "It's good to see you made it back safely "~person~"! Let me unlock the door and prepare the house. ",
+                "Awesome, "~person~"'s back! Allow me to turn on the house for you. "
               ] %}
               {{ welcome_home | random }}
+            {%- endmacro -%}
+
+            {%- macro welcome_home2(person) -%}
+              {% set welcome_home2 = [
+                "Welcome back "~person~"! The front door is unlocked! ",
+                "Welcome home "~person~"! It's nice to see you again! Let me unlock the front door. ",
+                "Well it looks like "~person~"'s finally home! I'll get the front door. ",
+                "It's good to see you made it back safely "~person~"! Let me unlock the door. ",
+                "Awesome, "~person~"'s back! Allow me to unlock the door for you. "
+              ] %}
+              {{ welcome_home2 | random }}
+            {%- endmacro -%}
+
+            {%- macro new_device( introduction ) -%}
+              {% set new_device = [
+                introduction~"I don't know your name yet, so for now i will call you "~person,
+                "We have a visitor! Nice to meet you "~person~".  "~introduction,
+                "Welcome "~person~"! Or is that not your real name?  "~introduction
+              ] %}
+              {{ new_device | random }}
             {%- endmacro -%}
 
             {% macro closing() %}
@@ -331,11 +438,33 @@ script:
             {% endif %}
 
             {% if call_greeting == 1 %}
-              {{ greeting() }}
+              {{ greeting(person) }}
             {% endif %}
 
             {% if call_welcome_home == 1 %}
-              {{ welcome_home() }}
+              {{ welcome_home(person) }}
+            {% endif %}
+
+            {% if call_welcome_home2 == 1 %}
+              {{ welcome_home2(person) }}
+            {% endif %}
+
+            {% if call_okay == 1 %}
+              {{ okay () }}
+            {% endif %}
+
+            {% if call_location_inquiry == 1 %}
+              {% set location = location_inquiry( person, location_not_home() ) %}
+              {% set count = location | length %}
+              {% if count <= 10 %}
+                {{ unknown() }}where {{ person }} is. {{ witty( error(), chance ) }}
+              {% else %}
+                {{ location }}
+              {% endif %}
+            {% endif %}
+
+            {% if call_rain_warning == 1 %}
+              {{ rain_warning( witty ( bad_weather(), chance ) ) }}
             {% endif %}
 
             {% if call_leaving == 1 %}
@@ -355,6 +484,14 @@ script:
 
             {% if call_dark_outside == 1 %}
               {{ dark_outside() }}
+            {% endif %}
+
+            {% if call_door_check == 1 %}
+              {{ door_check(person) }}
+            {% endif %}
+
+            {% if call_door_open == 1 %}
+              {{ door_open(person) }}
             {% endif %}
 
             {% if call_garage_check == 1 or is_state('sun.sun', 'below_horizon') %}
@@ -379,10 +516,6 @@ script:
               {{ printer_finished() }}
             {% endif %}
 
-            {% if value1 is not none %}
-              {{ value1 }}
-            {% endif %}
-
             {{ CustomMessage }}
 
             {% if call_shut_down == 1 %}
@@ -395,6 +528,10 @@ script:
 
             {% if call_closing == 1 %}
               {{ closing() }}
+            {% endif %}
+
+            {% if call_new_device == 1 %}
+              {{ new_device(introduction) }}
             {% endif %}
 
           title: >-
@@ -540,23 +677,42 @@ script:
               badge: "{{ ios_badge }}"
               category: "{{ ios_category }}"
             entity_id: "{{ camera_entity }}"
-
-
+      - service: notify.fire_tv
+        data_template:
+          title: "{{ title }}"
+          message: >-
+            {{ speech_message | replace("\n","") | replace("   ","") |
+               replace("eight hundred and sixty one thousand","861.000") }}
 ######################################################################################################
     # service: script.speech_engine
     # data:
-    #   who: "Joe"
     #   call_greeting: 1
+    #   call_update: 1
+    #   call_start_up
+    #   call_shut_down
+    #   call_closing
+    #   call_door_open
+    #   call_door_check
     #   call_window_check: 1
     #   call_garage_check: 1
     #   call_light_check: 1
+    #   call_announcement
+    #   call_welcome_home
+    #   call_welcome_home2
+    #   call_inside_weather
     #   call_outside_weather: 1
+    #   call_responsibilities
+    #   call_printer_finished
     #   call_leaving: 1
+    #   CustomMessage: "Your Custom Message"
+    #   DoorClosed: "{{ trigger.to_state.attributes.friendly_name }}"
+    #   DoorOpened: "{{ trigger.to_state.attributes.friendly_name }}"
+    #   NewDevice: "{{ trigger.event.data.name }}"
 ######################################################################################################
 ######################################################################################################
-    # service: script.speech_engine
+    # service: script.text_processing
     # data:
-      # who: "Joe | Savannah | Parents | Family"
+      # notify: "Joe | Savannah | Parents | Family"
       # title: 'Home Assistant Notify'
       # CustomMessage: "This can be any custom text you want to add"
       # call_greeting: 1
@@ -566,4 +722,5 @@ script:
       # ios_badge: "911"
       # ios_category: "camera"
       # camera_entity: "camera.octoprint_cam"
+      # person: "Joe"
 ######################################################################################################

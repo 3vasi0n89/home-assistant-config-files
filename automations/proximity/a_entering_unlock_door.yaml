@@ -13,7 +13,10 @@
   action:
   - service: lock.unlock
     entity_id: lock.front_door_deadbolt_60
-  - service: notify.ios_family
+  - service: script.speech_engine
     data:
-      title: Welcome Back Home
-      message: Let me unlock the front door for you!
+      title: "Welcome Home"
+      call_welcome_home2: 1
+    data_template:
+      person:  >-
+        {{ trigger.to_state.attributes.friendly_name }}

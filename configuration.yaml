@@ -132,6 +132,10 @@ notify:
     services:
       - service: ios_joes_iphone
       - service: ios_savannahs_iphone
+  - platform: nfandroidtv
+    name: Fire TV
+    host: 192.168.1.17
+    interrupt: 1
 #  - name: janet
 #    platform: telegram
 #    chat_id: !secret chat_id
