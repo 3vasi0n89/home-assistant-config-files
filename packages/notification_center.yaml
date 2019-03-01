@@ -688,21 +688,21 @@ script:
     # data:
     #   call_greeting: 1
     #   call_update: 1
-    #   call_start_up
-    #   call_shut_down
-    #   call_closing
-    #   call_door_open
-    #   call_door_check
+    #   call_start_up: 1
+    #   call_shut_down: 1
+    #   call_closing: 1
+    #   call_door_open: 1
+    #   call_door_check: 1
     #   call_window_check: 1
     #   call_garage_check: 1
     #   call_light_check: 1
-    #   call_announcement
-    #   call_welcome_home
-    #   call_welcome_home2
-    #   call_inside_weather
+    #   call_announcement: 1
+    #   call_welcome_home: 1
+    #   call_welcome_home2: 1
+    #   call_inside_weather: 1
     #   call_outside_weather: 1
-    #   call_responsibilities
-    #   call_printer_finished
+    #   call_responsibilities: 1
+    #   call_printer_finished: 1
     #   call_leaving: 1
     #   CustomMessage: "Your Custom Message"
     #   DoorClosed: "{{ trigger.to_state.attributes.friendly_name }}"

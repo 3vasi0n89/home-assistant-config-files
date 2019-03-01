@@ -136,6 +136,8 @@ notify:
     name: Fire TV
     host: 192.168.1.17
     interrupt: 1
+    fontsize: large
+
 #  - name: janet
 #    platform: telegram
 #    chat_id: !secret chat_id
@@ -322,16 +324,16 @@ ffmpeg:
 #    url: 'http://192.168.1.9:5050/main_dash'
 #    icon: mdi:apps
 
-# panel_custom:
+panel_custom:
 #  - name: dominos
 #    sidebar_title: Dominos
 #    sidebar_icon: mdi:pizza
 #    url_path: dominos
-  # - name: floorplan
-  #   sidebar_title: Floorplan
-  #   sidebar_icon: mdi:home
-  #   url_path: floorplan
-  #   config: !secret floorplan
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include /config/www/custom_ui/floorplan/floorplan.yaml
 
 mqtt:
   broker: !secret mqtt_broker
