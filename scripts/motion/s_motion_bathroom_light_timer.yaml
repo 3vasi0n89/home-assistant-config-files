@@ -1,4 +1,4 @@
-s_motion_bathroom_light_timer:
+s_bathroom_motion_light_timer:
   sequence:
   - delay:
       minutes: 5

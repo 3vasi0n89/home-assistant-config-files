@@ -1,16 +1,14 @@
-s_motion_attic_light:
+s_attic_motion_light:
   sequence:
   - service: script.turn_off
     data:
-      entity_id: script.s_motion_attic_light_timer
+      entity_id: script.s_attic_motion_light_timer
   - service: light.lifx_set_state
     data:
-      entity_id: light.left_attic_light
-      power: true
-  - service: light.lifx_set_state
-    data:
-      entity_id: light.right_attic_light
+      entity_id:
+        - light.left_attic_light
+        - light.right_attic_light
       power: true
   - service: script.turn_on
     data:
-      entity_id: script.s_motion_attic_light_timer
+      entity_id: script.s_attic_motion_light_timer

@@ -1,5 +1,5 @@
-- id: a_motion_bathroom_light
-  alias: Motion Bathroom Light
+- id: a_bathroom_motion_light
+  alias: Bathroom Motion Light
   initial_state: True
   hide_entity: False
   trigger:
@@ -8,15 +8,4 @@
       to: 'on'
   action:
     service: script.turn_on
-    entity_id: script.s_motion_bathroom_light
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    entity_id: script.s_bathroom_motion_light

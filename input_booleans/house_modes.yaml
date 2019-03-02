@@ -1,19 +1,19 @@
 guest_mode:
   name: Guest Mode
   icon: mdi:account-alert
-  initial: off
 
 vacation_mode:
   name: Vacation Mode
   icon: mdi:shield-airplane
-  initial: off
 
 kids_weekend:
   name: Kids Weekend
   icon: mdi:account-multiple
-  initial: off
 
 follow_lights:
   name: Follow Lights
   icon: mdi:walk
-  initial: off
+
+motion_lights:
+  name: Motion Lights
+  icon: mdi:walk

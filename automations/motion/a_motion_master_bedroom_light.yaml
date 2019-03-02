@@ -1,5 +1,5 @@
-- id: a_motion_master_bedroom_light
-  alias: Motion Master Bedroom Light
+- id: a_master_bedroom_motion_light
+  alias: Master Bedroom Motion Light
   initial_state: True
   hide_entity: False
   trigger:
@@ -8,15 +8,4 @@
       to: 'motion detected'
   action:
     service: script.turn_on
-    entity_id: script.s_motion_master_bedroom_light
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    entity_id: script.s_master_bedroom_motion_light

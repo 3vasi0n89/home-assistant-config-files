@@ -1,12 +1,12 @@
-s_motion_bathroom_light:
+s_bathroom_motion_light:
   sequence:
   - service: script.turn_off
     data:
-      entity_id: script.s_motion_bathroom_light_timer
+      entity_id: script.s_bathroom_motion_light_timer
   - service: light.lifx_set_state
     data:
       entity_id: light.bathroom_light
       power: true
   - service: script.turn_on
     data:
-      entity_id: script.s_motion_bathroom_light_timer
+      entity_id: script.s_bathroom_motion_light_timer

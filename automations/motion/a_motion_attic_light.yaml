@@ -1,5 +1,5 @@
-- id: a_motion_attic_light
-  alias: Motion Attic Light
+- id: a_attic_motion_light
+  alias: Attic Motion Light
   initial_state: True
   hide_entity: False
   trigger:
@@ -8,4 +8,4 @@
       to: 'on'
   action:
     service: script.turn_on
-    entity_id: script.s_motion_attic_light
+    entity_id: script.s_attic_motion_light

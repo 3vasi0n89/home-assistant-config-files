@@ -1,32 +1,26 @@
 day_mode:
   name: Day Mode
   icon: mdi:weather-sunset-up
-  initial: off
 
 night_mode:
   name: Night Mode
   icon: mdi:weather-sunset-down
-  initial: off
 
 sleep_mode:
   name: Sleep Mode
   icon: mdi:sleep
-  initial: off
 
 shutdown_mode:
   name: Shutdown Mode
   icon: mdi:power
-  initial: off
 
 school_mode:
   name: School Mode
   icon: mdi:school
-  initial: off
 
 alarm_mode:
   name: Alarm Mode
   icon: mdi:shield-home
-  initial: off
 
 alarm_triggered:
   name: Alarm Triggered
@@ -36,7 +30,6 @@ alarm_triggered:
 power:
   name: Power
   icon: mdi:power
-  initial: off
 
 test_mode:
   name: Test

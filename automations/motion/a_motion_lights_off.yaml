@@ -1,0 +1,18 @@
+- id: a_motion_lights_off
+  alias: Motion Lights Off
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: input_boolean.motion_lights
+      to: 'off'
+  action:
+    service: automation.turn_off
+    entity_id:
+      - automation.master_bedroom_motion_light
+      - automation.chris_and_bens_room_motion_light
+      - automation.michaels_room_motion_light
+      - automation.living_room_motion_light
+      - automation.dining_room_motion_light
+      - automation.kitchen_motion_light
+      - automation.hallway_motion_light
