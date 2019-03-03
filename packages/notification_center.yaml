@@ -36,7 +36,6 @@ group:
       - input_boolean.guest_mode
       - input_boolean.notification_alert_mode
 
-
 input_boolean:
 
   notification_alert_mode:
@@ -120,6 +119,17 @@ script:
               ]|random }}
             {%- endmacro -%}
 
+            {%- macro dark_inside() -%}
+              {% set dark_inside = [
+                "The house is getting dark, let me turn on some lights for you! ",
+                "It looks like it's getting dark in here, let's change that! ",
+                "You shouldn't be sitting around in the dark. Let's turn some lights on! ",
+                "Switching to night mode! ",
+                "It's pretty dark outside. I'm just gonna turn on some lights! "
+              ] %}
+              {{ dark_inside | random }}
+            {%- endmacro -%}
+
             {%- macro responsibilities() -%}
               {% if now().strftime('%a') == 'Mon' or now().strftime('%a') == 'Sun' %}
                 Today is {{ now().strftime('%A') }} and {{ now().strftime('%A') }} is garbage day.
@@ -132,6 +142,28 @@ script:
               {% else %}
                 Today is Savannah's day to do the chores.
               {% endif %}
+            {%- endmacro -%}
+
+            {%- macro guest_mode_on() -%}
+              {% set guest_mode_on = [
+                "It looks like we have a guest in the house! ",
+                "We have a guest. I'll turn on the guest mode! ",
+                "I have enabled guest mode for our company's visit! ",
+                "Switching to guest mode! ",
+                "It's not often we have guests stay! Let me prepare the house for your visit. "
+              ] %}
+              {{ guest_mode_on | random }}
+            {%- endmacro -%}
+
+            {%- macro guest_mode_off() -%}
+              {% set guest_mode_off = [
+                "It looks like we have a guest in the house! ",
+                "We have a guest. I'll turn on the guest mode! ",
+                "I have enabled guest mode for our company's visit! ",
+                "Switching to guest mode! ",
+                "It's not often we have guests stay! Let me prepare the house for your visit. "
+              ] %}
+              {{ guest_mode_off | random }}
             {%- endmacro -%}
 
             {%- macro inside_weather() -%}
@@ -415,9 +447,28 @@ script:
                 "Take it easy this evening. ",
                 "Have fun tonight! ",
               ] %}
-              {{closings|random}}
+              {{ closings | random }}
             {% endmacro %}
 
+            {% macro hot_inside() %}
+              {% set hot_inside = [
+                "It's getting hot inside! I'm gonna turn the fan on. ",
+                "Wow it got hot in here! Let's turn on a fan shall we? ",
+                "I'll turn the fan on since it's getting pretty hot inside. ",
+                "I can't believe how hot it is in here! I'm gonna cool the house down. ",
+              ] %}
+              {{ hot_inside | random }}
+            {% endmacro %}
+
+            {% macro doorbell() %}
+              {% set doorbell = [
+                "Someone is at the front door! ",
+                "It looks like you have a visitor at the front door. ",
+                "Answer the front door because someone is there! ",
+                "Just so you know, there is someone knocking on the front door. ",
+              ] %}
+              {{ doorbell | random }}
+            {% endmacro %}
 
             {# ********************************************* #}
             {#  ******** Start the Speech routines ********  #}
@@ -439,6 +490,14 @@ script:
 
             {% if call_greeting == 1 %}
               {{ greeting(person) }}
+            {% endif %}
+
+            {% if call_guest_mode_on == 1 %}
+              {{ guest_mode_on() }}
+            {% endif %}
+
+            {% if call_guest_mode_off == 1 %}
+              {{ guest_mode_off() }}
             {% endif %}
 
             {% if call_welcome_home == 1 %}
@@ -486,6 +545,10 @@ script:
               {{ dark_outside() }}
             {% endif %}
 
+            {% if call_dark_inside == 1 %}
+              {{ dark_inside() }}
+            {% endif %}
+
             {% if call_door_check == 1 %}
               {{ door_check(person) }}
             {% endif %}
@@ -514,6 +577,14 @@ script:
 
             {% if call_printer_finished == 1 %}
               {{ printer_finished() }}
+            {% endif %}
+
+            {% if call_hot_inside == 1 %}
+              {{ hot_inside() }}
+            {% endif %}
+
+            {% if call_doorbell == 1 %}
+              {{ doorbell() }}
             {% endif %}
 
             {{ CustomMessage }}
@@ -595,8 +666,8 @@ script:
           - condition: or
             conditions:
               - condition: time
-                after: '07:00:00'
-                before: '23:00:00'
+                after: '08:00:00'
+                before: '21:00:00'
               - condition: state
                 entity_id: input_boolean.notification_alert_mode
                 state: 'on'

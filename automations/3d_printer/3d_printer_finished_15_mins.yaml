@@ -15,7 +15,8 @@
       entity_id:
         - switch.3d_printer_16
         - switch.printer_light_17
-    - service: notify.ios_joes_iphone
+    - service: script.speech_engine
       data:
-        title: 3D Printer Report
-        message: The 3D printer has cooled down and nothing is printing. Let me turn that off for you!
+        title: "3D Printer Report"
+        CustomMessage: "The 3D printer has cooled down and nothing is printing. Let me turn that off for you!"
+        notify: "Joe"

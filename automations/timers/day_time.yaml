@@ -5,10 +5,10 @@
     at: '07:00:00'
   action:
   - service: light.turn_off
-    entity_id: light.front_porch_light
-  - service: switch.turn_off
-    entity_id: switch.christmas_tree_lights
-    
+    entity_id:
+      - light.front_porch_light
+      - light.christmas_tree_lights
+
 - id: daytime_lights
   alias: Daytime Lights
   trigger:
@@ -17,12 +17,14 @@
   action:
   - service: script.turn_on
     entity_id: script.s_lights_normal_mode
-    
-- id: lock_out_mode_off
-  alias: Lock Out Mode Off
+
+- id: timer_sunrise
+  alias: Timer Sunrise
   trigger:
-    platform: time
-    at: '06:00:00'
+    platform: sun
+    event: sunrise
   action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.lock_out
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.motion_lights

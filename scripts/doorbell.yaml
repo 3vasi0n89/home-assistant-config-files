@@ -1,17 +1,10 @@
 s_doorbell:
   sequence:
-    - service: media_player.volume_set
+    - service: script.speech_engine
       data:
-        entity_id: media_player.whole_house
-        volume_level: '1'
-    - service: media_player.alexa_tts
-      data_template:
-        entity_id: media_player.livingroom_dot, media_player.kitchen_dot, media_player.bathroom_dot, media_player.bedroom_dot, media_player.attic_dot
-        message: "Someone is at the front door"
-    - service: notify.ios_family
-      data:
-        title: Doorbell
-        message: Someone is at the front door!
+        title: "Doorbell"
+        call_doorbell: 1
+        notify: "Family"
     - service: light.lifx_effect_pulse
       data_template:
         entity_id:
@@ -20,6 +13,7 @@ s_doorbell:
         - light.upstairs_hall_light
         - light.bathroom_light
         - light.left_attic_light
+        - light.right_attic_light
         brightness: 255
         color_name: green
         cycles: 3

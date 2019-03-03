@@ -5,42 +5,16 @@ alarm_disarmed:
     state: 'on'
   - service: light.lifx_set_state
     data_template:
-      entity_id: light.living_room_lamp
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.right_attic_light
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.left_attic_light
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.downstairs_hall_light
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.left_end_table_lamp
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.right_end_table_lamp
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.bathroom_light
-      brightness: 255
-      color_name: white
-  - service: light.lifx_set_state
-    data_template:
-      entity_id: light.upstairs_hall_light
+      entity_id:
+        - light.living_room_lamp
+        - light.downstairs_hall_light
+        - light.upstairs_hall_light
+        - light.bathroom_light
+        - light.left_end_table_lamp
+        - light.right_end_table_lamp
+        - light.left_attic_light
+        - light.right_attic_light
+        - light.front_porch_light
       brightness: 255
       color_name: white
   - service: light.turn_on

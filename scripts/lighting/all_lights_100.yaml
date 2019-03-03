@@ -6,3 +6,8 @@ all_lights_100:
         color_name: white
         brightness: '255'
         transition: '5'
+    - service: script.speech_engine
+      data:
+        title: "House Mode"
+        CustomMessage: "Setting the lights to full brightness!"
+        notify: "Family"

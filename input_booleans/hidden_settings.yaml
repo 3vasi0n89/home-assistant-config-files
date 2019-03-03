@@ -13,7 +13,8 @@ sleep_mode:
 shutdown_mode:
   name: Shutdown Mode
   icon: mdi:power
-
+  initial: off
+  
 school_mode:
   name: School Mode
   icon: mdi:school
@@ -35,3 +36,7 @@ test_mode:
   name: Test
   initial: off
   icon: mdi:power
+
+just_arrived:
+  name: Just Arrived
+  initial: off

@@ -6,3 +6,8 @@ all_lights_75:
         color_name: white
         brightness: '191'
         transition: '5'
+    - service: script.speech_engine
+      data:
+        title: "House Mode"
+        CustomMessage: "Dimming the lights to 75%!"
+        notify: "Family"

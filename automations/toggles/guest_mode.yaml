@@ -1,0 +1,25 @@
+- id: guest_mode_on
+  alias: Guest Mode On
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_mode
+    to: 'on'
+  action:
+    - service: script.speech_engine
+      data:
+        title: "House Mode"
+        call_guest_mode_on: 1
+        notify: "Family"
+
+- id: guest_mode_off
+  alias: Guest Mode Off
+  trigger:
+    platform: state
+    entity_id: input_boolean.guest_mode
+    to: 'off'
+  action:
+    - service: script.speech_engine
+      data:
+        title: "House Mode"
+        call_guest_mode_off: 1
+        notify: "Family"
