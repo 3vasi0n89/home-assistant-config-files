@@ -90,7 +90,6 @@
   - service: script.speech_engine
     data:
       call_window_check: 1
-      call_door_check: 1
       call_night_time: 1
       ios_sound: "US-EN-Morgan-Freeman-Turning-On-The-Lights.wav"
       title: "Night Mode"
