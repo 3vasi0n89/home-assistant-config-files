@@ -193,25 +193,16 @@ script:
         code: '2648'
     - service: script.turn_on
       entity_id: script.s_lights_normal_mode
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.bedroom_cast
-        volume_level: '1'
-    - delay: "00:00:01"
-    - service: tts.amazon_polly_say
-      data_template:
-        entity_id: media_player.bedroom_cast
-        message: <>'Good Morning. It's {{ states("sensor.time_templated_am_pm")}}. The temperature outside is {{ states("sensor.dark_sky_apparent_temperature")}} degrees and {{ states("sensor.dark_sky_summary")}} with wind up to {{ states("sensor.dark_sky_wind_speed")}} miles per hour.'<>
-        cache: true
-    - service: notify.ios_joes_iphone
+    - service: script.speech_engine
       data:
         title: "Alarm Clock"
-        message: "It's Time For You To Wake Up!"
-        data:
-          push:
-            sound: "US-EN-Alexa-Good-Morning.wav"
-            badge: 0
-            category: 'alarmclock'
+        call_alarm_clock: 1
+        call_inspirational_quote: 1
+        person: "Joe"
+        notify: "Joe"
+        ios_sound: "US-EN-Alexa-Good-Morning.wav"
+        ios_category: "alarmclock"
+
   ###### script for running if downstairs and the alarm clock gets triggered ########
   s_alarm_clock_downstairs:
     sequence:
