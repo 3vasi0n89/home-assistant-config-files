@@ -10,7 +10,8 @@
       data:
         notify: "Joe"
         title: "Repeating The Last Message"
-        CustomMessage: "{{states ('sensor.last_message') }}"
+      data_template:
+        CustomMessage: "{{ states('sensor.last_message') }}"
 
     - service: input_boolean.turn_off
       entity_id:
