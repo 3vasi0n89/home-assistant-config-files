@@ -1,0 +1,59 @@
+- id: baby_mode_on
+  alias: Baby Mode On
+  trigger:
+    platform: state
+    entity_id: input_boolean.baby_mode
+    to: 'on'
+    from: 'off'
+  action:
+    - service: script.all_lights_25
+    - service: media_player.media_pause
+      data:
+        entity_id: media_player.living_room_fire_tv
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.livingroom_dot
+        media_content_id: "rain noises"
+        media_content_type: "AMAZON_MUSIC"
+    - delay: '00:15:00'
+    - service: media_player.media_stop
+      data:
+        entity_id: media_player.livingroom_dot
+    - delay: '00:00:30'
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.master_bedroom_dot
+        media_content_id: "rain noises"
+        media_content_type: "AMAZON_MUSIC"
+    - delay: '00:30:00'
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.baby_mode
+
+
+- id: baby_mode_off
+  alias: Baby Mode Off
+  trigger:
+    platform: state
+    entity_id: input_boolean.baby_mode
+    to: 'off'
+    from: 'on'
+  action:
+    - service: light.lifx_set_state
+      data:
+        entity_id:
+          - light.living_room_lamp
+          - light.downstairs_hall_light
+          - light.bathroom_light
+          - light.left_attic_light
+          - light.right_attic_light
+        color_name: white
+        brightness: '255'
+        transition: '5'
+        power: true
+    - service: light.turn_off
+      entity_id:
+        - light.left_end_table_lamp
+        - light.right_end_table_lamp
+    - service: media_player.media_play
+      data:
+        entity_id: media_player.living_room_fire_tv

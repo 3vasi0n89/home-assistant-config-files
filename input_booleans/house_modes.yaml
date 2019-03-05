@@ -17,3 +17,7 @@ follow_lights:
 motion_lights:
   name: Motion Lights
   icon: mdi:walk
+
+baby_mode:
+  name: Baby Mode
+  icon: mdi:baby-buggy
