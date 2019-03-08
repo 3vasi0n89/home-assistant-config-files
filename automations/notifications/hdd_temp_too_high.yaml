@@ -14,11 +14,13 @@
     - sensor.hd_temperature_dev_sdk
 
   action:
-      service: notify.ios_family
-      data_template:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.notification_alert_mode
+    - service: script.speech_engine
+      data:
+        notify: "Family"
         title: "ATTENTION"
-        message: >
-          "The {{ trigger.to_state.attributes.friendly_name }} has reached {{ trigger.to_state.state }} degrees! Please open the closet door immediately"
-        data:
-          push:
-            badge: '911'
+        ios_badge: "911"
+      data_template:
+        CustomMessage: "The {{ trigger.to_state.attributes.friendly_name }} has reached {{ trigger.to_state.state }} degrees! Please open the closet door immediately"

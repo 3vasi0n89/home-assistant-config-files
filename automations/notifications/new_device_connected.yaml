@@ -7,7 +7,7 @@
   action:
     - service: input_boolean.turn_on
       data:
-        entity_id: input_boolean.janet_alert_mode
+        entity_id: input_boolean.notification_alert_mode
 
     - service: script.speech_engine
       data:

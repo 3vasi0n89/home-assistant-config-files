@@ -90,13 +90,15 @@
   - service: script.speech_engine
     data:
       call_window_check: 1
-      call_night_time: 1
+      call_door_check: 1
+      call_dark_inside: 1
       ios_sound: "US-EN-Morgan-Freeman-Turning-On-The-Lights.wav"
       title: "Night Mode"
+    data_template:
       notify: >-
         {% if is_state("device_tracker.joes_iphone", "home") and
               is_state("device_tracker.savannahs_iphone", "home") %}
-        "Parents"
+        "Family"
         {% elif is_state("device_tracker.joes_iphone", "home") %}
         "Joe"
         {% else %}
@@ -108,8 +110,25 @@
   trigger:
     platform: sun
     event: sunset
+    offset: '+00:10:00'
   action:
     - service: light.turn_on
       entity_id: light.front_porch_light
     - service: switch.turn_on
       entity_id: switch.christmas_tree_lights
+    - service: script.speech_engine
+      data:
+        call_window_check: 1
+        call_dark_outside: 1
+        ios_sound: "US-EN-Morgan-Freeman-Turning-On-The-Lights.wav"
+        title: "Night Mode"
+      data_template:
+        notify: >-
+          {% if is_state("device_tracker.joes_iphone", "home") and
+                is_state("device_tracker.savannahs_iphone", "home") %}
+          "Family"
+          {% elif is_state("device_tracker.joes_iphone", "home") %}
+          "Joe"
+          {% else %}
+          "Savannah"
+          {% endif %}

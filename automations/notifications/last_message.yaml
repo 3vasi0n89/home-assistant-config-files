@@ -6,6 +6,9 @@
       to: 'on'
 
   action:
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.notification_alert_mode
     - service: script.speech_engine
       data:
         notify: "Joe"

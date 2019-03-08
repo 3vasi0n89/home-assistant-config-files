@@ -8,7 +8,7 @@
   action:
   - service: script.speech_engine
     data:
-      call_door_check: 1
+      call_lock_check: 1
       notify: "ios_joes_iphone"
     data_template:
       person:  >-

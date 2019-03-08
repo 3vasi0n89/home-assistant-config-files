@@ -190,9 +190,12 @@ script:
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.security_system
       data:
-        code: '2648'
+        code: !secret alarm_code
     - service: script.turn_on
       entity_id: script.s_lights_normal_mode
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.notification_alert_mode
     - service: script.speech_engine
       data:
         title: "Alarm Clock"
@@ -220,22 +223,16 @@ script:
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.security_system
       data:
-        code: '2648'
-    - service: media_player.volume_set
+        code: !secret alarm_code
+    - service: input_boolean.turn_on
       data:
-        entity_id: media_player.livingroom_chromecast
-        volume_level: '0.80'
-    - service: tts.amazon_polly_say
-      data_template:
-        entity_id: media_player.livingroom_chromecast
-        message: <>'Good Morning. It's {{ states("sensor.time")}} o'clock. The temperature outside is {{ states("sensor.dark_sky_apparent_temperature")}} degrees and {{ states("sensor.dark_sky_summary")}} with wind up to {{ states("sensor.dark_sky_wind_speed")}} miles per hour.'<>
-        cache: true
-    - service: notify.ios_joes_iphone
+        entity_id: input_boolean.notification_alert_mode
+    - service: script.speech_engine
       data:
         title: "Alarm Clock"
-        message: "It's Time For You To Wake Up!"
-        data:
-          push:
-            sound: "US-EN-Alexa-Good-Morning.wav"
-            badge: 0
-            category: 'alarmclock'
+        call_alarm_clock: 1
+        call_inspirational_quote: 1
+        person: "Joe"
+        notify: "Joe"
+        ios_sound: "US-EN-Alexa-Good-Morning.wav"
+        ios_category: "alarmclock"

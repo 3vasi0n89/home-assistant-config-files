@@ -15,11 +15,9 @@
       entity_id: device_tracker.joes_iphone
       state: 'home'
   action:
-      service: notify.ios_joes_iphone
+    - service: script.speech_engine
       data:
-        title: "It's Late!"
-        message: "You Should Really Go To Bed!"
-        data:
-          push:
-            badge: 0
-            category: 'allpoweroff'
+        notify: "Joe"
+        title: "ATTENTION"
+        call_bed_time: 1
+        ios_category: "allpoweroff"
