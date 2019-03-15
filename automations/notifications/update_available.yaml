@@ -9,3 +9,4 @@
         notify: "Joe"
         call_no_announcement: 1
         call_update: 1
+        alexa_type: "tts"

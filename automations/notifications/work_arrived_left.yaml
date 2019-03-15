@@ -10,6 +10,7 @@
         notify: "Family"
         CustomMessage: "Savannah safely arrived to work!"
         title: "Attention"
+        alexa_type: "tts"
 
 - id: notification_savannah_left_work
   alias: Notification Savannah Left Work
@@ -24,6 +25,7 @@
         notify: "Joe"
         CustomMessage: "Savannah left work!"
         title: "Attention"
+        alexa_type: "tts"
 
 - id: notification_joe_arrived_work
   alias: Notification Joe Arrived Work
@@ -37,3 +39,4 @@
         notify: "Family"
         CustomMessage: "Joe safely arrived to work!"
         title: "Attention"
+        alexa_type: "tts"

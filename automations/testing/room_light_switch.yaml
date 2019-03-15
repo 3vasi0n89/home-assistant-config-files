@@ -1,0 +1,10 @@
+- id: room_light_switch
+  alias: Room Light Switch
+  trigger:
+  - entity_id: binary_sensor.master_bedroom_light_switch
+    platform: state
+    to: "on"
+    from: "off"
+  action:
+  - service: light.toggle
+    entity_id: light.living_room_lamp

@@ -13,3 +13,4 @@
         content_type: "jpeg"
         ios_category: "camera"
         camera_entity: "camera.octoprint_cam"
+        alexa_type: "tts"

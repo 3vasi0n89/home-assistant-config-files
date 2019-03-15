@@ -55,13 +55,13 @@ input_number:
     icon: mdi:volume-high
     min: 0.0
     max: 1.0
-    step: 0.01
+    step: 0.1
   notification_alexa_volume:
     name: Alexa Volume
     icon: mdi:volume-high
     min: 0.0
     max: 1.0
-    step: 0.01
+    step: 0.1
 
 input_select:
   notification_media_player_google:
@@ -788,6 +788,10 @@ script:
             {{ camera_entity }}
           notify: >-
             {{ notify }}
+          alexa_type: >
+            {{ alexa_type }}
+          alexa_method: >
+            {{ alexa_method }}
 
       - service: input_boolean.turn_off
         data:
@@ -804,6 +808,10 @@ script:
             {{ media_player_alexa }}
           speech_message: >-
             {{ speech_message }}
+          alexa_type: >
+            {{ alexa_type }}
+          alexa_method: >
+            {{ alexa_method }}
       - service: script.text_processing
         data_template:
           notify: >-
@@ -866,23 +874,35 @@ script:
             {{ media_player_google }}
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") | replace("  "," ") }}
-      - service: media_player.alexa_tts
-        data_template:
-          entity_id: >
-            {{ media_player_alexa }}
-          message: "..."
+      # - service: notify.alexa_media
+      #   data_template:
+      #     target: >
+      #       {{ media_player_alexa }}
+      #     message: "..."
+      #     data:
+      #       type: >
+      #         {{ alexa_type }}
+      #       method: >
+      #         {{ alexa_method }}
       - service: media_player.volume_set
         data_template:
           entity_id: >
             {{ media_player_alexa }}
           volume_level: >-
             {{ states.input_number.notification_alexa_volume.state }}
-      - service: media_player.alexa_tts
+      - service: notify.alexa_media
         data_template:
-          entity_id: >
+          target: >
             {{ media_player_alexa }}
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") | replace("  "," ") }}
+          title: >-
+            {{ title }}
+          data:
+            type: >
+              {{ alexa_type }}
+            method: >
+              {{ alexa_method }}
       - service: input_boolean.turn_off
         data:
           entity_id:

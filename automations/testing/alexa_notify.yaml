@@ -1,0 +1,15 @@
+- id: notify_alexa
+  alias: Notify Alexa
+  trigger:
+  - entity_id: input_boolean.follow_lights
+    platform: state
+    to: "off"
+    from: "on"
+  action:
+  - service: notify.alexa_media
+    data_template:
+      target: Attic Dot
+      message: "..."
+      data:
+        type: "tts"
+        method: ""

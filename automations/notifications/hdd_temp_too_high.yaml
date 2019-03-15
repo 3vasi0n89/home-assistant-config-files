@@ -22,5 +22,6 @@
         notify: "Family"
         title: "ATTENTION"
         ios_badge: "911"
+        alexa_type: "tts"
       data_template:
         CustomMessage: "The {{ trigger.to_state.attributes.friendly_name }} has reached {{ trigger.to_state.state }} degrees! Please open the closet door immediately"

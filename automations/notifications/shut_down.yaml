@@ -12,3 +12,4 @@
         call_closing: 1
         call_shut_down: 1
         title: "Shutdown"
+        alexa_type: "tts"

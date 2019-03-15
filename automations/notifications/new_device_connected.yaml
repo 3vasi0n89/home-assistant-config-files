@@ -13,6 +13,7 @@
       data:
         call_no_announcement: 1
         call_new_device: 1
+        alexa_type: "tts"
       data_template:
         person: >-
           {{ trigger.event.data.name }}

@@ -31,7 +31,7 @@
   alias: Timer Midnight
   trigger:
     platform: time
-    at: '12:00:00'
+    at: '00:00:00'
   action:
   - service: input_boolean.turn_on
     entity_id: input_boolean.lock_out

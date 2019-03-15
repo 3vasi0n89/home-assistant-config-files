@@ -14,7 +14,6 @@
     data:
       title: "Door Check"
       call_lock_check: 1
-      call_door_check: 1
       call_window_check: 1
     data_template:
       person:  >-

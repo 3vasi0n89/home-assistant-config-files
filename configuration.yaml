@@ -135,8 +135,11 @@ notify:
   - platform: nfandroidtv
     name: Fire TV
     host: 192.168.1.17
-    interrupt: 1
+    transparency: 75%
+    interrupt: 0
     fontsize: large
+  - platform: alexa_media
+    name: alexa_media
 
 #  - name: janet
 #    platform: telegram
@@ -222,7 +225,7 @@ media_player:
   - platform: firetv
     name: Living Room Fire TV
     host: 192.168.1.17
-    adbkey: "/config/android/adbkey"
+    adbkey: !secret adbkey
   - platform: floorplan_speaker
     name: Living Room Floorplan Speaker
   - platform: floorplan_speaker
@@ -394,6 +397,13 @@ shopping_list:
 
 wake_on_lan:
 
+custom_updater:
+  track:
+    - cards
+    - components
+    - python_scripts
+  component_urls:
+    - https://raw.githubusercontent.com/keatontaylor/custom_components/master/custom_components.json
 ####################################
 #                                  #
 ############ENABLES#################

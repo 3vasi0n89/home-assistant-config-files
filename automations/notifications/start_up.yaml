@@ -10,3 +10,4 @@
         notify: "Joe"
         call_start_up: 1
         title: "Start Up"
+        alexa_type: "tts"

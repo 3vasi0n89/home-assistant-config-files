@@ -13,6 +13,7 @@
       data:
         notify: "Joe"
         title: "Repeating The Last Message"
+        alexa_type: "tts"
       data_template:
         CustomMessage: "{{ states('sensor.last_message') }}"
 

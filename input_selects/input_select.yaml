@@ -59,6 +59,7 @@ hass_theme:
     name: HASS Themes
     options:
     - default
+    - my_theme
     - solarized
     - darkcyan
     - darkred

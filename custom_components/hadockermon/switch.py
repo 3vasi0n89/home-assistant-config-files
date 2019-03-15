@@ -17,12 +17,13 @@ from homeassistant.const import (CONF_HOST, CONF_PORT, CONF_NAME,
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-__version__ = '3.0.1'
+__version__ = '3.1.0'
 
 _LOGGER = logging.getLogger(__name__)
 
 REQUIREMENTS = ['pydockermon==1.0.0']
-DEFAULT_NAME = 'HA Dockermon {0}'
+DEFAULT_NAME = 'HA Dockermon'
+CONTAINTER_NAME = '{} {}'
 
 CONF_CONTAINERS = 'containers'
 
@@ -50,7 +51,7 @@ async def async_setup_platform(hass, config, async_add_entities,
 
     host = config[CONF_HOST]
     port = config[CONF_PORT]
-    username = config.get(CONF_PASSWORD)
+    username = config.get(CONF_USERNAME)
     password = config.get(CONF_PASSWORD)
     ssl = config[CONF_SSL]
     verify_ssl = config[CONF_VERIFY_SSL]
@@ -83,10 +84,13 @@ class HADockermonSwitch(SwitchDevice):
     def __init__(self, api, device_name, container, host):
         """Initialize a HA Dockermon switch."""
         self.api = api
-        self.device_name = device_name
         self.container = container
-        if not self.device_name:
-            self.device_name = DEFAULT_NAME.format(self.container)
+        
+        if device_name:
+            self.device_name = CONTAINTER_NAME.format(device_name, container)
+        else:
+            self.device_name = CONTAINTER_NAME.format(DEFAULT_NAME, container)
+        
         self._state = None
         self._host = host
         self._status = None
