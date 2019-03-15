@@ -14,7 +14,7 @@
 
 <div align="center"><a name="menu"></a>
   <h4>
-    <a href="http://www.vCloudInfo.com/tag/iot">
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#background">
       Background
     </a>
     <span> | </span>
@@ -22,33 +22,34 @@
       Hardware
     </a>
     <span> | </span>
-    <a href="https://github.com/CCOSTAN/Home-AssistantConfig/issues">
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#software">
       Software
     </a>
     <span> | </span>
-    <a href="https://twitter.com/BearStoneHA">
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#automations">
       Automations
     </a>
     <span> | </span>
-    <a href="https://www.facebook.com/BearStoneHA">
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#future_projects">
       Future Projects
     </a>
     <span> | </span>
-    <a href="https://github.com/CCOSTAN/Home-AssistantConfig/tree/master/config">
+    <a href="https://github.com/3vasi0n89/Home-Assistant-Notification-Center-Hub">
       My Notification Center
     </a>
     <span> | </span>
-    <a href="https://github.com/CCOSTAN/Home-AssistantConfig#diagram">
+    <a href="https://symbiotesmarthouse.com/>
       Website
     </a>
     <span> | </span>
-    <a href="https://www.vcloudinfo.com/p/shop-our-merch.html">
+    <a href="https://symbiotesmarthouse.com/shop">
       Shop
     </a>
   </h4>
 </div>
 
-# Background
+<a name="background"></a>Background
+======
 
 My Home Assistant Configuration Files for my Symbtiote Smart House Project.
 I'll do my best to keep these files updated regularly!
@@ -125,7 +126,7 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 
 [Magic Home Wifi LED Controller](https://www.amazon.com/SUPERNIGHT-Wireless-Controller-Working-Compatible/dp/B01JS0KEBW/ref=sr_1_8?s=hi&ie=UTF8&qid=1546329480&sr=1-8&keywords=magic+home+wifi+led+controller)
 
-Software
+<a name="software"></a>Software
 ======
 
 **Unraid Dockers**
@@ -144,5 +145,8 @@ Software
 * [Sonarr](https://hub.docker.com/r/binhex/arch-sonarr/dockerfile)
 * [Radarr](https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)
 
-Future Projects
+<a name="automations"></a>Automations
+======
+
+<a name="future_projects"></a>Future Projects
 ======
