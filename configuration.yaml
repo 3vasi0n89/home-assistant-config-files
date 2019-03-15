@@ -12,7 +12,7 @@ homeassistant:
 
   packages: !include_dir_named packages
   whitelist_external_dirs:
-    - secret config
+    - !secret config
 
 http:
 #  api_password: !secret api_password
