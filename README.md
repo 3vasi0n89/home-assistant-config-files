@@ -18,7 +18,7 @@
       Background
     </a>
     <span> | </span>
-    <a href="https://github.com/3vasi0n89/home-assistant-config-files#devices">
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#hardware">
       Hardware
     </a>
     <span> | </span>
