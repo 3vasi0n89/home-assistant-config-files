@@ -1,3 +1,10 @@
+<div align="center">
+  <h4>
+    <a href="https://travis-ci.org/3vasi0n89/home-assistant-config-files"><img src="https://travis-ci.org/3vasi0n89/home-assistant-config-files.svg?branch=master"/></a>
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files/stargazers"><img src="https://img.shields.io/github/stars/3vasi0n89/home-assistant-config-files.svg?style=plasticr"/></a>
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files/commits/master"><img src="https://img.shields.io/github/last-commit/3vasi0n89/home-assistant-config-files.svg?style=plasticr"/></a>
+  </h4>
+</div>
 My Home Assistant Configuration Files for my Symbtiote Smart House Project.
 I'll do my best to keep these files updated regularly!
 
