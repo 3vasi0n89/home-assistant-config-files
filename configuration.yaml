@@ -336,7 +336,7 @@ panel_custom:
     sidebar_title: Floorplan
     sidebar_icon: mdi:home
     url_path: floorplan
-    config: !include /config/www/custom_ui/floorplan/floorplan.yaml
+    config: !include /local/custom_ui/floorplan/floorplan.yaml
 
 mqtt:
   broker: !secret mqtt_broker
