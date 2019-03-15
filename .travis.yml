@@ -11,3 +11,4 @@ before_install:
   - touch ./home-assistant_v2.db
   - touch ./android/adbkey
   - touch ./android/adbkey.pub
+  - touch ./www/custom_ui/floorplan/floorplan.yaml
