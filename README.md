@@ -1,5 +1,9 @@
-# Symbiote Smart House Configuration
-
+<h1 align="center">
+  <!-- <a name="logo" href="http://www.vCloudInfo.com/tag/iot"><img src="https://raw.githubusercontent.com/CCOSTAN/Home-AssistantConfig/master/config/www/custom_ui/floorplan/images/branding/twitter_profile.png" alt="Bear Stone Smart Home" width="200"></a> -->
+  <br>
+  Symbtiote Smart House Configuration
+</h1>
+<h4 align="center">Be sure to :star: my repo so you can keep up to date on all of the progress!.</h4>
 <div align="center">
   <h4>
     <a href="https://travis-ci.org/3vasi0n89/home-assistant-config-files"><img src="https://travis-ci.org/3vasi0n89/home-assistant-config-files.svg?branch=master"/></a>
@@ -7,8 +11,6 @@
     <a href="https://github.com/3vasi0n89/home-assistant-config-files/commits/master"><img src="https://img.shields.io/github/last-commit/3vasi0n89/home-assistant-config-files.svg?style=plasticr"/></a>
   </h4>
 </div>
-
-Be sure to ⭐️ my repo so you can keep up to date on all of the progress!
 
 # Background
 
