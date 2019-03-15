@@ -1,4 +1,4 @@
-# Symbtiote Smart House Configuration
+# Symbiote Smart House Configuration
 
 <div align="center">
   <h4>
@@ -8,7 +8,7 @@
   </h4>
 </div>
 
-Be sure to ⭐️ my repo so you can keep up to date on the daily progress!.
+Be sure to ⭐️ my repo so you can keep up to date on all of the progress!
 
 # Background
 
