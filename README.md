@@ -30,6 +30,10 @@
       Automations
     </a>
     <span> | </span>
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#screenshots">
+      Screenshots
+    </a>
+    <span> | </span>
     <a href="https://github.com/3vasi0n89/home-assistant-config-files#future_projects">
       Future Projects
     </a>
@@ -38,7 +42,7 @@
       My Notification Center
     </a>
     <span> | </span>
-    <a href="https://symbiotesmarthouse.com/>
+    <a href="https://symbiotesmarthouse.com/">
       Website
     </a>
     <span> | </span>
@@ -146,6 +150,9 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 * [Radarr](https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)
 
 <a name="automations"></a>Automations
+======
+
+<a name="screenshots"></a>Screenshots
 ======
 
 <a name="future_projects"></a>Future Projects
