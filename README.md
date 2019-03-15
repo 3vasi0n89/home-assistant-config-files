@@ -1,3 +1,5 @@
+# Symbtiote Smart House Configuration
+
 <div align="center">
   <h4>
     <a href="https://travis-ci.org/3vasi0n89/home-assistant-config-files"><img src="https://travis-ci.org/3vasi0n89/home-assistant-config-files.svg?branch=master"/></a>
@@ -5,12 +7,13 @@
     <a href="https://github.com/3vasi0n89/home-assistant-config-files/commits/master"><img src="https://img.shields.io/github/last-commit/3vasi0n89/home-assistant-config-files.svg?style=plasticr"/></a>
   </h4>
 </div>
-My Home Assistant Configuration Files for my Symbtiote Smart House Project.
-I'll do my best to keep these files updated regularly!
 
 Be sure to ⭐️ my repo so you can keep up to date on the daily progress!.
 
 # Background
+
+My Home Assistant Configuration Files for my Symbtiote Smart House Project.
+I'll do my best to keep these files updated regularly!
 
 A little bit of background about the hardware and software that I utilize for my house.
 
