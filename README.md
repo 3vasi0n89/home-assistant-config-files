@@ -12,6 +12,42 @@
   </h4>
 </div>
 
+<div align="center"><a name="menu"></a>
+  <h4>
+    <a href="http://www.vCloudInfo.com/tag/iot">
+      Background
+    </a>
+    <span> | </span>
+    <a href="https://github.com/3vasi0n89/home-assistant-config-files#devices">
+      Hardware
+    </a>
+    <span> | </span>
+    <a href="https://github.com/CCOSTAN/Home-AssistantConfig/issues">
+      Software
+    </a>
+    <span> | </span>
+    <a href="https://twitter.com/BearStoneHA">
+      Automations
+    </a>
+    <span> | </span>
+    <a href="https://www.facebook.com/BearStoneHA">
+      Future Projects
+    </a>
+    <span> | </span>
+    <a href="https://github.com/CCOSTAN/Home-AssistantConfig/tree/master/config">
+      My Notification Center
+    </a>
+    <span> | </span>
+    <a href="https://github.com/CCOSTAN/Home-AssistantConfig#diagram">
+      Website
+    </a>
+    <span> | </span>
+    <a href="https://www.vcloudinfo.com/p/shop-our-merch.html">
+      Shop
+    </a>
+  </h4>
+</div>
+
 # Background
 
 My Home Assistant Configuration Files for my Symbtiote Smart House Project.
@@ -25,7 +61,7 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 
 
 
-Hardware
+<a name="hardware"></a>Hardware
 ======
 
 [PfSense Router](https://www.pfsense.org/)
