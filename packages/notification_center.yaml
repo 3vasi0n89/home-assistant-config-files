@@ -798,6 +798,10 @@ script:
           entity_id:
             - input_boolean.notification_alert_mode
 
+######################################################################################################
+##  notification_hub is the bridge between the speech_engine and the processing units.              ##
+######################################################################################################
+
   notification_hub:
     sequence:
       - service: script.speech_processing
@@ -831,20 +835,24 @@ script:
           camera_entity: >-
             {{ camera_entity }}
 
+######################################################################################################
+##                  Within speech_processing the TTS-service is called.                             ##
+######################################################################################################
+
   speech_processing:
     sequence:
       - service: mqtt.publish
         data_template:
           topic: 'tts/last_message'
-          payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }} {{ speech_message | truncate(220) }}"
+          payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }} {{ speech_message | truncate(220)}}"
           retain: true
       - condition: and
         conditions:
           - condition: or
             conditions:
               - condition: time
-                after: '08:00:00'
-                before: '21:00:00'
+                after: '07:00:00'
+                before: '23:00:00'
               - condition: state
                 entity_id: input_boolean.notification_alert_mode
                 state: 'on'
@@ -874,16 +882,6 @@ script:
             {{ media_player_google }}
           message: >-
             {{ speech_message | replace("\n","") | replace("   ","") | replace("  "," ") }}
-      # - service: notify.alexa_media
-      #   data_template:
-      #     target: >
-      #       {{ media_player_alexa }}
-      #     message: "..."
-      #     data:
-      #       type: >
-      #         {{ alexa_type }}
-      #       method: >
-      #         {{ alexa_method }}
       - service: media_player.volume_set
         data_template:
           entity_id: >
@@ -908,7 +906,6 @@ script:
           entity_id:
             - input_boolean.last_message
             - input_boolean.notification_alert_mode
-
   text_processing:
     sequence:
       - condition: state

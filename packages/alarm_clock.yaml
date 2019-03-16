@@ -193,6 +193,10 @@ script:
         code: !secret alarm_code
     - service: script.turn_on
       entity_id: script.s_lights_normal_mode
+    -  service: input_select.select_option
+       entity_id: input_select.notification_media_player_alexa
+       data:
+         option: Master Bedroom Dot
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.notification_alert_mode
@@ -205,6 +209,7 @@ script:
         notify: "Joe"
         ios_sound: "US-EN-Alexa-Good-Morning.wav"
         ios_category: "alarmclock"
+        alexa_type: "tts"
 
   ###### script for running if downstairs and the alarm clock gets triggered ########
   s_alarm_clock_downstairs:
@@ -224,6 +229,10 @@ script:
       entity_id: alarm_control_panel.security_system
       data:
         code: !secret alarm_code
+    -  service: input_select.select_option
+       entity_id: input_select.notification_media_player_alexa
+       data:
+         option: Livingroom Dot
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.notification_alert_mode
@@ -236,3 +245,4 @@ script:
         notify: "Joe"
         ios_sound: "US-EN-Alexa-Good-Morning.wav"
         ios_category: "alarmclock"
+        alexa_type: "tts"
