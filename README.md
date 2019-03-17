@@ -136,12 +136,12 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 
 **Unraid Dockers**
 * [Home Assistant](https://www.home-assistant.io/)
-* [Node Red]~~(https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)~~
-* [ESPHome]~~(https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)~~
-* [HASS Configurator]~~(https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)~~
+* [Node Red](https://nodered.org/)
+* [ESPHome](https://esphome.io/)
+* [HASS Configurator](https://www.home-assistant.io/addons/configurator/)
 * [Emby Server](https://emby.media/)
 * [Nextcloud](https://nextcloud.com/)
-* [My Media for Alexa]~~(https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)~~
+* [My Media for Alexa](https://www.mymediaalexa.com/)
 * [Pihole](https://pi-hole.net/)
 * [Dasher](https://hub.docker.com/r/clemenstyp/dasher-docker/)
 * [HA-Dockermon](https://github.com/philhawthorne/ha-dockermon)
@@ -163,9 +163,12 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 <a name="future_projects"></a>Future Projects
 ======
 
-- [ ] [HASSP]~~(https://hub.docker.com/r/binhex/arch-radarr/dockerfile/)~~
+- [ ] [HA Switchplate](https://community.home-assistant.io/t/ha-switchplate-diy-lcd-touchscreen-wall-switch-replacement/25464)
 - [ ] Set up some new Lovelace themes
 - [ ] Finish floorplan for Fire Tablets
+- [ ] Set up a documented testing playground
+- [ ] Motorized curtains / blinds
+- [ ] Switch Vera Hub over to the SmartThings Hub
 
 <a name="inspiration"></a>Inspiration
 ======
