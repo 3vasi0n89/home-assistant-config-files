@@ -1,3 +1,7 @@
 - platform: mqtt
   state_topic: "tts/last_message"
   name: "Last Message"
+
+- platform: mqtt
+  state_topic: "tts/tablet_message"
+  name: "Tablet Message"

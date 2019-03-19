@@ -178,7 +178,7 @@
 
         - name: last message
           entities:
-            - sensor.last_message
+            - sensor.tablet_message
 
         - name: Music
           entities:
