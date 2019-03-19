@@ -4,6 +4,11 @@
   Symbtiote Smart House Configuration
 </h1>
 <h4 align="center">Be sure to :star: my repo so you can keep up to date on all of the progress!</h4>
+
+![Home][home]
+
+[home]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_home.jpg "Home"
+
 <div align="center">
   <h4>
     <a href="https://travis-ci.org/3vasi0n89/home-assistant-config-files"><img src="https://travis-ci.org/3vasi0n89/home-assistant-config-files.svg?branch=master"/></a>
@@ -159,6 +164,49 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 
 <a name="screenshots"></a>Screenshots
 ======
+![Home][home]
+
+[home]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_home.jpg "Home"
+
+![Info][info]
+
+[info]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_info.jpg "Info"
+
+![Security][security]
+
+[security]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_security.jpg "Security"
+
+![Media][media]
+
+[media]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_media.jpg "Media"
+
+![Notifications][notifications]
+
+[notifications]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_notifications.jpg "Notifications"
+
+![Printer][printer]
+
+[printer]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/ha_printer.jpg "Printer"
+
+![1st Floor][1stfloor]
+
+[1stfloor]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/floorplan_1st_floor.jpg "1st Floor"
+
+![2nd Floor][2ndfloor]
+
+[2ndfloor]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/floorplan_2nd_floor.jpg "2nd Floor"
+
+![Remote][remote]
+
+[remote]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/floorplan_remote.jpg "Remote"
+
+![Settings][settings]
+
+[settings]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/floorplan_settings.jpg "Settings"
+
+![Alarm Clock][alarmclock]
+
+[alarmclock]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/floorplan_alarm_clock.jpg "Alarm Clock"
 
 <a name="future_projects"></a>Future Projects
 ======
