@@ -78,6 +78,10 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 * Intel i5 Processor
 * Intel NIC
 
+![PFSense][pfsense]
+
+[pfsense]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/pfsense.jpg "PFSense"
+
 [Unraid Server](https://unraid.net/)
 * Intel i7 Processor
 * 2x Nvidia GTX 660 GFX cards
@@ -85,6 +89,10 @@ and how smoothly everything runs; On top of that the reboot times are between 10
 * 240Gb Intel SSD as Cache Drive
 * 40Gb Memory
 * New upgrade coming soon for this
+
+![Unraid][unraid]
+
+[unraid]: https://github.com/3vasi0n89/home-assistant-config-files/blob/master/www/images/unraid.jpg "Unraid"
 
 [Amazon Echo Dot](https://www.amazon.com/All-new-Echo-Dot-3rd-Gen/dp/B0792KTHKJ)
 
