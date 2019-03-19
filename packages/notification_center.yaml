@@ -846,6 +846,11 @@ script:
           topic: 'tts/last_message'
           payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }} {{ speech_message | truncate(220)}}"
           retain: true
+      - service: mqtt.publish
+        data_template:
+          topic: 'tts/tablet_message'
+          payload: "{{ now().strftime('%-I') }}:{{ now().strftime('%M') }} {{ now().strftime('%p') }} {{ speech_message | truncate(67)}}"
+          retain: true
       - condition: and
         conditions:
           - condition: or
