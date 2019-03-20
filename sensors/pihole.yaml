@@ -1,0 +1,10 @@
+# - platform: pi_hole
+#   monitored_conditions:
+#     - ads_blocked_today
+#     - ads_percentage_today
+#     - dns_queries_today
+#     - domains_being_blocked
+#     - queries_cached
+#     - queries_forwarded
+#     - unique_clients
+#     - unique_domains

@@ -1,0 +1,12 @@
+- alias: Login Failure
+  hide_entity: True
+  trigger:
+    platform: template
+    value_template: "{{ states('persistent_notification.httplogin') != 'unknown' }}"
+
+  action:
+    - service: script.speech_engine
+      data_template:
+        title: "Login Failure"
+        CustomMessage: "Someone failed to login! "
+        notify: "Family"

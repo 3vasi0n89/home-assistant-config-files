@@ -13,7 +13,11 @@ homeassistant:
   packages: !include_dir_named packages
   whitelist_external_dirs:
     - !secret config
-
+  auth_providers:
+   - type: trusted_networks
+     trusted_networks:
+      - 127.0.0.1
+      - 192.168.1.0/24
 http:
 #  api_password: !secret api_password
 #  ssl_certificate: !secret ssl_cert
@@ -21,12 +25,9 @@ http:
   use_x_forwarded_for: True
   trusted_proxies:
     - 127.0.0.1
-  trusted_networks:
-    - 192.168.1.0/24
   ip_ban_enabled: true
   login_attempts_threshold: 5
   base_url: !secret base_url
-
 config:
 
 api:
@@ -222,7 +223,7 @@ media_player:
   #   email: !secret email2
   #   password: !secret normal_password
   #   url: amazon.com
-  - platform: firetv
+  - platform: androidtv
     name: Living Room Fire TV
     host: 192.168.1.17
     adbkey: !secret adbkey

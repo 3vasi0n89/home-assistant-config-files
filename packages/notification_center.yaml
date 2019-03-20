@@ -320,12 +320,21 @@ script:
             {%- endmacro -%}
 
             {%- macro door_check(person) -%}
-              {% set door_check = [
-                person~" you left the door open! Turn back around and close it! ",
-                person~" you really left the door open and left the house?! ",
-                "Hey "~person~"! You forgot to close the door!! "
-              ] %}
-              {{ door_check | random }}
+              {% if is_state("binary_sensor.front_door_8", "on") %}
+              The Front Door Is Open!
+              {% elif is_state("binary_sensor.back_door_70", "on") %}
+              The Back Door Is Open!
+              {% elif is_state("binary_sensor.side_door_45", "on") %}
+              The Side Door Is Open!
+              {% elif is_state("binary_sensor.living_room_window_1_46", "on") %}
+              The Living Room Window 1 Is Open!
+              {% elif is_state("binary_sensor.living_room_window_2_5", "on") %}
+              The Living Room Window 2 Is Open!
+              {% elif is_state("binary_sensor.living_room_window_3_44", "on") %}
+              The Living Room Window 3 Is Open!
+              {% elif is_state("binary_sensor.living_room_window_4_7", "on") %}
+              The Living Room Window 4 Is Open! 
+              {% endif %}
             {%- endmacro -%}
 
             {%- macro garage_check() -%}
